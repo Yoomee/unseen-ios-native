@@ -9,10 +9,11 @@
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
 
-@interface Event : NSObject
+@interface Event : NSManagedObject{
+}
 
 @property (nonatomic, retain) NSNumber *eventID;
-@property (nonatomic, retain) NSDate *title;
+@property (nonatomic, retain) NSString *title;
 
 
 @end

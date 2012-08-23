@@ -14,7 +14,8 @@
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *events;
-- (void)loadData;
+@property (nonatomic, strong) NSArray *events;
+- (void) loadData;
+- (void)loadObjectsFromDataStore;
 
 @end

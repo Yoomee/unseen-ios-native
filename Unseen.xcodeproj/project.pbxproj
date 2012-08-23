@@ -216,7 +216,6 @@
 				5BE5533F15E622DC000F78BA /* AppDelegate.h */,
 				5BE5534015E622DC000F78BA /* AppDelegate.m */,
 				5BE5534215E622DC000F78BA /* MainStoryboard.storyboard */,
-				5B923F8D15E67310009B81B7 /* Unseen.xcdatamodel */,
 				5BE553D415E64996000F78BA /* Controllers */,
 				5BE553D515E649A2000F78BA /* Models */,
 				5BE5533715E622DC000F78BA /* Supporting Files */,
@@ -304,6 +303,7 @@
 				5B923F9515E67695009B81B7 /* Event.h */,
 				5B923F9615E67695009B81B7 /* Event.m */,
 				5B923F9815E67DBF009B81B7 /* UnseenSeed.sqlite */,
+				5B923F8D15E67310009B81B7 /* Unseen.xcdatamodel */,
 			);
 			name = Models;
 			sourceTree = "<group>";

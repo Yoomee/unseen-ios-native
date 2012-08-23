@@ -35,10 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.events = [NSMutableArray arrayWithObjects:@"Unseen Programme 2012", @"Galleries", @"Photographers", @"Fair & Festival Map", @"Buy Tickets", @"Sponsor & Partners", nil];
-
     [self loadData];
+
+    [self loadObjectsFromDataStore];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -98,7 +97,8 @@
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:@"ProgrammeCell"];
-	cell.textLabel.text = [self.events objectAtIndex:indexPath.row];
+    Event *event = [self.events objectAtIndex:indexPath.row];
+	cell.textLabel.text = event.title;
     cell.textLabel.font = [UIFont fontWithName:@"Apercu-Bold" size:18.0];
     return cell;
 }
@@ -170,6 +170,14 @@
 //	}
 //}
 
+- (void)loadObjectsFromDataStore
+{
+    NSFetchRequest *request = [Event fetchRequest];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"eventID" ascending:NO];
+    [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+    self.events = [Event objectsWithFetchRequest:request];
+}
+
 - (void)loadData
 {
     // Load the object model via RestKit
@@ -184,16 +192,13 @@
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"Loaded statuses: %@", objects);
-    //[self loadObjectsFromDataStore];
-    [tableView reloadData];
+    [self loadObjectsFromDataStore];
+    [self.tableView reloadData];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                     message:[error localizedDescription]
-                                                    delegate:nil
-                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
     NSLog(@"Hit error: %@", error);
 }

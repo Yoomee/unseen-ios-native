@@ -28,11 +28,9 @@
     NSString *seedDatabaseName = @"UnseenSeed.sqlite";
     NSString *databaseName = @"Unseen.sqlite";
     
-    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName usingSeedDatabaseName:seedDatabaseName managedObjectModel:nil delegate:self];
+    //objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName usingSeedDatabaseName:seedDatabaseName managedObjectModel:nil delegate:self];
+    objectManager.objectStore =[RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
     
-    
-    
-    //objectManager.objectStore =[RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
     // Setup our object mappings
     /*!
      Mapping by entity. Here we are configuring a mapping by targetting a Core Data entity with a specific
@@ -44,6 +42,7 @@
     eventMapping.primaryKeyAttribute = @"eventID";
     [eventMapping mapKeyPath:@"id" toAttribute:@"eventID"];
     [eventMapping mapKeyPath:@"title" toAttribute:@"title"];
+    [eventMapping mapKeyPath:@"description" toAttribute:@"text"];
     
     [objectManager.mappingProvider setObjectMapping:eventMapping forResourcePathPattern:@"/events"];
 
