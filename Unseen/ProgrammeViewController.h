@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProgrammeViewController : UITableViewController {
+@interface ProgrammeViewController : UIViewController {
     UITableView *tableView;
 }
 

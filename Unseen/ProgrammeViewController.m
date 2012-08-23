@@ -96,7 +96,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:@"ProgrammItemCell"];
+	UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:@"ProgrammeCell"];
 	cell.textLabel.text = [self.rowItems objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"Apercu-Bold" size:18.0];
     return cell;
