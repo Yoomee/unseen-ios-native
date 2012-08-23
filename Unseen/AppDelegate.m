@@ -6,15 +6,48 @@
 //  Copyright (c) 2012 Yoomee. All rights reserved.
 //
 
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData.h>
 #import "AppDelegate.h"
+#import "Event.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{   
     // Override point for customization after application launch.
+    // Initialize RestKit
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://10.0.1.4:3000/api"];
+    
+    // Enable automatic network activity indicator management
+    objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+    
+    // Initialize object store
+    NSString *seedDatabaseName = @"UnseenSeed.sqlite";
+    NSString *databaseName = @"Unseen.sqlite";
+    
+    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName usingSeedDatabaseName:seedDatabaseName managedObjectModel:nil delegate:self];
+    
+    
+    
+    //objectManager.objectStore =[RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
+    // Setup our object mappings
+    /*!
+     Mapping by entity. Here we are configuring a mapping by targetting a Core Data entity with a specific
+     name. This allows us to map back Twitter user objects directly onto NSManagedObject instances --
+     there is no backing model class!
+     */
+    
+    RKManagedObjectMapping* eventMapping = [RKManagedObjectMapping mappingForClass:[Event class] inManagedObjectStore:objectManager.objectStore];
+    eventMapping.primaryKeyAttribute = @"eventID";
+    [eventMapping mapKeyPath:@"id" toAttribute:@"eventID"];
+    [eventMapping mapKeyPath:@"title" toAttribute:@"title"];
+    
+    [objectManager.mappingProvider setObjectMapping:eventMapping forResourcePathPattern:@"/events"];
+
+    
     return YES;
 }
 							

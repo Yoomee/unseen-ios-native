@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
-@interface ProgrammeViewController : UIViewController {
+@interface ProgrammeViewController : UIViewController <RKObjectLoaderDelegate>{
     UITableView *tableView;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *rowItems;
+@property (nonatomic, strong) NSMutableArray *events;
+- (void)loadData;
 
 @end

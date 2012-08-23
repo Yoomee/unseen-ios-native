@@ -7,11 +7,11 @@
 //
 
 #import "ProgrammeViewController.h"
-
+#import "Event.h"
 
 @implementation ProgrammeViewController
 @synthesize tableView;
-@synthesize rowItems;
+@synthesize events;
 
 //- (id)initWithStyle:(UITableViewStyle)style
 //{
@@ -36,8 +36,9 @@
 {
     [super viewDidLoad];
     
-    self.rowItems = [NSMutableArray arrayWithObjects:@"Unseen Programme 2012", @"Galleries", @"Photographers", @"Fair & Festival Map", @"Buy Tickets", @"Sponsor & Partners", nil];
+    self.events = [NSMutableArray arrayWithObjects:@"Unseen Programme 2012", @"Galleries", @"Photographers", @"Fair & Festival Map", @"Buy Tickets", @"Sponsor & Partners", nil];
 
+    [self loadData];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -91,13 +92,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.rowItems count];
+    return [self.events count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:@"ProgrammeCell"];
-	cell.textLabel.text = [self.rowItems objectAtIndex:indexPath.row];
+	cell.textLabel.text = [self.events objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"Apercu-Bold" size:18.0];
     return cell;
 }
@@ -150,9 +151,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0){
-        [self performSegueWithIdentifier:@"programmeViewController" sender:self];
-    }
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -171,5 +169,35 @@
 //		UIViewController *programViewController = segue.destinationViewController;
 //	}
 //}
+
+- (void)loadData
+{
+    // Load the object model via RestKit
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [objectManager loadObjectsAtResourcePath:@"/events" delegate:self];
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSLog(@"Loaded statuses: %@", objects);
+    //[self loadObjectsFromDataStore];
+    [tableView reloadData];
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                     message:[error localizedDescription]
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Hit error: %@", error);
+}
+
+
 
 @end
