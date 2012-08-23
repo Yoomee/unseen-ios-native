@@ -7,6 +7,7 @@
 //
 
 #import "ProgrammeViewController.h"
+#import "EventViewController.h"
 #import "Event.h"
 
 @implementation ProgrammeViewController
@@ -162,13 +163,15 @@
 
 #pragma mark - Segues
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//	if ([segue.identifier isEqualToString:@"AddPlayer"])
-//	{
-//		UIViewController *programViewController = segue.destinationViewController;
-//	}
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"ShowEvent"])
+	{
+		EventViewController *eventViewController = segue.destinationViewController;
+        NSIndexPath *selectedPath = self.tableView.indexPathForSelectedRow;
+		eventViewController.event = [self.events objectAtIndex:selectedPath.row];
+	}
+}
 
 - (void)loadObjectsFromDataStore
 {

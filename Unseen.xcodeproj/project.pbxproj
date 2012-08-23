@@ -10,6 +10,7 @@
 		5B923F9115E67310009B81B7 /* Unseen.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5B923F8D15E67310009B81B7 /* Unseen.xcdatamodel */; };
 		5B923F9715E67695009B81B7 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B923F9615E67695009B81B7 /* Event.m */; };
 		5B923F9915E67DBF009B81B7 /* UnseenSeed.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5B923F9815E67DBF009B81B7 /* UnseenSeed.sqlite */; };
+		5B923F9C15E6898E009B81B7 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B923F9B15E6898D009B81B7 /* EventViewController.m */; };
 		5BE5533115E622DC000F78BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533015E622DC000F78BA /* UIKit.framework */; };
 		5BE5533315E622DC000F78BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533215E622DC000F78BA /* Foundation.framework */; };
 		5BE5533515E622DC000F78BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533415E622DC000F78BA /* CoreGraphics.framework */; };
@@ -102,6 +103,8 @@
 		5B923F9515E67695009B81B7 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		5B923F9615E67695009B81B7 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		5B923F9815E67DBF009B81B7 /* UnseenSeed.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = UnseenSeed.sqlite; path = Resources/UnseenSeed.sqlite; sourceTree = "<group>"; };
+		5B923F9A15E6898D009B81B7 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		5B923F9B15E6898D009B81B7 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unseen Photo Fair 2012.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE5533015E622DC000F78BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5BE5533215E622DC000F78BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -287,6 +290,8 @@
 		5BE553D415E64996000F78BA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5B923F9A15E6898D009B81B7 /* EventViewController.h */,
+				5B923F9B15E6898D009B81B7 /* EventViewController.m */,
 				5BE5538F15E62B21000F78BA /* FairViewController.h */,
 				5BE5539015E62B21000F78BA /* FairViewController.m */,
 				5BE5539615E638C5000F78BA /* ProgrammeViewController.h */,
@@ -446,6 +451,7 @@
 				5BE5539815E638C5000F78BA /* ProgrammeViewController.m in Sources */,
 				5B923F9115E67310009B81B7 /* Unseen.xcdatamodel in Sources */,
 				5B923F9715E67695009B81B7 /* Event.m in Sources */,
+				5B923F9C15E6898E009B81B7 /* EventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
