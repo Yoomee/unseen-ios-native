@@ -22,6 +22,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    //self.tabBarController.selectedIndex = 1;
+    
+    self.tabBarController.tabBar.backgroundImage = [UIImage imageNamed:@"tab-bar-bg"];
+    self.tabBarController.tabBar.selectionIndicatorImage = [UIImage imageNamed:@"active-tab-bg"];
+    self.tabBarController.tabBar.selectedImageTintColor = [UIColor colorWithWhite:1.0 alpha:1.0];
 }
 
 - (void)viewDidUnload
@@ -57,4 +62,11 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)didPressFairAndFestival:(id)sender {
+    [self.tabBarController setSelectedIndex:1];
+}
+
+- (IBAction)didPressVisitOurSite:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.unseenamsterdam.com"]];
+}
 @end

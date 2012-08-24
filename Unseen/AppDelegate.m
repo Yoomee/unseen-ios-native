@@ -10,6 +10,8 @@
 #import <RestKit/CoreData.h>
 #import "AppDelegate.h"
 #import "Event.h"
+#import "Gallery.h"
+#import "Photographer.h"
 
 @implementation AppDelegate
 
@@ -17,9 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {   
+    // Load default defaults
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     // Override point for customization after application launch.
     // Initialize RestKit
-    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://10.0.1.4:3000/api"];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://unseenamsterdam.com/api"];
     
     // Enable automatic network activity indicator management
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
@@ -28,8 +33,8 @@
     NSString *seedDatabaseName = @"UnseenSeed.sqlite";
     NSString *databaseName = @"Unseen.sqlite";
     
-    //objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName usingSeedDatabaseName:seedDatabaseName managedObjectModel:nil delegate:self];
-    objectManager.objectStore =[RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
+    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName usingSeedDatabaseName:seedDatabaseName managedObjectModel:nil delegate:self];
+    //objectManager.objectStore =[RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
     
     // Setup our object mappings
     /*!
@@ -51,10 +56,20 @@
     [eventMapping mapKeyPath:@"day2" toAttribute:@"day2"];
     [eventMapping mapKeyPath:@"day3" toAttribute:@"day3"];
     [eventMapping mapKeyPath:@"day4" toAttribute:@"day4"];
-    [eventMapping mapKeyPath:@"day5" toAttribute:@"day5"];
-
-    
+    [eventMapping mapKeyPath:@"day5" toAttribute:@"day5"];    
     [objectManager.mappingProvider setObjectMapping:eventMapping forResourcePathPattern:@"/events"];
+    
+    RKManagedObjectMapping* galleryMapping = [RKManagedObjectMapping mappingForClass:[Gallery class] inManagedObjectStore:objectManager.objectStore];
+    galleryMapping.primaryKeyAttribute = @"galleryID";
+    [galleryMapping mapKeyPath:@"id" toAttribute:@"galleryID"];
+    [galleryMapping mapKeyPath:@"title" toAttribute:@"name"];
+    [objectManager.mappingProvider setObjectMapping:galleryMapping forResourcePathPattern:@"/galleries"];
+    
+    RKManagedObjectMapping* photographerMapping = [RKManagedObjectMapping mappingForClass:[Photographer class] inManagedObjectStore:objectManager.objectStore];
+    photographerMapping.primaryKeyAttribute = @"photographerID";
+    [photographerMapping mapKeyPath:@"id" toAttribute:@"photographerID"];
+    [photographerMapping mapKeyPath:@"full_name" toAttribute:@"name"];
+    [objectManager.mappingProvider setObjectMapping:photographerMapping forResourcePathPattern:@"/photographers"];
 
     
     return YES;

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SecondViewController : UIViewController
+- (IBAction)didPressFairAndFestival:(id)sender;
 
+- (IBAction)didPressVisitOurSite:(id)sender;
 @end
+

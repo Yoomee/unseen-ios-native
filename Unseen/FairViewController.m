@@ -35,16 +35,10 @@
 {
     [super viewDidLoad];
     
-    self.rowItems = [NSMutableArray arrayWithObjects:@"Unseen Programme 2012", @"Galleries", @"Photographers", @"Fair & Festival Map", @"Buy Tickets", @"Sponsor & Partners", nil];
+    self.rowItems = [NSMutableArray arrayWithObjects:@"Unseen Programme 2012", @"Galleries", @"Photographers", @"Fair & Festival Map", nil];
     
-    [self.navigationItem.backBarButtonItem setTitle:@"Back"];
-
-
-    self.tabBarController.selectedIndex = 1;
+    //self.rowItems = [NSMutableArray arrayWithObjects:@"Unseen Programme 2012", @"Galleries", @"Photographers", @"Fair & Festival Map", @"Buy Tickets", @"Sponsor & Partners", nil];
     
-    self.tabBarController.tabBar.backgroundImage = [UIImage imageNamed:@"tab-bar-bg"];
-    self.tabBarController.tabBar.selectionIndicatorImage = [UIImage imageNamed:@"active-tab-bg"];
-    self.tabBarController.tabBar.selectedImageTintColor = [UIColor colorWithWhite:1.0 alpha:1.0];
 }
 
 - (void)viewDidUnload
@@ -99,6 +93,10 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FairFestivalCell"];
 	cell.textLabel.text = [self.rowItems objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"Apercu-Bold" size:18.0];
+    
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 55)];
+    backgroundView.backgroundColor = [UIColor colorWithRed:0.129 green:0.114 blue:0.114 alpha:1.000];
+    [cell setSelectedBackgroundView:backgroundView];
     return cell;
 }
 
@@ -151,7 +149,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == 0){
-        [self performSegueWithIdentifier:@"programmeViewController" sender:self];
+        [self performSegueWithIdentifier:@"ProgrammeViewController" sender:self];
+    } else if(indexPath.row == 1){
+        [self performSegueWithIdentifier:@"GalleriesViewController" sender:self];
+    } else if(indexPath.row == 2){
+        [self performSegueWithIdentifier:@"PhotographersViewController" sender:self];
+    } else if(indexPath.row == 3){
+        [self performSegueWithIdentifier:@"MapViewController" sender:self];
     }
     // Navigation logic may go here. Create and push another view controller.
     /*

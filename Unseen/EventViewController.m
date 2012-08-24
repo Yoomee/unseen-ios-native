@@ -100,7 +100,7 @@
         CGRect imageViewFrame = self.imageView.frame;
         imageViewFrame.size.height = [event.imageHeight integerValue];
         [self.imageView setFrame:imageViewFrame];
-        [self.imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://10.0.1.4:3000%@",event.imageURL]]
+        [self.imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://unseenamsterdam.com%@",event.imageURL]]
                        placeholderImage:placeholder];
         [self.imageView setHidden:NO];
         descriptionTextViewOffset = [event.imageHeight integerValue] + 5;

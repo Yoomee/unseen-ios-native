@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B41B94515E7D22B00D64906 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B41B94415E7D22B00D64906 /* Map.png */; };
+		5B41B94815E7D29D00D64906 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B41B94715E7D29D00D64906 /* MapViewController.m */; };
+		5B41B94E15E7F30E00D64906 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B41B94D15E7F30E00D64906 /* Defaults.plist */; };
 		5B923F9115E67310009B81B7 /* Unseen.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5B923F8D15E67310009B81B7 /* Unseen.xcdatamodel */; };
 		5B923F9715E67695009B81B7 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B923F9615E67695009B81B7 /* Event.m */; };
 		5B923F9915E67DBF009B81B7 /* UnseenSeed.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5B923F9815E67DBF009B81B7 /* UnseenSeed.sqlite */; };
 		5B923F9C15E6898E009B81B7 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B923F9B15E6898D009B81B7 /* EventViewController.m */; };
 		5BBF7DD715E7AE3300C21F03 /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBF7DD215E7ADEF00C21F03 /* libSDWebImageARC.a */; };
 		5BBF7DD915E7AE3F00C21F03 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBF7DD815E7AE3E00C21F03 /* ImageIO.framework */; };
+		5BBF7DDC15E7C23400C21F03 /* Gallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF7DDB15E7C23400C21F03 /* Gallery.m */; };
+		5BBF7DDF15E7C45800C21F03 /* GalleriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF7DDE15E7C45700C21F03 /* GalleriesViewController.m */; };
+		5BBF7DE215E7CBD300C21F03 /* PhotographersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF7DE115E7CBD300C21F03 /* PhotographersViewController.m */; };
+		5BBF7DE515E7CBF600C21F03 /* Photograper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF7DE315E7CBF600C21F03 /* Photograper.m */; };
 		5BE5533115E622DC000F78BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533015E622DC000F78BA /* UIKit.framework */; };
 		5BE5533315E622DC000F78BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533215E622DC000F78BA /* Foundation.framework */; };
 		5BE5533515E622DC000F78BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533415E622DC000F78BA /* CoreGraphics.framework */; };
@@ -129,6 +136,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B41B94415E7D22B00D64906 /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map.png; sourceTree = "<group>"; };
+		5B41B94615E7D29D00D64906 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		5B41B94715E7D29D00D64906 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		5B41B94D15E7F30E00D64906 /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Defaults.plist; path = Resources/Defaults.plist; sourceTree = "<group>"; };
 		5B923F8D15E67310009B81B7 /* Unseen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Unseen.xcdatamodel; sourceTree = "<group>"; };
 		5B923F9515E67695009B81B7 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		5B923F9615E67695009B81B7 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
@@ -137,6 +148,14 @@
 		5B923F9B15E6898D009B81B7 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		5BBF7DC615E7ADEE00C21F03 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		5BBF7DD815E7AE3E00C21F03 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		5BBF7DDA15E7C23400C21F03 /* Gallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gallery.h; sourceTree = "<group>"; };
+		5BBF7DDB15E7C23400C21F03 /* Gallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gallery.m; sourceTree = "<group>"; };
+		5BBF7DDD15E7C45600C21F03 /* GalleriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleriesViewController.h; sourceTree = "<group>"; };
+		5BBF7DDE15E7C45700C21F03 /* GalleriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleriesViewController.m; sourceTree = "<group>"; };
+		5BBF7DE015E7CBD200C21F03 /* PhotographersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotographersViewController.h; sourceTree = "<group>"; };
+		5BBF7DE115E7CBD300C21F03 /* PhotographersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotographersViewController.m; sourceTree = "<group>"; };
+		5BBF7DE315E7CBF600C21F03 /* Photograper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photograper.m; sourceTree = "<group>"; };
+		5BBF7DE415E7CBF600C21F03 /* Photographer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photographer.h; sourceTree = "<group>"; };
 		5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unseen Photo Fair 2012.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE5533015E622DC000F78BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5BE5533215E622DC000F78BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -275,6 +294,7 @@
 		5BE5533715E622DC000F78BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5B41B94D15E7F30E00D64906 /* Defaults.plist */,
 				5BE5533815E622DC000F78BA /* Unseen-Info.plist */,
 				5BE5533915E622DC000F78BA /* InfoPlist.strings */,
 				5BE5533C15E622DC000F78BA /* main.m */,
@@ -286,6 +306,7 @@
 		5BE5535C15E624AC000F78BA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5B41B94415E7D22B00D64906 /* Map.png */,
 				5BE5538115E625AE000F78BA /* collect-bg.png */,
 				5BE5538215E625AE000F78BA /* collect-bg@2x.png */,
 				5BE5535D15E624AC000F78BA /* active-tab-bg.png */,
@@ -340,8 +361,14 @@
 				5B923F9B15E6898D009B81B7 /* EventViewController.m */,
 				5BE5538F15E62B21000F78BA /* FairViewController.h */,
 				5BE5539015E62B21000F78BA /* FairViewController.m */,
+				5B41B94615E7D29D00D64906 /* MapViewController.h */,
+				5B41B94715E7D29D00D64906 /* MapViewController.m */,
 				5BE5539615E638C5000F78BA /* ProgrammeViewController.h */,
 				5BE5539715E638C5000F78BA /* ProgrammeViewController.m */,
+				5BBF7DDD15E7C45600C21F03 /* GalleriesViewController.h */,
+				5BBF7DDE15E7C45700C21F03 /* GalleriesViewController.m */,
+				5BBF7DE015E7CBD200C21F03 /* PhotographersViewController.h */,
+				5BBF7DE115E7CBD300C21F03 /* PhotographersViewController.m */,
 				5BE5534C15E622DC000F78BA /* SecondViewController.h */,
 				5BE5534D15E622DC000F78BA /* SecondViewController.m */,
 			);
@@ -353,6 +380,10 @@
 			children = (
 				5B923F9515E67695009B81B7 /* Event.h */,
 				5B923F9615E67695009B81B7 /* Event.m */,
+				5BBF7DDA15E7C23400C21F03 /* Gallery.h */,
+				5BBF7DDB15E7C23400C21F03 /* Gallery.m */,
+				5BBF7DE315E7CBF600C21F03 /* Photograper.m */,
+				5BBF7DE415E7CBF600C21F03 /* Photographer.h */,
 				5B923F9815E67DBF009B81B7 /* UnseenSeed.sqlite */,
 				5B923F8D15E67310009B81B7 /* Unseen.xcdatamodel */,
 			);
@@ -506,6 +537,8 @@
 				5BE5538D15E62892000F78BA /* Apercu-Bold.otf in Resources */,
 				5BE5538E15E62892000F78BA /* Apercu.otf in Resources */,
 				5B923F9915E67DBF009B81B7 /* UnseenSeed.sqlite in Resources */,
+				5B41B94515E7D22B00D64906 /* Map.png in Resources */,
+				5B41B94E15E7F30E00D64906 /* Defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +557,11 @@
 				5B923F9115E67310009B81B7 /* Unseen.xcdatamodel in Sources */,
 				5B923F9715E67695009B81B7 /* Event.m in Sources */,
 				5B923F9C15E6898E009B81B7 /* EventViewController.m in Sources */,
+				5BBF7DDC15E7C23400C21F03 /* Gallery.m in Sources */,
+				5BBF7DDF15E7C45800C21F03 /* GalleriesViewController.m in Sources */,
+				5BBF7DE215E7CBD300C21F03 /* PhotographersViewController.m in Sources */,
+				5BBF7DE515E7CBF600C21F03 /* Photograper.m in Sources */,
+				5B41B94815E7D29D00D64906 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +675,7 @@
 		5BE5535715E622DC000F78BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unseen/Unseen-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -647,6 +686,7 @@
 				INFOPLIST_FILE = "Unseen/Unseen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "Unseen Photo Fair 2012";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
