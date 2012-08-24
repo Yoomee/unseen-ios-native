@@ -13,6 +13,8 @@
 @dynamic title;
 @dynamic text;
 @dynamic time;
+@dynamic imageURL;
+@dynamic imageHeight;
 @dynamic venue;
 @dynamic day1;
 @dynamic day2;

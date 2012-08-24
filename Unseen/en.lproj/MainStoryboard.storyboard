@@ -291,13 +291,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" id="xVu-Ux-1UX">
-                                <rect key="frame" x="13" y="150" width="294" height="206"/>
+                                <rect key="frame" x="13" y="158" width="294" height="206"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="fVR-ZT-P98">
+                                <rect key="frame" x="20" y="158" width="280" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
@@ -305,6 +309,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="2zs-Uh-ITn" id="qr3-lg-ip2"/>
                         <outlet property="descriptionTextView" destination="xVu-Ux-1UX" id="4vg-nR-97s"/>
+                        <outlet property="imageView" destination="fVR-ZT-P98" id="ua8-60-ZBY"/>
                         <outlet property="timeLabel" destination="ezO-UE-mFj" id="d3m-7s-gaN"/>
                         <outlet property="titleLabel" destination="kx2-Jd-iKk" id="ybc-ap-XgL"/>
                         <outlet property="venueLabel" destination="fiP-SN-PeL" id="wwo-yQ-lBE"/>
@@ -345,6 +350,7 @@
             <relationships>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>

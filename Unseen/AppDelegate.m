@@ -43,6 +43,8 @@
     [eventMapping mapKeyPath:@"id" toAttribute:@"eventID"];
     [eventMapping mapKeyPath:@"title" toAttribute:@"title"];
     [eventMapping mapKeyPath:@"description" toAttribute:@"text"];
+    [eventMapping mapKeyPath:@"image_url_for_api" toAttribute:@"imageURL"];
+    [eventMapping mapKeyPath:@"image_height_for_api" toAttribute:@"imageHeight"];
     [eventMapping mapKeyPath:@"venue_name" toAttribute:@"venue"];
     [eventMapping mapKeyPath:@"time_string" toAttribute:@"time"];
     [eventMapping mapKeyPath:@"day1" toAttribute:@"day1"];

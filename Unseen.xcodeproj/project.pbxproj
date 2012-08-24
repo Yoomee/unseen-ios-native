@@ -11,6 +11,8 @@
 		5B923F9715E67695009B81B7 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B923F9615E67695009B81B7 /* Event.m */; };
 		5B923F9915E67DBF009B81B7 /* UnseenSeed.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5B923F9815E67DBF009B81B7 /* UnseenSeed.sqlite */; };
 		5B923F9C15E6898E009B81B7 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B923F9B15E6898D009B81B7 /* EventViewController.m */; };
+		5BBF7DD715E7AE3300C21F03 /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBF7DD215E7ADEF00C21F03 /* libSDWebImageARC.a */; };
+		5BBF7DD915E7AE3F00C21F03 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBF7DD815E7AE3E00C21F03 /* ImageIO.framework */; };
 		5BE5533115E622DC000F78BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533015E622DC000F78BA /* UIKit.framework */; };
 		5BE5533315E622DC000F78BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533215E622DC000F78BA /* Foundation.framework */; };
 		5BE5533515E622DC000F78BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533415E622DC000F78BA /* CoreGraphics.framework */; };
@@ -54,6 +56,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5BBF7DCF15E7ADEF00C21F03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BBF7DC615E7ADEE00C21F03 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53922D6F148C55820056699D;
+			remoteInfo = SDWebImage;
+		};
+		5BBF7DD115E7ADEF00C21F03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BBF7DC615E7ADEE00C21F03 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53761325155AD0D5005750A4;
+			remoteInfo = "SDWebImage ARC";
+		};
+		5BBF7DD315E7ADEF00C21F03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BBF7DC615E7ADEE00C21F03 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 531041E0157EAFA400BBABC3;
+			remoteInfo = "SDWebImage ARC+MKAnnotation";
+		};
+		5BBF7DD515E7AE2000C21F03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BBF7DC615E7ADEE00C21F03 /* SDWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53761307155AD0D5005750A4;
+			remoteInfo = "SDWebImage ARC";
+		};
 		5BE553B615E6426F000F78BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5BE553AB15E6426E000F78BA /* RestKit.xcodeproj */;
@@ -105,6 +135,8 @@
 		5B923F9815E67DBF009B81B7 /* UnseenSeed.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = UnseenSeed.sqlite; path = Resources/UnseenSeed.sqlite; sourceTree = "<group>"; };
 		5B923F9A15E6898D009B81B7 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		5B923F9B15E6898D009B81B7 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		5BBF7DC615E7ADEE00C21F03 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
+		5BBF7DD815E7AE3E00C21F03 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unseen Photo Fair 2012.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE5533015E622DC000F78BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5BE5533215E622DC000F78BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,6 +191,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BBF7DD915E7AE3F00C21F03 /* ImageIO.framework in Frameworks */,
+				5BBF7DD715E7AE3300C21F03 /* libSDWebImageARC.a in Frameworks */,
 				5BE553CE15E6434D000F78BA /* QuartzCore.framework in Frameworks */,
 				5BE553CA15E6433A000F78BA /* Security.framework in Frameworks */,
 				5BE553C215E64306000F78BA /* libRestKit.a in Frameworks */,
@@ -176,9 +210,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BBF7DC715E7ADEE00C21F03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BBF7DD015E7ADEF00C21F03 /* libSDWebImage.a */,
+				5BBF7DD215E7ADEF00C21F03 /* libSDWebImageARC.a */,
+				5BBF7DD415E7ADEF00C21F03 /* libSDWebImageARC+MKAnnotation.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5BE5532115E622DC000F78BA = {
 			isa = PBXGroup;
 			children = (
+				5BBF7DC615E7ADEE00C21F03 /* SDWebImage.xcodeproj */,
 				5BE553AB15E6426E000F78BA /* RestKit.xcodeproj */,
 				5BE5533615E622DC000F78BA /* Unseen */,
 				5BE5538A15E62892000F78BA /* Fonts */,
@@ -199,6 +244,7 @@
 		5BE5532F15E622DC000F78BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5BBF7DD815E7AE3E00C21F03 /* ImageIO.framework */,
 				5BE553CF15E64358000F78BA /* libxml2.dylib */,
 				5BE553CD15E6434D000F78BA /* QuartzCore.framework */,
 				5BE553CB15E64342000F78BA /* SystemConfiguration.framework */,
@@ -327,6 +373,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5BBF7DD615E7AE2000C21F03 /* PBXTargetDependency */,
 				5BE553C115E642E8000F78BA /* PBXTargetDependency */,
 			);
 			name = Unseen;
@@ -358,6 +405,10 @@
 					ProductGroup = 5BE553AC15E6426E000F78BA /* Products */;
 					ProjectRef = 5BE553AB15E6426E000F78BA /* RestKit.xcodeproj */;
 				},
+				{
+					ProductGroup = 5BBF7DC715E7ADEE00C21F03 /* Products */;
+					ProjectRef = 5BBF7DC615E7ADEE00C21F03 /* SDWebImage.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -367,6 +418,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5BBF7DD015E7ADEF00C21F03 /* libSDWebImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDWebImage.a;
+			remoteRef = 5BBF7DCF15E7ADEF00C21F03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BBF7DD215E7ADEF00C21F03 /* libSDWebImageARC.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDWebImageARC.a;
+			remoteRef = 5BBF7DD115E7ADEF00C21F03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BBF7DD415E7ADEF00C21F03 /* libSDWebImageARC+MKAnnotation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImageARC+MKAnnotation.a";
+			remoteRef = 5BBF7DD315E7ADEF00C21F03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5BE553B715E6426F000F78BA /* libRestKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -458,6 +530,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5BBF7DD615E7AE2000C21F03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SDWebImage ARC";
+			targetProxy = 5BBF7DD515E7AE2000C21F03 /* PBXContainerItemProxy */;
+		};
 		5BE553C115E642E8000F78BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RestKit;
@@ -545,6 +622,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unseen/Unseen-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(OBJROOT)/UninstalledProducts/include\"",
+					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"",
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+				);
 				INFOPLIST_FILE = "Unseen/Unseen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "Unseen Photo Fair 2012";
@@ -557,6 +639,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unseen/Unseen-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(OBJROOT)/UninstalledProducts/include\"",
+					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"",
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+				);
 				INFOPLIST_FILE = "Unseen/Unseen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "Unseen Photo Fair 2012";

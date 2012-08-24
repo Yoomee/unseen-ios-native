@@ -15,6 +15,8 @@
 @property (nonatomic, retain) NSNumber *eventID;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *text;
+@property (nonatomic, retain) NSString *imageURL;
+@property (nonatomic, retain) NSNumber *imageHeight;
 @property (nonatomic, retain) NSString *time;
 @property (nonatomic, retain) NSString *venue;
 @property (nonatomic) BOOL day1;

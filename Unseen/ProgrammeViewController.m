@@ -209,7 +209,7 @@
 - (void)loadObjectsFromDataStoreForDay:(NSInteger)day
 {
     NSFetchRequest *request = [Event fetchRequest];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"eventID" ascending:NO];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
     NSString *predicateString = [NSString stringWithFormat:@"day%i == YES", day];
     [request setPredicate:[NSPredicate predicateWithFormat:predicateString]];

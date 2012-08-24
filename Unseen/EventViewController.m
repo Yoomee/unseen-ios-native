@@ -8,11 +8,13 @@
 
 #import "EventViewController.h"
 #import "Event.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation EventViewController
 @synthesize dateLabel;
 @synthesize timeLabel;
 @synthesize venueLabel;
+@synthesize imageView;
 @synthesize descriptionTextView;
 @synthesize selectedDay;
 @synthesize event, titleLabel;
@@ -86,13 +88,32 @@
     self.venueLabel.text = [NSString stringWithFormat:@"Venue: %@",event.venue];
     self.descriptionTextView.text = event.text;
     
+    NSInteger descriptionTextViewOffset = 0;
+    
+    if(event.imageURL.length > 0){
+        CGRect rect = CGRectMake(0, 0, 280, 180);
+        UIGraphicsBeginImageContext(rect.size);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetFillColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
+        CGContextFillRect(context, rect);
+        UIImage *placeholder = UIGraphicsGetImageFromCurrentImageContext();
+        CGRect imageViewFrame = self.imageView.frame;
+        imageViewFrame.size.height = [event.imageHeight integerValue];
+        [self.imageView setFrame:imageViewFrame];
+        [self.imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://10.0.1.4:3000%@",event.imageURL]]
+                       placeholderImage:placeholder];
+        [self.imageView setHidden:NO];
+        descriptionTextViewOffset = [event.imageHeight integerValue] + 5;
+    }
+    
     CGRect frame = self.descriptionTextView.frame; 
     CGSize textSize = [event.text sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width, CGFLOAT_MAX)  lineBreakMode:UILineBreakModeWordWrap];
     frame.size.height = textSize.height + 30;
+    frame.origin.y = frame.origin.y + descriptionTextViewOffset;
     [self.descriptionTextView setFrame:frame];
-    
     UIScrollView *tempScrollView = (UIScrollView *)self.view;
     tempScrollView.contentSize = CGSizeMake(0, self.descriptionTextView.frame.origin.y + self.descriptionTextView.frame.size.height + 20);
+
 }
 
 
@@ -103,6 +124,7 @@
     [self setTimeLabel:nil];
     [self setVenueLabel:nil];
     [self setDescriptionTextView:nil];
+    [self setImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
