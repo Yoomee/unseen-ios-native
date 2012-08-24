@@ -108,7 +108,7 @@
     
     CGRect frame = self.descriptionTextView.frame; 
     CGSize textSize = [event.text sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width, CGFLOAT_MAX)  lineBreakMode:UILineBreakModeWordWrap];
-    frame.size.height = textSize.height + 30;
+    frame.size.height = textSize.height + 60;
     frame.origin.y = frame.origin.y + descriptionTextViewOffset;
     [self.descriptionTextView setFrame:frame];
     UIScrollView *tempScrollView = (UIScrollView *)self.view;
