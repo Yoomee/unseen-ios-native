@@ -11,4 +11,12 @@
 @implementation Event
 @dynamic eventID;
 @dynamic title;
+@dynamic text;
+@dynamic time;
+@dynamic venue;
+@dynamic day1;
+@dynamic day2;
+@dynamic day3;
+@dynamic day4;
+@dynamic day5;
 @end

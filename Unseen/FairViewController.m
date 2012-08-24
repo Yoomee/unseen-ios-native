@@ -36,13 +36,15 @@
     [super viewDidLoad];
     
     self.rowItems = [NSMutableArray arrayWithObjects:@"Unseen Programme 2012", @"Galleries", @"Photographers", @"Fair & Festival Map", @"Buy Tickets", @"Sponsor & Partners", nil];
+    
+    [self.navigationItem.backBarButtonItem setTitle:@"Back"];
 
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tabBarController.selectedIndex = 1;
+    
+    self.tabBarController.tabBar.backgroundImage = [UIImage imageNamed:@"tab-bar-bg"];
+    self.tabBarController.tabBar.selectionIndicatorImage = [UIImage imageNamed:@"active-tab-bg"];
+    self.tabBarController.tabBar.selectedImageTintColor = [UIColor colorWithWhite:1.0 alpha:1.0];
 }
 
 - (void)viewDidUnload

@@ -14,8 +14,13 @@
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *daySelectorsView;
 @property (nonatomic, strong) NSArray *events;
+
+
+- (IBAction)didPressDaySelector:(id)sender;
 - (void) loadData;
-- (void)loadObjectsFromDataStore;
+- (void)loadObjectsFromDataStoreForDay:(NSInteger)day;
+-(NSInteger)selectedDay;
 
 @end

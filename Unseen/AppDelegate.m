@@ -43,6 +43,14 @@
     [eventMapping mapKeyPath:@"id" toAttribute:@"eventID"];
     [eventMapping mapKeyPath:@"title" toAttribute:@"title"];
     [eventMapping mapKeyPath:@"description" toAttribute:@"text"];
+    [eventMapping mapKeyPath:@"venue_name" toAttribute:@"venue"];
+    [eventMapping mapKeyPath:@"time_string" toAttribute:@"time"];
+    [eventMapping mapKeyPath:@"day1" toAttribute:@"day1"];
+    [eventMapping mapKeyPath:@"day2" toAttribute:@"day2"];
+    [eventMapping mapKeyPath:@"day3" toAttribute:@"day3"];
+    [eventMapping mapKeyPath:@"day4" toAttribute:@"day4"];
+    [eventMapping mapKeyPath:@"day5" toAttribute:@"day5"];
+
     
     [objectManager.mappingProvider setObjectMapping:eventMapping forResourcePathPattern:@"/events"];
 

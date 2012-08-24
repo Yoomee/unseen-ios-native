@@ -40,7 +40,7 @@
 		5BE5538315E625AE000F78BA /* collect-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5538115E625AE000F78BA /* collect-bg.png */; };
 		5BE5538415E625AE000F78BA /* collect-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5538215E625AE000F78BA /* collect-bg@2x.png */; };
 		5BE5538D15E62892000F78BA /* Apercu-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5538B15E62892000F78BA /* Apercu-Bold.otf */; };
-		5BE5538E15E62892000F78BA /* Apercu-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5538C15E62892000F78BA /* Apercu-Regular.otf */; };
+		5BE5538E15E62892000F78BA /* Apercu.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5538C15E62892000F78BA /* Apercu.otf */; };
 		5BE5539115E62B21000F78BA /* FairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5539015E62B21000F78BA /* FairViewController.m */; };
 		5BE5539815E638C5000F78BA /* ProgrammeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5539715E638C5000F78BA /* ProgrammeViewController.m */; };
 		5BE553C215E64306000F78BA /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE553B715E6426F000F78BA /* libRestKit.a */; };
@@ -139,7 +139,7 @@
 		5BE5538115E625AE000F78BA /* collect-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collect-bg.png"; sourceTree = "<group>"; };
 		5BE5538215E625AE000F78BA /* collect-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collect-bg@2x.png"; sourceTree = "<group>"; };
 		5BE5538B15E62892000F78BA /* Apercu-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apercu-Bold.otf"; sourceTree = "<group>"; };
-		5BE5538C15E62892000F78BA /* Apercu-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apercu-Regular.otf"; sourceTree = "<group>"; };
+		5BE5538C15E62892000F78BA /* Apercu.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Apercu.otf; sourceTree = "<group>"; };
 		5BE5538F15E62B21000F78BA /* FairViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FairViewController.h; sourceTree = "<group>"; };
 		5BE5539015E62B21000F78BA /* FairViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FairViewController.m; sourceTree = "<group>"; };
 		5BE5539615E638C5000F78BA /* ProgrammeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgrammeViewController.h; sourceTree = "<group>"; };
@@ -269,7 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				5BE5538B15E62892000F78BA /* Apercu-Bold.otf */,
-				5BE5538C15E62892000F78BA /* Apercu-Regular.otf */,
+				5BE5538C15E62892000F78BA /* Apercu.otf */,
 			);
 			name = Fonts;
 			path = Unseen/Fonts;
@@ -432,7 +432,7 @@
 				5BE5538315E625AE000F78BA /* collect-bg.png in Resources */,
 				5BE5538415E625AE000F78BA /* collect-bg@2x.png in Resources */,
 				5BE5538D15E62892000F78BA /* Apercu-Bold.otf in Resources */,
-				5BE5538E15E62892000F78BA /* Apercu-Regular.otf in Resources */,
+				5BE5538E15E62892000F78BA /* Apercu.otf in Resources */,
 				5B923F9915E67DBF009B81B7 /* UnseenSeed.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

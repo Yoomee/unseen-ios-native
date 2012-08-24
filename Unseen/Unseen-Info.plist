@@ -45,7 +45,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Apercu-Bold.otf</string>
-		<string>Apercu-Regular.otf</string>
+		<string>Apercu.otf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>

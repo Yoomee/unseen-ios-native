@@ -11,6 +11,11 @@
 
 @interface EventViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *venueLabel;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (nonatomic, strong) Event *event;
+@property (nonatomic) NSInteger selectedDay;
 
 @end
