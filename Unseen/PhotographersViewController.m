@@ -172,7 +172,7 @@
 - (void)loadObjectsFromDataStore
 {
     NSFetchRequest *request = [Photographer fetchRequest];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
     self.photographers = [Photographer objectsWithFetchRequest:request];
 }

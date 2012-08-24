@@ -172,7 +172,7 @@
 - (void)loadObjectsFromDataStore
 {
     NSFetchRequest *request = [Gallery fetchRequest];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
     self.galleries = [Gallery objectsWithFetchRequest:request];
 }
