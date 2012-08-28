@@ -9,9 +9,11 @@
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
 #import "AppDelegate.h"
+#import "constants.h"
 #import "Event.h"
 #import "Gallery.h"
 #import "Photographer.h"
+#import "Photo.h"
 
 @implementation AppDelegate
 
@@ -24,7 +26,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     // Override point for customization after application launch.
     // Initialize RestKit
-    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://unseenamsterdam.com/api"];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:[NSString stringWithFormat:@"%@/api", kBaseURL]];
     
     // Enable automatic network activity indicator management
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
@@ -33,8 +35,8 @@
     NSString *seedDatabaseName = @"UnseenSeed.sqlite";
     NSString *databaseName = @"Unseen.sqlite";
     
-    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName usingSeedDatabaseName:seedDatabaseName managedObjectModel:nil delegate:self];
-    //objectManager.objectStore =[RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
+    //objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName usingSeedDatabaseName:seedDatabaseName managedObjectModel:nil delegate:self];
+    objectManager.objectStore =[RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
     
     // Setup our object mappings
     /*!
@@ -69,7 +71,19 @@
     photographerMapping.primaryKeyAttribute = @"photographerID";
     [photographerMapping mapKeyPath:@"id" toAttribute:@"photographerID"];
     [photographerMapping mapKeyPath:@"full_name" toAttribute:@"name"];
+    [photographerMapping mapKeyPath:@"bio" toAttribute:@"bio"];
+    [photographerMapping mapKeyPath:@"image_url_for_api" toAttribute:@"imageURL"];
     [objectManager.mappingProvider setObjectMapping:photographerMapping forResourcePathPattern:@"/photographers"];
+    
+    RKManagedObjectMapping *photoMapping = [RKManagedObjectMapping mappingForClass:[Photo class] inManagedObjectStore:objectManager.objectStore];
+    photoMapping.primaryKeyAttribute = @"photoID";
+    [photoMapping mapKeyPath:@"id" toAttribute:@"photoID"];
+    [photoMapping mapKeyPath:@"image_url_for_api" toAttribute:@"imageURL"];
+    [photoMapping mapKeyPath:@"caption" toAttribute:@"caption"];
+    [photoMapping mapRelationship:@"photographer" withMapping:photographerMapping];
+    
+    [photographerMapping mapRelationship:@"photos" withMapping:photoMapping];
+
 
     
     return YES;

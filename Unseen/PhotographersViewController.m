@@ -7,6 +7,7 @@
 //
 
 #import "PhotographersViewController.h"
+#import "PhotographerViewController.h"
 #import "Photographer.h"
 
 
@@ -201,6 +202,15 @@
     NSLog(@"Hit error: %@", error);
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"ShowPhotographer"])
+	{
+		PhotographerViewController *photographerViewController = segue.destinationViewController;
+        NSIndexPath *selectedPath = self.tableView.indexPathForSelectedRow;
+		photographerViewController.photographer = [self.photographers objectAtIndex:selectedPath.row];
+	}
+}
 
 
 @end

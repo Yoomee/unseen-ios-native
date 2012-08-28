@@ -8,6 +8,7 @@
 
 #import "EventViewController.h"
 #import "Event.h"
+#import "constants.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation EventViewController
@@ -100,7 +101,7 @@
         CGRect imageViewFrame = self.imageView.frame;
         imageViewFrame.size.height = [event.imageHeight integerValue];
         [self.imageView setFrame:imageViewFrame];
-        [self.imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://unseenamsterdam.com%@",event.imageURL]]
+        [self.imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseURL,event.imageURL]]
                        placeholderImage:placeholder];
         [self.imageView setHidden:NO];
         descriptionTextViewOffset = [event.imageHeight integerValue] + 5;
