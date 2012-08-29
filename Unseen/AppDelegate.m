@@ -80,11 +80,15 @@
     [photoMapping mapKeyPath:@"id" toAttribute:@"photoID"];
     [photoMapping mapKeyPath:@"image_url_for_api" toAttribute:@"imageURL"];
     [photoMapping mapKeyPath:@"caption" toAttribute:@"caption"];
+
     [photoMapping mapRelationship:@"photographer" withMapping:photographerMapping];
+    [photoMapping mapRelationship:@"galleries" withMapping:galleryMapping];
     
+    [photographerMapping mapRelationship:@"galleries" withMapping:galleryMapping];
     [photographerMapping mapRelationship:@"photos" withMapping:photoMapping];
-
-
+    
+    [galleryMapping mapRelationship:@"photographers" withMapping:photographerMapping];
+    [galleryMapping mapRelationship:@"photos" withMapping:photoMapping];
     
     return YES;
 }
