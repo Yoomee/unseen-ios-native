@@ -8,6 +8,7 @@
 
 #import "PhotographerViewController.h"
 #import "Photo.h"
+#import "Gallery.h"
 #import "constants.h"
 #import "DDPageControl.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -17,6 +18,7 @@
 @synthesize profileImage;
 @synthesize name1;
 @synthesize name2;
+@synthesize galleryLabel;
 @synthesize photosView;
 @synthesize bioTextView;
 
@@ -46,6 +48,7 @@
     
     self.name1.font = [UIFont fontWithName:@"Apercu-Bold" size:24.0];
     self.name2.font = [UIFont fontWithName:@"Apercu-Bold" size:24.0];
+    self.galleryLabel.font = [UIFont fontWithName:@"Apercu" size:12.0];
     
     NSArray *nameParts = [photographer.name componentsSeparatedByString:@" "];
     NSString *nameLine1 = [NSString stringWithFormat:@""];
@@ -53,16 +56,25 @@
     int line1 = 0;
     for (int i=0; i < nameParts.count; i++) {
         NSString *word = (NSString *)[nameParts objectAtIndex:i];
-        NSLog(@"%@",word);
         line1 += word.length;
         if(line1 < 15){
-            nameLine1 = [NSString stringWithFormat:@"%@ %@",nameLine1,word];
+            nameLine1 = [NSString stringWithFormat:@"%@%@ ",nameLine1,word];
         } else {
-            nameLine2 = [NSString stringWithFormat:@"%@ %@",nameLine2,word];
+            nameLine2 = [NSString stringWithFormat:@"%@%@ ",nameLine2,word];
         }
     }
     self.name1.text = nameLine1;
     self.name2.text = nameLine2;
+    
+    
+    if([nameLine2 isEqualToString:@""]){
+        CGRect frame = self.galleryLabel.frame; 
+        frame.origin.y = 38;
+        [self.galleryLabel setFrame:frame]; 
+    }
+    
+    NSArray *galleries = [[NSArray alloc] initWithArray:[photographer.galleries allObjects]];
+    self.galleryLabel.text = [[galleries objectAtIndex:0] name];
     
     self.bioTextView.text = photographer.bio;
     self.bioTextView.font = [UIFont fontWithName:@"Apercu" size:16.0];
@@ -93,7 +105,6 @@
         [imageView setContentMode:UIViewContentModeCenter];
         [imageView setFrame:imageViewFrame];
         [photosView addSubview:imageView];
-        NSLog(@"%f",imageView.frame.size.height);
         offsetX += 320;
     }];
     photosView.contentSize = CGSizeMake(offsetX, 280);
@@ -112,6 +123,7 @@
     [self setBioTextView:nil];
     [self setName1:nil];
     [self setName2:nil];
+    [self setGalleryLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
