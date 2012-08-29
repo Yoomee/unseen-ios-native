@@ -12,6 +12,7 @@
 #import "constants.h"
 #import "Event.h"
 #import "Gallery.h"
+#import "Page.h"
 #import "Photographer.h"
 #import "Photo.h"
 
@@ -44,6 +45,20 @@
      name. This allows us to map back Twitter user objects directly onto NSManagedObject instances --
      there is no backing model class!
      */
+    
+    RKManagedObjectMapping* pageMapping = [RKManagedObjectMapping mappingForClass:[Page class] inManagedObjectStore:objectManager.objectStore];
+    pageMapping.primaryKeyAttribute = @"pageID";
+    [pageMapping mapKeyPath:@"id" toAttribute:@"pageID"];
+    [pageMapping mapKeyPath:@"parent_id" toAttribute:@"parentID"];
+    [pageMapping mapKeyPath:@"title" toAttribute:@"title"];
+    [pageMapping mapKeyPath:@"text" toAttribute:@"text"];
+    [pageMapping mapKeyPath:@"image_url_for_api" toAttribute:@"imageURL"];
+    [pageMapping mapKeyPath:@"image_height_for_api" toAttribute:@"imageHeight"];
+    [pageMapping mapKeyPath:@"thumbnail_image_url_for_api" toAttribute:@"thumbnailImageURL"];
+    [pageMapping mapKeyPath:@"publication_date" toAttribute:@"publicationDate"];
+    [objectManager.mappingProvider setObjectMapping:pageMapping forResourcePathPattern:@"/pages"];
+    [pageMapping mapRelationship:@"parent" withMapping:pageMapping];
+    [pageMapping mapRelationship:@"children" withMapping:pageMapping];
     
     RKManagedObjectMapping* eventMapping = [RKManagedObjectMapping mappingForClass:[Event class] inManagedObjectStore:objectManager.objectStore];
     eventMapping.primaryKeyAttribute = @"eventID";

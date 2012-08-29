@@ -70,6 +70,7 @@
                     <connections>
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
                         <segue destination="8Uk-ni-j7e" kind="relationship" relationship="viewControllers" id="Kl0-hH-omi"/>
+                        <segue destination="fRB-2p-GBs" kind="relationship" relationship="viewControllers" id="qdE-3g-qHu"/>
                     </connections>
                 </tabBarController>
             </objects>
@@ -423,6 +424,55 @@
             </objects>
             <point key="canvasLocation" x="1650" y="311"/>
         </scene>
+        <scene sceneID="Q16-0V-2Ha">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Yk-7D-ra5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="IHe-PX-zKl" customClass="NewsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="OSM-i2-dYa">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsItemCell" rowHeight="55" id="6pT-v4-WYD">
+                                <rect key="frame" x="0.0" y="22" width="320" height="55"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="Ien-nf-ZQO">
+                                            <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" id="6rh-Dg-MLc">
+                                            <rect key="frame" x="70" y="0.0" width="235" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" id="INb-CL-Sjr">
+                                            <rect key="frame" x="70" y="18" width="235" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="IHe-PX-zKl" id="1VQ-VO-sGT"/>
+                            <outlet property="delegate" destination="IHe-PX-zKl" id="Ogq-6h-JoF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="News" id="dtm-Ri-VIR"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1129" y="1193"/>
+        </scene>
         <scene sceneID="pA9-y7-eWj">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyz-0F-4jR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -575,12 +625,32 @@
             </objects>
             <point key="canvasLocation" x="2098" y="-337"/>
         </scene>
+        <scene sceneID="qM0-Yk-LUQ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xuT-cQ-58X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="fRB-2p-GBs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="news-tab.png" id="nQ3-tT-CY4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ZFE-u4-6lj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.12941176469999999" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IHe-PX-zKl" kind="relationship" relationship="rootViewController" id="Brz-pk-Edu"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="691" y="1165"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Map.png" width="2442" height="2880"/>
         <image name="collect-bg.png" width="320" height="411"/>
         <image name="collect-tab.png" width="30" height="30"/>
         <image name="fair-tab.png" width="30" height="30"/>
+        <image name="news-tab.png" width="30" height="30"/>
     </resources>
     <classes>
         <class className="EventViewController" superclassName="UIViewController">
@@ -616,6 +686,9 @@
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
+        </class>
+        <class className="NewsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsViewController.h"/>
         </class>
         <class className="PhotographerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographerViewController.h"/>
