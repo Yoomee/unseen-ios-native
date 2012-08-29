@@ -65,6 +65,7 @@
     galleryMapping.primaryKeyAttribute = @"galleryID";
     [galleryMapping mapKeyPath:@"id" toAttribute:@"galleryID"];
     [galleryMapping mapKeyPath:@"title" toAttribute:@"name"];
+    [galleryMapping mapKeyPath:@"contact_details" toAttribute:@"text"];
     [objectManager.mappingProvider setObjectMapping:galleryMapping forResourcePathPattern:@"/galleries"];
     
     RKManagedObjectMapping* photographerMapping = [RKManagedObjectMapping mappingForClass:[Photographer class] inManagedObjectStore:objectManager.objectStore];

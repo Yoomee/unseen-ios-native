@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) NSNumber *galleryID;
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *text;
 @property (nonatomic, retain) NSSet *photos;
 @property (nonatomic, retain) NSSet *photographers;
 

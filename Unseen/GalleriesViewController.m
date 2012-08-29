@@ -7,6 +7,7 @@
 //
 
 #import "GalleriesViewController.h"
+#import "GalleryViewController.h"
 #import "Gallery.h"
 
 
@@ -199,6 +200,16 @@
     //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     //    [alert show];
     NSLog(@"Hit error: %@", error);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"ShowGallery"])
+	{
+		GalleryViewController *galleryViewController = segue.destinationViewController;
+        NSIndexPath *selectedPath = self.tableView.indexPathForSelectedRow;
+		galleryViewController.gallery = [self.galleries objectAtIndex:selectedPath.row];
+	}
 }
 
 

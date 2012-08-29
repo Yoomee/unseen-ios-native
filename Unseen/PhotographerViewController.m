@@ -97,9 +97,9 @@
 	[pageControl setOffColor: [UIColor colorWithWhite: 0.8f alpha: 1.0f]] ;
     [self.view addSubview:pageControl];
     
-    __block float offsetX = 15;
+    __block float offsetX = 0;
     [photographer.photos enumerateObjectsUsingBlock:^(Photo *photo, BOOL *stop) {
-        CGRect imageViewFrame = CGRectMake(offsetX, 0, 290, 290);
+        CGRect imageViewFrame = CGRectMake(offsetX + 15, 0, 290, 290);
         UIImageView *imageView = [[UIImageView alloc] init];
         [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",photo.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-290.png"]];
         [imageView setContentMode:UIViewContentModeCenter];

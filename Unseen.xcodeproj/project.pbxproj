@@ -26,6 +26,7 @@
 		5BBF7DDC15E7C23400C21F03 /* Gallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF7DDB15E7C23400C21F03 /* Gallery.m */; };
 		5BBF7DDF15E7C45800C21F03 /* GalleriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF7DDE15E7C45700C21F03 /* GalleriesViewController.m */; };
 		5BBF7DE215E7CBD300C21F03 /* PhotographersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBF7DE115E7CBD300C21F03 /* PhotographersViewController.m */; };
+		5BD375FA15EE18540027BA9E /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD375F915EE18540027BA9E /* GalleryViewController.m */; };
 		5BE5533115E622DC000F78BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533015E622DC000F78BA /* UIKit.framework */; };
 		5BE5533315E622DC000F78BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533215E622DC000F78BA /* Foundation.framework */; };
 		5BE5533515E622DC000F78BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE5533415E622DC000F78BA /* CoreGraphics.framework */; };
@@ -172,6 +173,8 @@
 		5BBF7DDE15E7C45700C21F03 /* GalleriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleriesViewController.m; sourceTree = "<group>"; };
 		5BBF7DE015E7CBD200C21F03 /* PhotographersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotographersViewController.h; sourceTree = "<group>"; };
 		5BBF7DE115E7CBD300C21F03 /* PhotographersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotographersViewController.m; sourceTree = "<group>"; };
+		5BD375F815EE18530027BA9E /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		5BD375F915EE18540027BA9E /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unseen Photo Fair 2012.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE5533015E622DC000F78BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5BE5533215E622DC000F78BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -325,14 +328,10 @@
 		5BE5535C15E624AC000F78BA /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				5B8BD27015ECE9BB004285FC /* placeholder-290.png */,
-				5B8BD27915ED122E004285FC /* placeholder-55.png */,
-				5B8BD26E15ECE7EB004285FC /* placeholder.png */,
-				5B41B94415E7D22B00D64906 /* Map.png */,
-				5BE5538115E625AE000F78BA /* collect-bg.png */,
-				5BE5538215E625AE000F78BA /* collect-bg@2x.png */,
 				5BE5535D15E624AC000F78BA /* active-tab-bg.png */,
 				5BE5535E15E624AC000F78BA /* active-tab-bg@2x.png */,
+				5BE5538115E625AE000F78BA /* collect-bg.png */,
+				5BE5538215E625AE000F78BA /* collect-bg@2x.png */,
 				5BE5535F15E624AC000F78BA /* collect-tab.png */,
 				5BE5536015E624AC000F78BA /* collect-tab@2x.png */,
 				5BE5536115E624AC000F78BA /* Default.png */,
@@ -341,12 +340,16 @@
 				5BE5536415E624AC000F78BA /* fair-tab@2x.png */,
 				5BE5536515E624AC000F78BA /* Icon.png */,
 				5BE5536615E624AC000F78BA /* Icon@2x.png */,
+				5B41B94415E7D22B00D64906 /* Map.png */,
 				5BE5536715E624AC000F78BA /* me-tab.png */,
 				5BE5536815E624AC000F78BA /* me-tab@2x.png */,
 				5BE5536915E624AC000F78BA /* more-tab.png */,
 				5BE5536A15E624AC000F78BA /* more-tab@2x.png */,
 				5BE5536B15E624AC000F78BA /* news-tab.png */,
 				5BE5536C15E624AC000F78BA /* news-tab@2x.png */,
+				5B8BD27015ECE9BB004285FC /* placeholder-290.png */,
+				5B8BD27915ED122E004285FC /* placeholder-55.png */,
+				5B8BD26E15ECE7EB004285FC /* placeholder.png */,
 				5BE5536D15E624AC000F78BA /* tab-bar-bg.png */,
 				5BE5536E15E624AC000F78BA /* tab-bar-bg@2x.png */,
 			);
@@ -379,20 +382,22 @@
 		5BE553D415E64996000F78BA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5B8BD24F15ECC1D1004285FC /* PhotographerViewController.h */,
-				5B8BD25015ECC1D1004285FC /* PhotographerViewController.m */,
 				5B923F9A15E6898D009B81B7 /* EventViewController.h */,
 				5B923F9B15E6898D009B81B7 /* EventViewController.m */,
 				5BE5538F15E62B21000F78BA /* FairViewController.h */,
 				5BE5539015E62B21000F78BA /* FairViewController.m */,
-				5B41B94615E7D29D00D64906 /* MapViewController.h */,
-				5B41B94715E7D29D00D64906 /* MapViewController.m */,
-				5BE5539615E638C5000F78BA /* ProgrammeViewController.h */,
-				5BE5539715E638C5000F78BA /* ProgrammeViewController.m */,
 				5BBF7DDD15E7C45600C21F03 /* GalleriesViewController.h */,
 				5BBF7DDE15E7C45700C21F03 /* GalleriesViewController.m */,
+				5BD375F815EE18530027BA9E /* GalleryViewController.h */,
+				5BD375F915EE18540027BA9E /* GalleryViewController.m */,
+				5B41B94615E7D29D00D64906 /* MapViewController.h */,
+				5B41B94715E7D29D00D64906 /* MapViewController.m */,
 				5BBF7DE015E7CBD200C21F03 /* PhotographersViewController.h */,
 				5BBF7DE115E7CBD300C21F03 /* PhotographersViewController.m */,
+				5B8BD24F15ECC1D1004285FC /* PhotographerViewController.h */,
+				5B8BD25015ECC1D1004285FC /* PhotographerViewController.m */,
+				5BE5539615E638C5000F78BA /* ProgrammeViewController.h */,
+				5BE5539715E638C5000F78BA /* ProgrammeViewController.m */,
 				5BE5534C15E622DC000F78BA /* SecondViewController.h */,
 				5BE5534D15E622DC000F78BA /* SecondViewController.m */,
 			);
@@ -406,12 +411,12 @@
 				5B923F9615E67695009B81B7 /* Event.m */,
 				5BBF7DDA15E7C23400C21F03 /* Gallery.h */,
 				5BBF7DDB15E7C23400C21F03 /* Gallery.m */,
-				5B923F9815E67DBF009B81B7 /* UnseenSeed.sqlite */,
-				5B923F8D15E67310009B81B7 /* Unseen.xcdatamodel */,
 				5B8BD26B15ECD704004285FC /* Photo.h */,
 				5B8BD26C15ECD704004285FC /* Photo.m */,
 				5B8BD26815ECD364004285FC /* Photographer.h */,
 				5B8BD26915ECD364004285FC /* Photographer.m */,
+				5B923F8D15E67310009B81B7 /* Unseen.xcdatamodel */,
+				5B923F9815E67DBF009B81B7 /* UnseenSeed.sqlite */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -594,6 +599,7 @@
 				5B8BD26A15ECD364004285FC /* Photographer.m in Sources */,
 				5B8BD26D15ECD705004285FC /* Photo.m in Sources */,
 				5B8BD27415ECF0F7004285FC /* DDPageControl.m in Sources */,
+				5BD375FA15EE18540027BA9E /* GalleryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

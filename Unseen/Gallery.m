@@ -11,6 +11,7 @@
 @implementation Gallery
 @dynamic galleryID;
 @dynamic name;
+@dynamic text;
 @dynamic photographers;
 @dynamic photos;
 @end
