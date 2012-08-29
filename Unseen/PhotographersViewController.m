@@ -175,6 +175,7 @@
     NSFetchRequest *request = [Photographer fetchRequest];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"name.length > 0"]];
     self.photographers = [Photographer objectsWithFetchRequest:request];
 }
 
