@@ -116,12 +116,12 @@
     
     CGRect frame = galleryTextView.frame;
     frame.origin.y = offsetY;
-    CGSize textSize = [gallery.text sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width, CGFLOAT_MAX)  lineBreakMode:UILineBreakModeWordWrap];
-    frame.size.height = textSize.height + 50;
+    CGSize textSize = [gallery.text sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:UILineBreakModeWordWrap];
+    frame.size.height = textSize.height + 10;
     [galleryTextView setFrame:frame];
     
     UIScrollView *tempScrollView = (UIScrollView *)self.view;
-    tempScrollView.contentSize = CGSizeMake(320, galleryTextView.frame.origin.y + galleryTextView.frame.size.height);
+    tempScrollView.contentSize = CGSizeMake(320, galleryTextView.frame.origin.y + galleryTextView.frame.size.height + 20);
 }
 
 

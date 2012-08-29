@@ -7,6 +7,7 @@
 //
 
 #import "NewsViewController.h"
+#import "NewsItemViewController.h"
 #import "Page.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -230,12 +231,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//	if ([segue.identifier isEqualToString:@"ShowGallery"])
-//	{
-//		GalleryViewController *galleryViewController = segue.destinationViewController;
-//        NSIndexPath *selectedPath = self.tableView.indexPathForSelectedRow;
-//		galleryViewController.gallery = [self.galleries objectAtIndex:selectedPath.row];
-//	}
+	if ([segue.identifier isEqualToString:@"ShowNewsItem"])
+	{
+		NewsItemViewController *newsItemViewController = segue.destinationViewController;
+        NSIndexPath *selectedPath = self.tableView.indexPathForSelectedRow;
+		newsItemViewController.page = [self.pages objectAtIndex:selectedPath.row];
+	}
 }
 
 

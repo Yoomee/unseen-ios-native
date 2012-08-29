@@ -80,8 +80,8 @@
     self.bioTextView.font = [UIFont fontWithName:@"Apercu" size:16.0];
     
     CGRect frame = self.bioTextView.frame; 
-    CGSize textSize = [photographer.bio sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width, CGFLOAT_MAX)  lineBreakMode:UILineBreakModeWordWrap];
-    frame.size.height = textSize.height + 50;
+    CGSize textSize = [photographer.bio sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:UILineBreakModeWordWrap];
+    frame.size.height = textSize.height + 10;
     [self.bioTextView setFrame:frame];
     
     [profileImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",photographer.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-55.png"]];
@@ -110,7 +110,7 @@
     photosView.contentSize = CGSizeMake(offsetX, 280);
     
     UIScrollView *tempScrollView = (UIScrollView *)self.view;
-    tempScrollView.contentSize = CGSizeMake(320, bioTextView.frame.origin.y + bioTextView.frame.size.height + 60);
+    tempScrollView.contentSize = CGSizeMake(320, bioTextView.frame.origin.y + bioTextView.frame.size.height + 20);
 }
 
 
