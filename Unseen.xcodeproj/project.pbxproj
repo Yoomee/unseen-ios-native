@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B3D7A9A15EE5C89002B2D2F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D7A9915EE5C89002B2D2F /* NewsViewController.m */; };
 		5B3D7A9D15EE6990002B2D2F /* NewsItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D7A9C15EE6990002B2D2F /* NewsItemViewController.m */; };
+		5B3D7AA015EE74A8002B2D2F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D7A9F15EE74A8002B2D2F /* AboutViewController.m */; };
 		5B41B94515E7D22B00D64906 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B41B94415E7D22B00D64906 /* Map.png */; };
 		5B41B94815E7D29D00D64906 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B41B94715E7D29D00D64906 /* MapViewController.m */; };
 		5B41B94E15E7F30E00D64906 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B41B94D15E7F30E00D64906 /* Defaults.plist */; };
@@ -150,6 +151,8 @@
 		5B3D7A9915EE5C89002B2D2F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		5B3D7A9B15EE6990002B2D2F /* NewsItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsItemViewController.h; sourceTree = "<group>"; };
 		5B3D7A9C15EE6990002B2D2F /* NewsItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsItemViewController.m; sourceTree = "<group>"; };
+		5B3D7A9E15EE74A7002B2D2F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		5B3D7A9F15EE74A8002B2D2F /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		5B41B94415E7D22B00D64906 /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map.png; sourceTree = "<group>"; };
 		5B41B94615E7D29D00D64906 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		5B41B94715E7D29D00D64906 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 		5BE553D415E64996000F78BA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5B3D7A9E15EE74A7002B2D2F /* AboutViewController.h */,
+				5B3D7A9F15EE74A8002B2D2F /* AboutViewController.m */,
 				5B923F9A15E6898D009B81B7 /* EventViewController.h */,
 				5B923F9B15E6898D009B81B7 /* EventViewController.m */,
 				5BE5538F15E62B21000F78BA /* FairViewController.h */,
@@ -618,6 +623,7 @@
 				5BD375FD15EE3E790027BA9E /* Page.m in Sources */,
 				5B3D7A9A15EE5C89002B2D2F /* NewsViewController.m in Sources */,
 				5B3D7A9D15EE6990002B2D2F /* NewsItemViewController.m in Sources */,
+				5B3D7AA015EE74A8002B2D2F /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
