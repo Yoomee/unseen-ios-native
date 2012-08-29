@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString *bio;
 @property (nonatomic, retain) NSString *imageURL;
 @property (nonatomic, retain) NSSet *photos;
+@property (nonatomic, retain) NSSet *galleries;
 
 @end
 

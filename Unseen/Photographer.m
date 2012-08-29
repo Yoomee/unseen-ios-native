@@ -16,5 +16,6 @@
 @dynamic bio;
 @dynamic imageURL;
 @dynamic photos;
+@dynamic galleries;
 
 @end
