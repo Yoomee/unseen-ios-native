@@ -26,7 +26,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     // Override point for customization after application launch.
     // Initialize RestKit
-    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:[NSString stringWithFormat:@"%@/api", kBaseURL]];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:[NSString stringWithFormat:@"%@/api/2", kBaseURL]];
     
     // Enable automatic network activity indicator management
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
