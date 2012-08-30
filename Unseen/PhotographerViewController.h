@@ -9,18 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "Photographer.h"
 
-@class DDPageControl;
+@class DDPageControl, Photo;
 
 @interface PhotographerViewController : UIViewController <UIScrollViewDelegate> {
     DDPageControl *pageControl;
 }
 
 @property (nonatomic, strong) Photographer *photographer;
+@property (nonatomic, strong) Photo *selectedPhoto;
+@property (nonatomic, strong) NSArray *photos;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *name1;
 @property (weak, nonatomic) IBOutlet UILabel *name2;
 @property (weak, nonatomic) IBOutlet UILabel *galleryLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *photosView;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
+
+- (IBAction)showPhoto:(id)sender;
 
 @end

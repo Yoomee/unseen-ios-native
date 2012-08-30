@@ -15,6 +15,7 @@
 @synthesize titleLabel;
 @synthesize imageView;
 @synthesize captionLabel;
+@synthesize collectWorkButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,12 +48,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titleLabel.font = [UIFont fontWithName:@"Apercu-Bold" size:24.0];
-    self.titleLabel.text = photo.photographer.name;
+    titleLabel.font = [UIFont fontWithName:@"Apercu-Bold" size:24.0];
+    titleLabel.text = photo.photographer.name;
+    
+    captionLabel.font = [UIFont fontWithName:@"Apercu" size:12.0];
+    captionLabel.text = photo.caption;
+    captionLabel.numberOfLines = 0;
+    captionLabel.lineBreakMode = UILineBreakModeWordWrap;
+    
+    //Calculate the expected size based on the font and linebreak mode of your label
+    CGSize maximumLabelSize = CGSizeMake(290,9999);
+    CGSize expectedLabelSize = [photo.caption sizeWithFont:captionLabel.font constrainedToSize:maximumLabelSize lineBreakMode:captionLabel.lineBreakMode];   
+    CGRect frame = captionLabel.frame;
+    frame.size.height = expectedLabelSize.height;
+    captionLabel.frame = frame;
     
     [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",photo.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-290.png"]];
 
-
+    [collectWorkButton setSelected:photo.collected];
 }
 
 
@@ -61,6 +74,7 @@
     [self setTitleLabel:nil];
     [self setImageView:nil];
     [self setCaptionLabel:nil];
+    [self setCollectWorkButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -72,4 +86,13 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)didPressCollectWorkButton:(id)sender {
+    if(photo.collected){
+        photo.collected = NO;
+    } else {
+        photo.collected = YES;
+    }
+    [collectWorkButton setSelected:photo.collected];
+    [[[RKObjectManager sharedManager] objectStore] save:nil];
+}
 @end

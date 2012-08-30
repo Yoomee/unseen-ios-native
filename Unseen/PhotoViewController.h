@@ -17,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *collectWorkButton;
+- (IBAction)didPressCollectWorkButton:(id)sender;
 
 @end

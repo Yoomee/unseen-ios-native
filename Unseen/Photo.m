@@ -16,5 +16,6 @@
 @dynamic imageURL;
 @dynamic caption;
 @dynamic photographer;
+@dynamic collected;
 
 @end

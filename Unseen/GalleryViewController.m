@@ -11,6 +11,7 @@
 #import "Photo.h"
 #import "Photographer.h"
 #import "PhotographerViewController.h"
+#import "PhotoViewController.h"
 #import "constants.h"
 #import "DDPageControl.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -18,7 +19,9 @@
 @implementation GalleryViewController
 @synthesize gallery;
 @synthesize photographers;
+@synthesize photos;
 @synthesize selectedPhotographer;
+@synthesize selectedPhoto;
 @synthesize nameLabel;
 @synthesize representedArtistsLabel;
 @synthesize photosView;
@@ -76,16 +79,23 @@
 	[pageControl setOffColor: [UIColor colorWithWhite: 0.8f alpha: 1.0f]] ;
     [self.view addSubview:pageControl];
     
+    self.photos = [[NSArray alloc] initWithArray:[gallery.photos allObjects]];
+
+    
     __block float offsetX = 0;
-    [gallery.photos enumerateObjectsUsingBlock:^(Photo *photo, BOOL *stop) {
-        CGRect imageViewFrame = CGRectMake(offsetX + 15, 0, 290, 290);
+    for (int i = 0; i < photos.count; i++) {
+        Photo *photo = [photos objectAtIndex:i];
+        UIButton *imageButton = [[UIButton alloc] initWithFrame:CGRectMake(offsetX + 15, 0, 290, 290)];
+        imageButton.tag = i;
+        [imageButton addTarget:self action:@selector(showPhoto:) forControlEvents:UIControlEventTouchUpInside];
         UIImageView *imageView = [[UIImageView alloc] init];
         [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",photo.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-290.png"]];
         [imageView setContentMode:UIViewContentModeCenter];
-        [imageView setFrame:imageViewFrame];
-        [photosView addSubview:imageView];
+        [imageView setFrame:CGRectMake(0, 0, 290, 290)];
+        [imageButton addSubview:imageView];
+        [photosView addSubview:imageButton];
         offsetX += 320;
-    }];
+    }
     photosView.contentSize = CGSizeMake(offsetX, 280);
     
     self.photographers = [[NSArray alloc] initWithArray:[gallery.photographers allObjects]];
@@ -112,6 +122,7 @@
     }
     
     self.selectedPhotographer = nil;
+    self.selectedPhoto = nil;
     
     
     CGRect frame = galleryTextView.frame;
@@ -152,12 +163,21 @@
     [self performSegueWithIdentifier: @"ShowPhotographer" sender: self];
 }
 
+- (IBAction)showPhoto:(id)sender {
+    [self setSelectedPhoto:[photos objectAtIndex:[sender tag]]];
+    [self performSegueWithIdentifier: @"ShowPhoto" sender: self];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if ([segue.identifier isEqualToString:@"ShowPhotographer"])
 	{
 		PhotographerViewController *photographerViewController = segue.destinationViewController;
 		photographerViewController.photographer = self.selectedPhotographer;
+	} else if ([segue.identifier isEqualToString:@"ShowPhoto"])
+	{
+		PhotoViewController *photoViewController = segue.destinationViewController;
+		photoViewController.photo = self.selectedPhoto;
 	}
 }
 

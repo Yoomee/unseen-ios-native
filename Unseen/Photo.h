@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSNumber * photoID;
 @property (nonatomic, retain) NSString * imageURL;
 @property (nonatomic, retain) NSString * caption;
+@property (nonatomic) BOOL collected;
 @property (nonatomic, retain) Photographer *photographer;
 
 @end

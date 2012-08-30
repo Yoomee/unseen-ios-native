@@ -25,6 +25,7 @@
     // Load default defaults
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
     // Override point for customization after application launch.
     // Initialize RestKit
     RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:[NSString stringWithFormat:@"%@/api/2", kBaseURL]];
@@ -35,6 +36,23 @@
     // Initialize object store
     NSString *seedDatabaseName = @"UnseenSeed.sqlite";
     NSString *databaseName = @"Unseen.sqlite";
+    
+    if (NO) {
+        NSLog(@"Replacing database");
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
+        NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+        NSString *dbFilePath = [documentsDirectoryPath stringByAppendingPathComponent:databaseName];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:dbFilePath error:NULL];
+        
+        NSDate *today = [NSDate date];
+        NSDate *yesterday = [today dateByAddingTimeInterval: -86400.0];
+        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"EventsLastUpdatedAt"];
+        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"GalleriesLastUpdatedAt"];
+        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"PagesLastUpdatedAt"];
+        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"PhotographersLastUpdatedAt"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } 
     
     //objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName usingSeedDatabaseName:seedDatabaseName managedObjectModel:nil delegate:self];
     objectManager.objectStore =[RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
@@ -96,6 +114,7 @@
     [photoMapping mapKeyPath:@"id" toAttribute:@"photoID"];
     [photoMapping mapKeyPath:@"image_url_for_api" toAttribute:@"imageURL"];
     [photoMapping mapKeyPath:@"caption" toAttribute:@"caption"];
+    [photoMapping mapKeyPath:@"collected" toAttribute:@"collected"];
 
     [photoMapping mapRelationship:@"photographer" withMapping:photographerMapping];
     [photoMapping mapRelationship:@"galleries" withMapping:galleryMapping];

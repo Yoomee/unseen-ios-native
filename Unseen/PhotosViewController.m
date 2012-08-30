@@ -54,10 +54,8 @@
     
     UIView *pageWrapper;
     for(int i = 0; i < photos.count; i++){
-        if (i % 4 == 0) {
-            NSLog(@"%i", (i / 4) * 320);
+        if (i % 4 == 0)
             pageWrapper = [[UIView alloc] initWithFrame:CGRectMake(((i / 4) * 320), 0, 320, 280)];
-        }
         Photo *photo = [photos objectAtIndex:i];
         int col = ((i % 4)/2);
         int row = (i % 2);

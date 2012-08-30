@@ -7,6 +7,7 @@
 //
 
 #import "PhotographerViewController.h"
+#import "PhotoViewController.h"
 #import "Photo.h"
 #import "Gallery.h"
 #import "constants.h"
@@ -15,6 +16,8 @@
 
 @implementation PhotographerViewController
 @synthesize photographer;
+@synthesize photos;
+@synthesize selectedPhoto;
 @synthesize profileImage;
 @synthesize name1;
 @synthesize name2;
@@ -97,16 +100,24 @@
 	[pageControl setOffColor: [UIColor colorWithWhite: 0.8f alpha: 1.0f]] ;
     [self.view addSubview:pageControl];
     
+
+    self.photos = [[NSArray alloc] initWithArray:[photographer.photos allObjects]];
+    self.selectedPhoto = nil;
     __block float offsetX = 0;
-    [photographer.photos enumerateObjectsUsingBlock:^(Photo *photo, BOOL *stop) {
-        CGRect imageViewFrame = CGRectMake(offsetX + 15, 0, 290, 290);
+    for (int i = 0; i < photos.count; i++) {
+        Photo *photo = [photos objectAtIndex:i];
+        UIButton *imageButton = [[UIButton alloc] initWithFrame:CGRectMake(offsetX + 15, 0, 290, 290)];
+        imageButton.tag = i;
+        [imageButton addTarget:self action:@selector(showPhoto:) forControlEvents:UIControlEventTouchUpInside];
         UIImageView *imageView = [[UIImageView alloc] init];
         [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",photo.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-290.png"]];
         [imageView setContentMode:UIViewContentModeCenter];
-        [imageView setFrame:imageViewFrame];
-        [photosView addSubview:imageView];
+        [imageView setFrame:CGRectMake(0, 0, 290, 290)];
+        [imageButton addSubview:imageView];
+        [photosView addSubview:imageButton];
         offsetX += 320;
-    }];
+    }
+    photosView.contentSize = CGSizeMake(offsetX, 280);
     photosView.contentSize = CGSizeMake(offsetX, 280);
     
     UIScrollView *tempScrollView = (UIScrollView *)self.view;
@@ -138,6 +149,20 @@
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     pageControl.currentPage = floor((photosView.contentOffset.x - 280 / 2) / 280) + 1;
     [pageControl updateCurrentPageDisplay];
+}
+
+- (IBAction)showPhoto:(id)sender {
+    [self setSelectedPhoto:[photos objectAtIndex:[sender tag]]];
+    [self performSegueWithIdentifier: @"ShowPhoto" sender: self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"ShowPhoto"])
+	{
+		PhotoViewController *photoViewController = segue.destinationViewController;
+		photoViewController.photo = self.selectedPhoto;
+	}
 }
 
 @end
