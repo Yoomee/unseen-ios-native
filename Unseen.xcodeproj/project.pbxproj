@@ -17,6 +17,7 @@
 		5B41B94515E7D22B00D64906 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B41B94415E7D22B00D64906 /* Map.png */; };
 		5B41B94815E7D29D00D64906 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B41B94715E7D29D00D64906 /* MapViewController.m */; };
 		5B41B94E15E7F30E00D64906 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B41B94D15E7F30E00D64906 /* Defaults.plist */; };
+		5B750D2615EFA24200B2D770 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B750D2515EFA24200B2D770 /* PhotoViewController.m */; };
 		5B8BD25115ECC1D1004285FC /* PhotographerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8BD25015ECC1D1004285FC /* PhotographerViewController.m */; };
 		5B8BD26A15ECD364004285FC /* Photographer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8BD26915ECD364004285FC /* Photographer.m */; };
 		5B8BD26D15ECD705004285FC /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8BD26C15ECD704004285FC /* Photo.m */; };
@@ -166,6 +167,8 @@
 		5B41B94615E7D29D00D64906 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		5B41B94715E7D29D00D64906 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		5B41B94D15E7F30E00D64906 /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Defaults.plist; path = Resources/Defaults.plist; sourceTree = "<group>"; };
+		5B750D2415EFA24200B2D770 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		5B750D2515EFA24200B2D770 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		5B8BD24F15ECC1D1004285FC /* PhotographerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotographerViewController.h; sourceTree = "<group>"; };
 		5B8BD25015ECC1D1004285FC /* PhotographerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotographerViewController.m; sourceTree = "<group>"; };
 		5B8BD26515ECCAC9004285FC /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -426,6 +429,8 @@
 				5B3D7A9C15EE6990002B2D2F /* NewsItemViewController.m */,
 				5B3D7A9815EE5C89002B2D2F /* NewsViewController.h */,
 				5B3D7A9915EE5C89002B2D2F /* NewsViewController.m */,
+				5B750D2415EFA24200B2D770 /* PhotoViewController.h */,
+				5B750D2515EFA24200B2D770 /* PhotoViewController.m */,
 				5BBF7DE015E7CBD200C21F03 /* PhotographersViewController.h */,
 				5BBF7DE115E7CBD300C21F03 /* PhotographersViewController.m */,
 				5B8BD24F15ECC1D1004285FC /* PhotographerViewController.h */,
@@ -642,6 +647,7 @@
 				5B3D7A9D15EE6990002B2D2F /* NewsItemViewController.m in Sources */,
 				5B3D7AA015EE74A8002B2D2F /* AboutViewController.m in Sources */,
 				5B03E9EE15EF7219005058AA /* PhotosViewController.m in Sources */,
+				5B750D2615EFA24200B2D770 /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
