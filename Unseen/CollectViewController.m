@@ -1,14 +1,14 @@
 //
-//  SecondViewController.m
+//  CollectViewController.m
 //  Unseen
 //
 //  Created by Matthew Atkins on 23/08/2012.
 //  Copyright (c) 2012 Yoomee. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "CollectViewController.h"
 
-@implementation SecondViewController
+@implementation CollectViewController
 
 - (void)didReceiveMemoryWarning
 {
@@ -21,6 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)viewDidUnload
@@ -33,6 +34,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -56,11 +59,14 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (IBAction)didPressFairAndFestival:(id)sender {
-    [self.tabBarController setSelectedIndex:1];
+- (IBAction)didPressProgramme2012:(id)sender {
+    [self.tabBarController setSelectedIndex:0];
+    UINavigationController *navigationController = (UINavigationController *)self.tabBarController.selectedViewController;
+    UIViewController *fairViewController = [[navigationController viewControllers] objectAtIndex:0];
+    [fairViewController performSegueWithIdentifier:@"ProgrammeViewController" sender:fairViewController];
 }
 
-- (IBAction)didPressVisitOurSite:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.unseenamsterdam.com"]];
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 }
+
 @end

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B03E9EE15EF7219005058AA /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B03E9ED15EF7219005058AA /* PhotosViewController.m */; };
+		5B03E9F015EF7910005058AA /* placeholder-130.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B03E9EF15EF7910005058AA /* placeholder-130.png */; };
+		5B03E9F315EF890A005058AA /* collect-buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B03E9F115EF890A005058AA /* collect-buttons.png */; };
+		5B03E9F415EF890A005058AA /* collect-buttons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B03E9F215EF890A005058AA /* collect-buttons@2x.png */; };
 		5B3D7A9A15EE5C89002B2D2F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D7A9915EE5C89002B2D2F /* NewsViewController.m */; };
 		5B3D7A9D15EE6990002B2D2F /* NewsItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D7A9C15EE6990002B2D2F /* NewsItemViewController.m */; };
 		5B3D7AA015EE74A8002B2D2F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D7A9F15EE74A8002B2D2F /* AboutViewController.m */; };
@@ -38,7 +42,7 @@
 		5BE5533D15E622DC000F78BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5533C15E622DC000F78BA /* main.m */; };
 		5BE5534115E622DC000F78BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5534015E622DC000F78BA /* AppDelegate.m */; };
 		5BE5534415E622DC000F78BA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5534215E622DC000F78BA /* MainStoryboard.storyboard */; };
-		5BE5534E15E622DC000F78BA /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5534D15E622DC000F78BA /* SecondViewController.m */; };
+		5BE5534E15E622DC000F78BA /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5534D15E622DC000F78BA /* CollectViewController.m */; };
 		5BE5536F15E624AC000F78BA /* active-tab-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5535D15E624AC000F78BA /* active-tab-bg.png */; };
 		5BE5537015E624AC000F78BA /* active-tab-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5535E15E624AC000F78BA /* active-tab-bg@2x.png */; };
 		5BE5537115E624AC000F78BA /* collect-tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5535F15E624AC000F78BA /* collect-tab.png */; };
@@ -147,6 +151,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B03E9EC15EF7218005058AA /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
+		5B03E9ED15EF7219005058AA /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
+		5B03E9EF15EF7910005058AA /* placeholder-130.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder-130.png"; sourceTree = "<group>"; };
+		5B03E9F115EF890A005058AA /* collect-buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collect-buttons.png"; sourceTree = "<group>"; };
+		5B03E9F215EF890A005058AA /* collect-buttons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collect-buttons@2x.png"; sourceTree = "<group>"; };
 		5B3D7A9815EE5C89002B2D2F /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		5B3D7A9915EE5C89002B2D2F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		5B3D7A9B15EE6990002B2D2F /* NewsItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsItemViewController.h; sourceTree = "<group>"; };
@@ -198,8 +207,8 @@
 		5BE5533F15E622DC000F78BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5BE5534015E622DC000F78BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5BE5534315E622DC000F78BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		5BE5534C15E622DC000F78BA /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		5BE5534D15E622DC000F78BA /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		5BE5534C15E622DC000F78BA /* CollectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectViewController.h; sourceTree = "<group>"; };
+		5BE5534D15E622DC000F78BA /* CollectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectViewController.m; sourceTree = "<group>"; };
 		5BE5535D15E624AC000F78BA /* active-tab-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active-tab-bg.png"; sourceTree = "<group>"; };
 		5BE5535E15E624AC000F78BA /* active-tab-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active-tab-bg@2x.png"; sourceTree = "<group>"; };
 		5BE5535F15E624AC000F78BA /* collect-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collect-tab.png"; sourceTree = "<group>"; };
@@ -344,6 +353,8 @@
 				5BE5535E15E624AC000F78BA /* active-tab-bg@2x.png */,
 				5BE5538115E625AE000F78BA /* collect-bg.png */,
 				5BE5538215E625AE000F78BA /* collect-bg@2x.png */,
+				5B03E9F115EF890A005058AA /* collect-buttons.png */,
+				5B03E9F215EF890A005058AA /* collect-buttons@2x.png */,
 				5BE5535F15E624AC000F78BA /* collect-tab.png */,
 				5BE5536015E624AC000F78BA /* collect-tab@2x.png */,
 				5BE5536115E624AC000F78BA /* Default.png */,
@@ -361,6 +372,7 @@
 				5BE5536C15E624AC000F78BA /* news-tab@2x.png */,
 				5B8BD27015ECE9BB004285FC /* placeholder-290.png */,
 				5B8BD27915ED122E004285FC /* placeholder-55.png */,
+				5B03E9EF15EF7910005058AA /* placeholder-130.png */,
 				5B8BD26E15ECE7EB004285FC /* placeholder.png */,
 				5BE5536D15E624AC000F78BA /* tab-bar-bg.png */,
 				5BE5536E15E624AC000F78BA /* tab-bar-bg@2x.png */,
@@ -396,6 +408,10 @@
 			children = (
 				5B3D7A9E15EE74A7002B2D2F /* AboutViewController.h */,
 				5B3D7A9F15EE74A8002B2D2F /* AboutViewController.m */,
+				5BE5534C15E622DC000F78BA /* CollectViewController.h */,
+				5BE5534D15E622DC000F78BA /* CollectViewController.m */,
+				5B03E9EC15EF7218005058AA /* PhotosViewController.h */,
+				5B03E9ED15EF7219005058AA /* PhotosViewController.m */,
 				5B923F9A15E6898D009B81B7 /* EventViewController.h */,
 				5B923F9B15E6898D009B81B7 /* EventViewController.m */,
 				5BE5538F15E62B21000F78BA /* FairViewController.h */,
@@ -416,8 +432,6 @@
 				5B8BD25015ECC1D1004285FC /* PhotographerViewController.m */,
 				5BE5539615E638C5000F78BA /* ProgrammeViewController.h */,
 				5BE5539715E638C5000F78BA /* ProgrammeViewController.m */,
-				5BE5534C15E622DC000F78BA /* SecondViewController.h */,
-				5BE5534D15E622DC000F78BA /* SecondViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -593,6 +607,9 @@
 				5B8BD26F15ECE7EB004285FC /* placeholder.png in Resources */,
 				5B8BD27115ECE9BB004285FC /* placeholder-290.png in Resources */,
 				5B8BD27A15ED122E004285FC /* placeholder-55.png in Resources */,
+				5B03E9F015EF7910005058AA /* placeholder-130.png in Resources */,
+				5B03E9F315EF890A005058AA /* collect-buttons.png in Resources */,
+				5B03E9F415EF890A005058AA /* collect-buttons@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,7 +622,7 @@
 			files = (
 				5BE5533D15E622DC000F78BA /* main.m in Sources */,
 				5BE5534115E622DC000F78BA /* AppDelegate.m in Sources */,
-				5BE5534E15E622DC000F78BA /* SecondViewController.m in Sources */,
+				5BE5534E15E622DC000F78BA /* CollectViewController.m in Sources */,
 				5BE5539115E62B21000F78BA /* FairViewController.m in Sources */,
 				5BE5539815E638C5000F78BA /* ProgrammeViewController.m in Sources */,
 				5B923F9115E67310009B81B7 /* Unseen.xcdatamodel in Sources */,
@@ -624,6 +641,7 @@
 				5B3D7A9A15EE5C89002B2D2F /* NewsViewController.m in Sources */,
 				5B3D7A9D15EE6990002B2D2F /* NewsItemViewController.m in Sources */,
 				5B3D7AA015EE74A8002B2D2F /* AboutViewController.m in Sources */,
+				5B03E9EE15EF7219005058AA /* PhotosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
