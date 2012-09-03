@@ -8,6 +8,7 @@
 
 #import "PhotoViewController.h"
 #import "Photo.h"
+#import "Favourite.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation PhotoViewController
@@ -48,6 +49,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
+        [collectWorkButton setHidden:NO];
+    } else {
+        [collectWorkButton setHidden:YES];        
+    }
+    
     titleLabel.font = [UIFont fontWithName:@"Apercu-Bold" size:24.0];
     titleLabel.text = photo.photographer.name;
     
@@ -65,7 +74,7 @@
     
     [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",photo.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-290.png"]];
 
-    [collectWorkButton setSelected:photo.collected];
+    [collectWorkButton setSelected:NO];
 }
 
 
@@ -87,12 +96,58 @@
 }
 
 - (IBAction)didPressCollectWorkButton:(id)sender {
-    if(photo.collected){
-        photo.collected = NO;
+    if(photo.favourite){
+        [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[photo favourite] delegate:self];
     } else {
-        photo.collected = YES;
+        NSDictionary* favouriteParams = [NSDictionary dictionaryWithKeysAndObjects:@"resource_type", @"Photo", @"resource_id", photo.photoID, nil];  
+        [[RKClient sharedClient] post:@"/api/2/favourites" params:[NSDictionary dictionaryWithObject:favouriteParams forKey:@"favourite"] delegate:self];
     }
-    [collectWorkButton setSelected:photo.collected];
-    [[[RKObjectManager sharedManager] objectStore] save:nil];
+    [collectWorkButton setSelected:![photo.favourite isDeleted]];
+}
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    
+    if ([request isGET]) {  
+        // Handling GET /foo.xml  
+        
+        if ([response isOK]) {  
+            // Success! Let's take a look at the data  
+            NSLog(@"Retrieved XML: %@", [response bodyAsString]);  
+        }  
+        
+    } else if ([request isPOST]) {  
+        
+        // Handling POST /other.json          
+        if ([response isJSON]) {  
+            NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[response parsedBody:nil]];
+            
+            Favourite *newFavourite = [Favourite object];
+            newFavourite.favouriteID = [dict objectForKey:@"favourite_id"];
+            newFavourite.updatedAt = [NSDate new];
+            photo.favourite = newFavourite;
+            [[[RKObjectManager sharedManager] objectStore] save:nil];
+        }  
+        
+    } else if ([request isDELETE]) {  
+        
+        // Handling DELETE /missing_resource.txt  
+        if ([response isNotFound]) {  
+            NSLog(@"The resource path '%@' was not found.", [request resourcePath]);  
+        }  
+    }  
+}  
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //    [alert show];
+    NSLog(@"Hit error: %@", error);
+}
+
+-(void) request:(RKRequest *)request didFailLoadWithError:(NSError *)error  {
+    NSLog(@"%@",error);
 }
 @end

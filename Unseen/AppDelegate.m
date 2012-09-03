@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "constants.h"
 #import "Event.h"
+#import "Favourite.h"
 #import "Gallery.h"
 #import "Page.h"
 #import "Photographer.h"
@@ -23,12 +24,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {   
     // Load default defaults
-    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
+    [defaults synchronize];
     
-    // Override point for customization after application launch.
     // Initialize RestKit
+    RKClient* client = [RKClient clientWithBaseURL:[NSURL URLWithString:kBaseURL]];  
+    [client setValue:[defaults stringForKey:@"UserApiKey"] forHTTPHeaderField:@"APIKEY"];
+    
     RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:[NSString stringWithFormat:@"%@/api/2", kBaseURL]];
+    [[objectManager client] setValue:[defaults stringForKey:@"UserApiKey"] forHTTPHeaderField:@"APIKEY"];
     
     // Enable automatic network activity indicator management
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
@@ -114,7 +119,6 @@
     [photoMapping mapKeyPath:@"id" toAttribute:@"photoID"];
     [photoMapping mapKeyPath:@"image_url_for_api" toAttribute:@"imageURL"];
     [photoMapping mapKeyPath:@"caption" toAttribute:@"caption"];
-    [photoMapping mapKeyPath:@"collected" toAttribute:@"collected"];
 
     [photoMapping mapRelationship:@"photographer" withMapping:photographerMapping];
     [photoMapping mapRelationship:@"galleries" withMapping:galleryMapping];
@@ -124,6 +128,18 @@
     
     [galleryMapping mapRelationship:@"photographers" withMapping:photographerMapping];
     [galleryMapping mapRelationship:@"photos" withMapping:photoMapping];
+    
+    RKManagedObjectMapping* favouriteMapping = [RKManagedObjectMapping mappingForClass:[Favourite class] inManagedObjectStore:objectManager.objectStore];
+    favouriteMapping.primaryKeyAttribute = @"favouriteID";
+    [favouriteMapping mapKeyPath:@"id" toAttribute:@"favouriteID"];
+    [favouriteMapping mapKeyPath:@"updated_at" toAttribute:@"updatedAt"];
+    [favouriteMapping mapRelationship:@"photo" withMapping:photoMapping];
+    [objectManager.mappingProvider setObjectMapping:favouriteMapping forResourcePathPattern:@"/favourites"];
+    
+    RKObjectRouter *router = [RKObjectManager sharedManager].router;
+    [router routeClass:[Favourite class] toResourcePath:@"/favourites/:favouriteID"];
+    
+    [photoMapping mapRelationship:@"favourite" withMapping:favouriteMapping];
     
     return YES;
 }
@@ -165,6 +181,23 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+- (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    if ([[url host] isEqualToString:@"api"]) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSDictionary *userParams =[url queryParameters];
+        for (NSString *key in userParams){
+            [defaults setValue:[userParams objectForKey:key] forKey:key];   
+        }
+        [defaults synchronize];
+        [[RKClient sharedClient] setValue:[defaults stringForKey:@"UserApiKey"] forHTTPHeaderField:@"APIKEY"];
+        [[[RKObjectManager sharedManager] client] setValue:[defaults stringForKey:@"UserApiKey"] forHTTPHeaderField:@"APIKEY"];
+    }
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    [tabBarController setSelectedIndex:2];
+    [tabBarController setSelectedIndex:3];
+    return YES;
 }
 
 @end

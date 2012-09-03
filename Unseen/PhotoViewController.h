@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>  
 #import "Photographer.h"
 
 @class Photo;
 
-@interface PhotoViewController : UIViewController
+@interface PhotoViewController : UIViewController <RKRequestDelegate, RKObjectLoaderDelegate>
 
 @property (nonatomic, strong) Photo *photo;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

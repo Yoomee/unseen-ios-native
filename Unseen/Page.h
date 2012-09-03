@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * pageID;
 @property (nonatomic, retain) NSString * text;
 @property (nonatomic, retain) NSString * imageURL;
+@property (nonatomic, retain) NSString * thumbnailImageURL;
 @property (nonatomic, retain) NSNumber * imageHeight;
 @property (nonatomic, retain) NSNumber * parentID;
 @property (nonatomic, retain) NSSet *parent;

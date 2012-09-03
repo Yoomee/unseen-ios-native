@@ -103,7 +103,7 @@
 	UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:@"NewsItemCell"];
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
     Page *page = [self.pages objectAtIndex:indexPath.row];
-    [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",page.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-55.png"]];
+    [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",page.thumbnailImageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-55.png"]];
     
     UILabel *titleLabel1 = (UILabel *)[cell viewWithTag:2];
     UILabel *titleLabel2 = (UILabel *)[cell viewWithTag:3];

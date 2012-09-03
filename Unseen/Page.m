@@ -16,6 +16,7 @@
 @dynamic pageID;
 @dynamic text;
 @dynamic imageURL;
+@dynamic thumbnailImageURL;
 @dynamic imageHeight;
 @dynamic parentID;
 @dynamic parent;
