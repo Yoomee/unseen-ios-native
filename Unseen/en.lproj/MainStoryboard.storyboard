@@ -13,9 +13,9 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" image="collect-bg.png" id="k7m-IA-kPb">
+                            <imageView userInteractionEnabled="NO" contentMode="top" image="collect-bg.png" id="k7m-IA-kPb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XQE-JO-zga">
                                 <rect key="frame" x="37" y="257" width="245" height="46"/>
@@ -954,12 +954,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" image="me-bg.png" id="SdT-2X-L99">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="411"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="top" image="me-bg.png" id="SdT-2X-L99">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ei2-Io-szZ">
-                                        <rect key="frame" x="35" y="253" width="247" height="45"/>
+                                        <rect key="frame" x="35" y="231" width="247" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal">

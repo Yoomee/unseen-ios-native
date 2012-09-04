@@ -8,6 +8,8 @@
 
 #import "ProfileViewController.h"
 #import "Photo.h"
+#import "Favourite.h"
+#import "FavouritesSync.h"
 #import "constants.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -140,15 +142,21 @@
     NSFetchRequest *request = [Photo fetchRequest];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"favourite.favouriteID" ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"favourite != nil"]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"favourite != nil AND favourite.destroyed = NO"]];
     self.photos = [Photo objectsWithFetchRequest:request];
 }
 
 - (void)loadData
 {
-    // Load the object model via RestKit
+    NSFetchRequest *request = [Favourite fetchRequest];
+    NSArray *favourites = [Favourite objectsWithFetchRequest:request];
+    
+    
+    FavouritesSync *favouritesSync = [[FavouritesSync alloc] init];
+    [favouritesSync setFavourites:favourites];
+    
     RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    [objectManager loadObjectsAtResourcePath:@"/favourites" delegate:self];
+    [objectManager postObject:favouritesSync delegate:nil];
 }
 
 #pragma mark RKObjectLoaderDelegate methods

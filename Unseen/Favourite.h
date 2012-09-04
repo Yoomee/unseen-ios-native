@@ -15,7 +15,8 @@
 }
 
 @property (nonatomic, retain) NSNumber * favouriteID;
-@property (nonatomic, retain) NSManagedObject *favouriteable;
+@property (nonatomic, retain) NSDate * updatedAt;
 @property (nonatomic, retain) Photo *photo;
+@property (nonatomic) BOOL destroyed;
 
 @end

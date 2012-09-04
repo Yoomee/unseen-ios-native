@@ -12,6 +12,7 @@
 #import "constants.h"
 #import "Event.h"
 #import "Favourite.h"
+#import "FavouritesSync.h"
 #import "Gallery.h"
 #import "Page.h"
 #import "Photographer.h"
@@ -119,9 +120,6 @@
     [photoMapping mapKeyPath:@"id" toAttribute:@"photoID"];
     [photoMapping mapKeyPath:@"image_url_for_api" toAttribute:@"imageURL"];
     [photoMapping mapKeyPath:@"caption" toAttribute:@"caption"];
-
-    [photoMapping mapRelationship:@"photographer" withMapping:photographerMapping];
-    [photoMapping mapRelationship:@"galleries" withMapping:galleryMapping];
     
     [photographerMapping mapRelationship:@"galleries" withMapping:galleryMapping];
     [photographerMapping mapRelationship:@"photos" withMapping:photoMapping];
@@ -132,14 +130,34 @@
     RKManagedObjectMapping* favouriteMapping = [RKManagedObjectMapping mappingForClass:[Favourite class] inManagedObjectStore:objectManager.objectStore];
     favouriteMapping.primaryKeyAttribute = @"favouriteID";
     [favouriteMapping mapKeyPath:@"id" toAttribute:@"favouriteID"];
+    [favouriteMapping mapKeyPath:@"deleted" toAttribute:@"destroyed"];
     [favouriteMapping mapKeyPath:@"updated_at" toAttribute:@"updatedAt"];
     [favouriteMapping mapRelationship:@"photo" withMapping:photoMapping];
     [objectManager.mappingProvider setObjectMapping:favouriteMapping forResourcePathPattern:@"/favourites"];
     
+    RKObjectMapping* favouriteSerializationMapping = [favouriteMapping inverseMapping];
+    [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:favouriteSerializationMapping forClass:[Favourite class]]; 
+
+    
     RKObjectRouter *router = [RKObjectManager sharedManager].router;
     [router routeClass:[Favourite class] toResourcePath:@"/favourites/:favouriteID"];
+    [router routeClass:[Favourite class] toResourcePath:@"/favourites" forMethod:RKRequestMethodPOST]; 
     
-    [photoMapping mapRelationship:@"favourite" withMapping:favouriteMapping];
+    [photoMapping mapKeyPath:@"favourite" toRelationship:@"favourite" withMapping:favouriteMapping serialize:NO];
+    [photoMapping mapKeyPath:@"photographer" toRelationship:@"photographer" withMapping:photographerMapping serialize:NO];
+    [photoMapping mapKeyPath:@"galleries" toRelationship:@"galleries" withMapping:galleryMapping serialize:NO];
+    
+    //now, we create mapping for the MySyncEntity
+    RKObjectMapping *favouritesSyncMapping = [RKObjectMapping mappingForClass:[FavouritesSync class]];
+    [favouritesSyncMapping mapKeyPath:@"favourites" toRelationship:@"favourites" withMapping:favouriteMapping];
+
+    
+    RKObjectMapping* favouritesSyncSerializationMapping = [favouritesSyncMapping inverseMapping];
+    [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:favouritesSyncSerializationMapping forClass:[FavouritesSync class]]; 
+    
+    
+    [router routeClass:[FavouritesSync class] toResourcePath:@"/favourites/sync"];
+
     
     return YES;
 }

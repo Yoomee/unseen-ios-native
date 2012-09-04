@@ -12,7 +12,8 @@
 @implementation Favourite
 
 @dynamic favouriteID;
-@dynamic favouriteable;
+@dynamic updatedAt;
 @dynamic photo;
+@dynamic destroyed;
 
 @end

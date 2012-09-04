@@ -26,6 +26,7 @@
 		5B41B94815E7D29D00D64906 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B41B94715E7D29D00D64906 /* MapViewController.m */; };
 		5B41B94E15E7F30E00D64906 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B41B94D15E7F30E00D64906 /* Defaults.plist */; };
 		5B750D2615EFA24200B2D770 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B750D2515EFA24200B2D770 /* PhotoViewController.m */; };
+		5B87369215F50BB0000B12BD /* FavouritesSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B87369115F50BB0000B12BD /* FavouritesSync.m */; };
 		5B8BD25115ECC1D1004285FC /* PhotographerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8BD25015ECC1D1004285FC /* PhotographerViewController.m */; };
 		5B8BD26A15ECD364004285FC /* Photographer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8BD26915ECD364004285FC /* Photographer.m */; };
 		5B8BD26D15ECD705004285FC /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8BD26C15ECD704004285FC /* Photo.m */; };
@@ -214,6 +215,8 @@
 		5B41B94D15E7F30E00D64906 /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Defaults.plist; path = Resources/Defaults.plist; sourceTree = "<group>"; };
 		5B750D2415EFA24200B2D770 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		5B750D2515EFA24200B2D770 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		5B87369015F50BAF000B12BD /* FavouritesSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesSync.h; sourceTree = "<group>"; };
+		5B87369115F50BB0000B12BD /* FavouritesSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesSync.m; sourceTree = "<group>"; };
 		5B8BD24F15ECC1D1004285FC /* PhotographerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotographerViewController.h; sourceTree = "<group>"; };
 		5B8BD25015ECC1D1004285FC /* PhotographerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotographerViewController.m; sourceTree = "<group>"; };
 		5B8BD26515ECCAC9004285FC /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -515,6 +518,8 @@
 				5B750D2515EFA24200B2D770 /* PhotoViewController.m */,
 				5B41700E15EFC6F10003E694 /* ProfileViewController.h */,
 				5B41700F15EFC6F20003E694 /* ProfileViewController.m */,
+				5B87369015F50BAF000B12BD /* FavouritesSync.h */,
+				5B87369115F50BB0000B12BD /* FavouritesSync.m */,
 				5BE5539615E638C5000F78BA /* ProgrammeViewController.h */,
 				5BE5539715E638C5000F78BA /* ProgrammeViewController.m */,
 			);
@@ -738,6 +743,7 @@
 				5B750D2615EFA24200B2D770 /* PhotoViewController.m in Sources */,
 				5B41701015EFC6F30003E694 /* ProfileViewController.m in Sources */,
 				5B2BBA2915F0F5D20058316C /* Favourite.m in Sources */,
+				5B87369215F50BB0000B12BD /* FavouritesSync.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

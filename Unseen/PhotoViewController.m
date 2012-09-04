@@ -50,13 +50,6 @@
 {
     [super viewDidLoad];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
-        [collectWorkButton setHidden:NO];
-    } else {
-        [collectWorkButton setHidden:YES];        
-    }
-    
     titleLabel.font = [UIFont fontWithName:@"Apercu-Bold" size:24.0];
     titleLabel.text = photo.photographer.name;
     
@@ -73,8 +66,20 @@
     captionLabel.frame = frame;
     
     [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",photo.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-290.png"]];
+}
 
-    [collectWorkButton setSelected:NO];
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
+        [collectWorkButton setHidden:NO];
+        if(photo.favourite && !photo.favourite.destroyed)
+            [collectWorkButton setSelected:YES];
+        else
+            [collectWorkButton setSelected:NO];
+    } else {
+        [collectWorkButton setHidden:YES];        
+    }
 }
 
 
@@ -96,13 +101,25 @@
 }
 
 - (IBAction)didPressCollectWorkButton:(id)sender {
-    if(photo.favourite){
+    if(photo.favourite && !photo.favourite.destroyed){
+        [collectWorkButton setSelected:NO];
+        photo.favourite.destroyed = YES;
+        photo.favourite.updatedAt = [NSDate new];
         [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[photo favourite] delegate:self];
     } else {
-        NSDictionary* favouriteParams = [NSDictionary dictionaryWithKeysAndObjects:@"resource_type", @"Photo", @"resource_id", photo.photoID, nil];  
-        [[RKClient sharedClient] post:@"/api/2/favourites" params:[NSDictionary dictionaryWithObject:favouriteParams forKey:@"favourite"] delegate:self];
+        [collectWorkButton setSelected:YES];
+        Favourite *favourite;
+        if(photo.favourite) {
+            favourite = photo.favourite;
+        } else {
+            favourite = [Favourite object];
+            favourite.photo = photo;
+        }
+        favourite.destroyed = NO;
+        favourite.updatedAt = [NSDate new];
+        [[RKObjectManager sharedManager] postObject:favourite delegate:self];
     }
-    [collectWorkButton setSelected:![photo.favourite isDeleted]];
+    [[[RKObjectManager sharedManager] objectStore] save:nil];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    
@@ -115,16 +132,8 @@
         }  
         
     } else if ([request isPOST]) {  
-        
-        // Handling POST /other.json          
+        // Handling POST /other.json
         if ([response isJSON]) {  
-            NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[response parsedBody:nil]];
-            
-            Favourite *newFavourite = [Favourite object];
-            newFavourite.favouriteID = [dict objectForKey:@"favourite_id"];
-            newFavourite.updatedAt = [NSDate new];
-            photo.favourite = newFavourite;
-            [[[RKObjectManager sharedManager] objectStore] save:nil];
         }  
         
     } else if ([request isDELETE]) {  
