@@ -518,8 +518,6 @@
 				5B750D2515EFA24200B2D770 /* PhotoViewController.m */,
 				5B41700E15EFC6F10003E694 /* ProfileViewController.h */,
 				5B41700F15EFC6F20003E694 /* ProfileViewController.m */,
-				5B87369015F50BAF000B12BD /* FavouritesSync.h */,
-				5B87369115F50BB0000B12BD /* FavouritesSync.m */,
 				5BE5539615E638C5000F78BA /* ProgrammeViewController.h */,
 				5BE5539715E638C5000F78BA /* ProgrammeViewController.m */,
 			);
@@ -529,6 +527,8 @@
 		5BE553D515E649A2000F78BA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5B87369015F50BAF000B12BD /* FavouritesSync.h */,
+				5B87369115F50BB0000B12BD /* FavouritesSync.m */,
 				5B923F9515E67695009B81B7 /* Event.h */,
 				5B923F9615E67695009B81B7 /* Event.m */,
 				5B2BBA2715F0F5D20058316C /* Favourite.h */,

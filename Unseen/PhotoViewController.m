@@ -73,7 +73,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if([[defaults stringForKey:@"UserApiKey"] length] > 0){
         [collectWorkButton setHidden:NO];
-        if(photo.favourite && !photo.favourite.destroyed)
+        if(photo.favourite != nil && !photo.favourite.destroyed)
             [collectWorkButton setSelected:YES];
         else
             [collectWorkButton setSelected:NO];

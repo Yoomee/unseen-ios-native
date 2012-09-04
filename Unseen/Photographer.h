@@ -9,6 +9,8 @@
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
 
+@class Favourite;
+
 @interface Photographer : NSManagedObject{
 }
 
@@ -18,6 +20,7 @@
 @property (nonatomic, retain) NSString *imageURL;
 @property (nonatomic, retain) NSSet *photos;
 @property (nonatomic, retain) NSSet *galleries;
+@property (nonatomic, retain) Favourite *favourite;
 
 @end
 

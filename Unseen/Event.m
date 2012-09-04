@@ -7,6 +7,7 @@
 //
 
 #import "Event.h"
+#import "Favourite.h"
 
 @implementation Event
 @dynamic eventID;
@@ -21,4 +22,5 @@
 @dynamic day3;
 @dynamic day4;
 @dynamic day5;
+@dynamic favourite;
 @end

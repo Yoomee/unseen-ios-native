@@ -7,6 +7,7 @@
 //
 
 #import "Gallery.h"
+#import "Favourite.h"
 
 @implementation Gallery
 @dynamic galleryID;
@@ -14,4 +15,5 @@
 @dynamic text;
 @dynamic photographers;
 @dynamic photos;
+@dynamic favourite;
 @end

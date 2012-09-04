@@ -121,18 +121,21 @@
     [photoMapping mapKeyPath:@"image_url_for_api" toAttribute:@"imageURL"];
     [photoMapping mapKeyPath:@"caption" toAttribute:@"caption"];
     
-    [photographerMapping mapRelationship:@"galleries" withMapping:galleryMapping];
-    [photographerMapping mapRelationship:@"photos" withMapping:photoMapping];
+    [photographerMapping mapKeyPath:@"galleries" toRelationship:@"galleries" withMapping:galleryMapping serialize:NO];
+    [photographerMapping mapKeyPath:@"photos" toRelationship:@"photos" withMapping:photoMapping serialize:NO];
     
-    [galleryMapping mapRelationship:@"photographers" withMapping:photographerMapping];
-    [galleryMapping mapRelationship:@"photos" withMapping:photoMapping];
+    [galleryMapping mapKeyPath:@"photographers" toRelationship:@"photographers" withMapping:photographerMapping serialize:NO];
+    [galleryMapping mapKeyPath:@"photos" toRelationship:@"photos" withMapping:photoMapping serialize:NO];
     
     RKManagedObjectMapping* favouriteMapping = [RKManagedObjectMapping mappingForClass:[Favourite class] inManagedObjectStore:objectManager.objectStore];
     favouriteMapping.primaryKeyAttribute = @"favouriteID";
     [favouriteMapping mapKeyPath:@"id" toAttribute:@"favouriteID"];
     [favouriteMapping mapKeyPath:@"deleted" toAttribute:@"destroyed"];
     [favouriteMapping mapKeyPath:@"updated_at" toAttribute:@"updatedAt"];
+    [favouriteMapping mapRelationship:@"event" withMapping:eventMapping];
+    [favouriteMapping mapRelationship:@"gallery" withMapping:galleryMapping];
     [favouriteMapping mapRelationship:@"photo" withMapping:photoMapping];
+    [favouriteMapping mapRelationship:@"photographer" withMapping:photographerMapping];
     [objectManager.mappingProvider setObjectMapping:favouriteMapping forResourcePathPattern:@"/favourites"];
     
     RKObjectMapping* favouriteSerializationMapping = [favouriteMapping inverseMapping];
@@ -143,7 +146,13 @@
     [router routeClass:[Favourite class] toResourcePath:@"/favourites/:favouriteID"];
     [router routeClass:[Favourite class] toResourcePath:@"/favourites" forMethod:RKRequestMethodPOST]; 
     
+    NSString *weirdEmptyStringWhereNilJustFails = @"";
+    [[RKObjectManager sharedManager].mappingProvider registerObjectMapping:favouriteSerializationMapping withRootKeyPath: weirdEmptyStringWhereNilJustFails];
+    
+    [eventMapping mapKeyPath:@"favourite" toRelationship:@"favourite" withMapping:favouriteMapping serialize:NO];
+    [galleryMapping mapKeyPath:@"favourite" toRelationship:@"favourite" withMapping:favouriteMapping serialize:NO];
     [photoMapping mapKeyPath:@"favourite" toRelationship:@"favourite" withMapping:favouriteMapping serialize:NO];
+    [photographerMapping mapKeyPath:@"favourite" toRelationship:@"favourite" withMapping:favouriteMapping serialize:NO];
     [photoMapping mapKeyPath:@"photographer" toRelationship:@"photographer" withMapping:photographerMapping serialize:NO];
     [photoMapping mapKeyPath:@"galleries" toRelationship:@"galleries" withMapping:galleryMapping serialize:NO];
     

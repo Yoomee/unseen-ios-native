@@ -7,7 +7,7 @@
 //
 
 #import "Photographer.h"
-
+#import "Favourite.h"
 
 @implementation Photographer
 
@@ -17,5 +17,6 @@
 @dynamic imageURL;
 @dynamic photos;
 @dynamic galleries;
+@dynamic favourite;
 
 @end

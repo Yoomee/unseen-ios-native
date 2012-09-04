@@ -9,6 +9,8 @@
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
 
+@class Favourite;
+
 @interface Gallery : NSManagedObject{
 }
 
@@ -17,6 +19,8 @@
 @property (nonatomic, retain) NSString *text;
 @property (nonatomic, retain) NSSet *photos;
 @property (nonatomic, retain) NSSet *photographers;
+@property (nonatomic, retain) Favourite *favourite;
+
 
 @end
 

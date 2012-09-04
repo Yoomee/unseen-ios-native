@@ -9,6 +9,8 @@
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
 
+@class Favourite;
+
 @interface Event : NSManagedObject{
 }
 
@@ -24,6 +26,7 @@
 @property (nonatomic) BOOL day3;
 @property (nonatomic) BOOL day4;
 @property (nonatomic) BOOL day5;
+@property (nonatomic, retain) Favourite *favourite;
 
 
 @end
