@@ -24,6 +24,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {   
+    
+//    RKLogConfigureByName("RestKit", RKLogLevelWarning); 
+//    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+    
     // Load default defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
@@ -131,6 +136,7 @@
     favouriteMapping.primaryKeyAttribute = @"favouriteID";
     [favouriteMapping mapKeyPath:@"id" toAttribute:@"favouriteID"];
     [favouriteMapping mapKeyPath:@"deleted" toAttribute:@"destroyed"];
+    [favouriteMapping mapKeyPath:@"synced" toAttribute:@"synced"];
     [favouriteMapping mapKeyPath:@"updated_at" toAttribute:@"updatedAt"];
     [favouriteMapping mapRelationship:@"event" withMapping:eventMapping];
     [favouriteMapping mapRelationship:@"gallery" withMapping:galleryMapping];
@@ -146,8 +152,6 @@
     [router routeClass:[Favourite class] toResourcePath:@"/favourites/:favouriteID"];
     [router routeClass:[Favourite class] toResourcePath:@"/favourites" forMethod:RKRequestMethodPOST]; 
     
-    NSString *weirdEmptyStringWhereNilJustFails = @"";
-    [[RKObjectManager sharedManager].mappingProvider registerObjectMapping:favouriteSerializationMapping withRootKeyPath: weirdEmptyStringWhereNilJustFails];
     
     [eventMapping mapKeyPath:@"favourite" toRelationship:@"favourite" withMapping:favouriteMapping serialize:NO];
     [galleryMapping mapKeyPath:@"favourite" toRelationship:@"favourite" withMapping:favouriteMapping serialize:NO];
@@ -158,14 +162,15 @@
     
     //now, we create mapping for the MySyncEntity
     RKObjectMapping *favouritesSyncMapping = [RKObjectMapping mappingForClass:[FavouritesSync class]];
+    favouritesSyncMapping.rootKeyPath = @"sync"; 
     [favouritesSyncMapping mapKeyPath:@"favourites" toRelationship:@"favourites" withMapping:favouriteMapping];
-
+    [favouriteMapping mapKeyPath:@"sync" toRelationship:@"sync" withMapping:favouritesSyncMapping serialize:NO];
     
     RKObjectMapping* favouritesSyncSerializationMapping = [favouritesSyncMapping inverseMapping];
     [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:favouritesSyncSerializationMapping forClass:[FavouritesSync class]]; 
     
     
-    [router routeClass:[FavouritesSync class] toResourcePath:@"/favourites/sync"];
+    [router routeClass:[FavouritesSync class] toResourcePath:@"/favourites_sync"];
 
     
     return YES;

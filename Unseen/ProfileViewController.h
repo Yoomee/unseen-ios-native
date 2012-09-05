@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) NSArray *photos;
 
+@property(nonatomic) BOOL postingFavourites;
+
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *name1;
 @property (weak, nonatomic) IBOutlet UILabel *name2;
@@ -25,6 +27,7 @@
 
 - (IBAction)didPressConnectButton:(id)sender;
 - (void) loadData;
+- (void) postFavourites;
 - (void) renderView;
 - (void) loadObjectsFromDataStore;
 

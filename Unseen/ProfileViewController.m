@@ -22,6 +22,7 @@
 @synthesize photosView;
 @synthesize loggedOutOverlay;
 @synthesize connectButton;
+@synthesize postingFavourites;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,10 +54,11 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    postingFavourites = NO;
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-    [self loadData];
+    [self postFavourites];
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self renderView];
@@ -140,39 +142,75 @@
 - (void)loadObjectsFromDataStore
 {
     NSFetchRequest *request = [Photo fetchRequest];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"favourite.favouriteID" ascending:YES];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"favourite.updatedAt" ascending:NO];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
     [request setPredicate:[NSPredicate predicateWithFormat:@"favourite != nil AND favourite.destroyed = NO"]];
     self.photos = [Photo objectsWithFetchRequest:request];
 }
 
+-(void) postFavourites{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults stringForKey:@"UserApiKey"].length > 0) {
+        NSFetchRequest *request = [Favourite fetchRequest];
+        NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:YES];
+        [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"synced = 0"]];
+        NSArray *favourites = [Favourite objectsWithFetchRequest:request];
+        
+        if(favourites.count > 0){
+            FavouritesSync *favouritesSync = [[FavouritesSync alloc] init];
+            [favouritesSync setFavourites:favourites];
+            
+            RKObjectManager *objectManager = [RKObjectManager sharedManager];
+            postingFavourites = YES;
+            [objectManager postObject:favouritesSync delegate:self];
+            
+        } else{
+            [self loadData];
+        }
+    }
+}
+
 - (void)loadData
 {
-    NSFetchRequest *request = [Favourite fetchRequest];
-    NSArray *favourites = [Favourite objectsWithFetchRequest:request];
-    
-    
-    FavouritesSync *favouritesSync = [[FavouritesSync alloc] init];
-    [favouritesSync setFavourites:favourites];
-    
     RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    [objectManager postObject:favouritesSync delegate:nil];
+    [objectManager loadObjectsAtResourcePath:@"/favourites" delegate:self];
 }
 
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"FavouritesLastUpdatedAt"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [self loadObjectsFromDataStore];
-    [self renderView];
+    if(postingFavourites){
+        postingFavourites = NO;
+        [self loadData];
+    } else {
+        NSFetchRequest *request = [Favourite fetchRequest];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"favouriteID = 0"]];
+        NSArray *favourites = [Favourite objectsWithFetchRequest:request];
+        for(int i = 0; i< favourites.count; i++){
+            Favourite *favourite = [favourites objectAtIndex:i];
+            RKObjectManager *objectManager = [RKObjectManager sharedManager];
+            [[objectManager.objectStore managedObjectContextForCurrentThread] deleteObject:favourite];
+        }
+        [[[RKObjectManager sharedManager] objectStore] save:nil];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"FavouritesLastUpdatedAt"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self loadObjectsFromDataStore];
+        [self renderView];
+    }
+
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
     //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     //    [alert show];
+    if(postingFavourites && error.code == 1001){
+        postingFavourites = NO;
+        [self loadData];
+    }
     NSLog(@"Hit error: %@", error);
 }
 

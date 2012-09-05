@@ -15,5 +15,6 @@
 @dynamic updatedAt;
 @dynamic photo;
 @dynamic destroyed;
+@dynamic synced;
 
 @end

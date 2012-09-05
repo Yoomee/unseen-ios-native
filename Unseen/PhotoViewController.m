@@ -68,8 +68,8 @@
     [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",photo.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-290.png"]];
 }
 
--(void) viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if([[defaults stringForKey:@"UserApiKey"] length] > 0){
         [collectWorkButton setHidden:NO];
@@ -104,6 +104,7 @@
     if(photo.favourite && !photo.favourite.destroyed){
         [collectWorkButton setSelected:NO];
         photo.favourite.destroyed = YES;
+        photo.favourite.synced = NO;
         photo.favourite.updatedAt = [NSDate new];
         [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[photo favourite] delegate:self];
     } else {
@@ -116,6 +117,7 @@
             favourite.photo = photo;
         }
         favourite.destroyed = NO;
+        favourite.synced = NO;
         favourite.updatedAt = [NSDate new];
         [[RKObjectManager sharedManager] postObject:favourite delegate:self];
     }

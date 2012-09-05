@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSDate * updatedAt;
 @property (nonatomic, retain) Photo *photo;
 @property (nonatomic) BOOL destroyed;
+@property (nonatomic) BOOL synced;
 
 @end
