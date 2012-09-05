@@ -8,6 +8,7 @@
 
 #import "GalleryViewController.h"
 #import "Gallery.h"
+#import "Favourite.h"
 #import "Photo.h"
 #import "Photographer.h"
 #import "PhotographerViewController.h"
@@ -17,6 +18,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation GalleryViewController
+@synthesize favouriteButton;
 @synthesize gallery;
 @synthesize photographers;
 @synthesize photos;
@@ -131,10 +133,13 @@
     frame.size.height = textSize.height + 10;
     [galleryTextView setFrame:frame];
     
+    CGRect buttonFrame = favouriteButton.frame;
+    buttonFrame.origin.y = galleryTextView.frame.origin.y + galleryTextView.frame.size.height + 20;
+    [favouriteButton setFrame:buttonFrame];
+    
     UIScrollView *tempScrollView = (UIScrollView *)self.view;
-    tempScrollView.contentSize = CGSizeMake(320, galleryTextView.frame.origin.y + galleryTextView.frame.size.height + 20);
+    tempScrollView.contentSize = CGSizeMake(320, favouriteButton.frame.origin.y + favouriteButton.frame.size.height + 30);
 }
-
 
 - (void)viewDidUnload
 {
@@ -142,6 +147,7 @@
     [self setPhotosView:nil];
     [self setRepresentedArtistsLabel:nil];
     [self setGalleryTextView:nil];
+    [self setFavouriteButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -179,6 +185,56 @@
 		PhotoViewController *photoViewController = segue.destinationViewController;
 		photoViewController.photo = self.selectedPhoto;
 	}
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
+        [favouriteButton setHidden:NO];
+        if(gallery.favourite != nil && !gallery.favourite.destroyed)
+            [favouriteButton setSelected:YES];
+        else
+            [favouriteButton setSelected:NO];
+    } else {
+        [favouriteButton setHidden:YES];        
+    }
+}
+
+- (IBAction)didPressFavouriteButton:(id)sender {
+    if(gallery.favourite && !gallery.favourite.destroyed){
+        [favouriteButton setSelected:NO];
+        gallery.favourite.destroyed = YES;
+        gallery.favourite.synced = NO;
+        gallery.favourite.updatedAt = [NSDate new];
+        [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[gallery favourite] delegate:self];
+    } else {
+        [favouriteButton setSelected:YES];
+        Favourite *favourite;
+        if(gallery.favourite) {
+            favourite = gallery.favourite;
+        } else {
+            favourite = [Favourite object];
+            favourite.gallery = gallery;
+        }
+        favourite.destroyed = NO;
+        favourite.synced = NO;
+        favourite.updatedAt = [NSDate new];
+        [[RKObjectManager sharedManager] postObject:favourite delegate:self];
+    }
+    [[[RKObjectManager sharedManager] objectStore] save:nil];
+}
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    
+}  
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    NSLog(@"Hit error: %@", error);
+}
+
+-(void) request:(RKRequest *)request didFailLoadWithError:(NSError *)error  {
+    NSLog(@"%@",error);
 }
 
 @end

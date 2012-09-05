@@ -7,8 +7,8 @@
 //
 
 #ifdef DEBUG
-    #define kBaseURL @"http://10.0.1.4:3000"
-    //#define kBaseURL @"http://unseenamsterdam.com"
+    //#define kBaseURL @"http://10.0.1.4:3000"
+    #define kBaseURL @"http://unseenamsterdam.com"
 #else
     #define kBaseURL @"http://unseenamsterdam.com"
 #endif

@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *name1;
 @property (weak, nonatomic) IBOutlet UILabel *name2;
+@property (weak, nonatomic) IBOutlet UILabel *pageNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *myCollectionLabel;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *photosView;
 @property (weak, nonatomic) IBOutlet UIView *loggedOutOverlay;

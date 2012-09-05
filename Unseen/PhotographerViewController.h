@@ -11,7 +11,7 @@
 
 @class DDPageControl, Photo;
 
-@interface PhotographerViewController : UIViewController <UIScrollViewDelegate> {
+@interface PhotographerViewController : UIViewController <RKRequestDelegate, RKObjectLoaderDelegate,UIScrollViewDelegate> {
     DDPageControl *pageControl;
 }
 
@@ -26,5 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 
 - (IBAction)showPhoto:(id)sender;
+- (IBAction)didPressFavouriteButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
 
 @end

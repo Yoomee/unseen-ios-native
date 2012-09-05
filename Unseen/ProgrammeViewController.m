@@ -9,6 +9,7 @@
 #import "ProgrammeViewController.h"
 #import "EventViewController.h"
 #import "Event.h"
+#import "Favourite.h"
 
 @implementation ProgrammeViewController
 @synthesize tableView;
@@ -83,7 +84,8 @@
 {  
     [super viewWillAppear:animated];
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];  
-    [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];  
+    [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
+    [self.tableView reloadData];
 }  
 
 - (void)viewDidAppear:(BOOL)animated
@@ -138,6 +140,20 @@
     UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 62)];
     backgroundView.backgroundColor = [UIColor colorWithRed:0.129 green:0.114 blue:0.114 alpha:1.000];
     [cell setSelectedBackgroundView:backgroundView];
+    
+    UIImageView *heart = (UIImageView *)[cell viewWithTag:4];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
+        [heart setHidden:NO];
+        if(event.favourite != nil && !event.favourite.destroyed)
+            [heart setImage:[UIImage imageNamed:@"heart-active.png"]];
+        else
+            [heart setImage:[UIImage imageNamed:@"heart.png"]];
+    } else {
+        [heart setHidden:YES];        
+    }
+    
     return cell;
 }
 

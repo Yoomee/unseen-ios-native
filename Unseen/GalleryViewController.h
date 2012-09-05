@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
 @class DDPageControl, Gallery, Photographer, Photo;
 
-@interface GalleryViewController : UIViewController<UIScrollViewDelegate>{
+@interface GalleryViewController : UIViewController<RKRequestDelegate, RKObjectLoaderDelegate, UIScrollViewDelegate>{
     DDPageControl *pageControl;
 }
 
@@ -25,8 +26,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *representedArtistsLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *photosView;
 @property (weak, nonatomic) IBOutlet UITextView *galleryTextView;
+@property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
 
 - (IBAction)showPhotographer:(id)sender;
 - (IBAction)showPhoto:(id)sender;
+- (IBAction)didPressFavouriteButton:(id)sender;
 
 @end

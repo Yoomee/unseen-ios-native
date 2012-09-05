@@ -19,6 +19,8 @@
 @synthesize profileImage;
 @synthesize name1;
 @synthesize name2;
+@synthesize pageNumberLabel;
+@synthesize myCollectionLabel;
 @synthesize photosView;
 @synthesize loggedOutOverlay;
 @synthesize connectButton;
@@ -75,6 +77,8 @@
     [self setName2:nil];
     [self setLoggedOutOverlay:nil];
     [self setConnectButton:nil];
+    [self setPageNumberLabel:nil];
+    [self setMyCollectionLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -87,6 +91,8 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
+    int currentPage = floor((photosView.contentOffset.x - 320 / 2) / 320) + 2;
+    [pageNumberLabel setText:[NSString stringWithFormat:@"%i of %i", currentPage, photos.count]];
 }
 
 - (IBAction)didPressConnectButton:(id)sender {
@@ -107,10 +113,12 @@
         self.name1.text = nameLine1;
         self.name2.text = nameLine2;
         
+        self.myCollectionLabel.font = [UIFont fontWithName:@"Apercu" size:16.0];
+        
         [profileImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",[defaults objectForKey:@"UserImageURL"]]] placeholderImage:[UIImage imageNamed:@"placeholder-55.png"]];
         
-        UIScrollView *tempScrollView = (UIScrollView *)self.view;
-        tempScrollView.contentSize = CGSizeMake(320, 1000);
+        //UIScrollView *tempScrollView = (UIScrollView *)self.view;
+        //tempScrollView.contentSize = CGSizeMake(320, 1000);
         
         [self loadObjectsFromDataStore];
         
@@ -131,6 +139,9 @@
             offsetX += 320;
         }
         photosView.contentSize = CGSizeMake(offsetX, 280);
+        
+        pageNumberLabel.font = [UIFont fontWithName:@"Apercu" size:12.0];
+        [pageNumberLabel setText:[NSString stringWithFormat:@"1 of %i", photos.count]];
     } else {
         [loggedOutOverlay setHidden:NO];
         UIScrollView *tempScrollView = (UIScrollView *)self.view;
@@ -213,6 +224,5 @@
     }
     NSLog(@"Hit error: %@", error);
 }
-
 
 @end

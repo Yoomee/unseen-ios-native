@@ -14,6 +14,9 @@
 @dynamic favouriteID;
 @dynamic updatedAt;
 @dynamic photo;
+@dynamic event;
+@dynamic photographer;
+@dynamic gallery;
 @dynamic destroyed;
 @dynamic synced;
 

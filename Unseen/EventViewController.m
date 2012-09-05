@@ -8,6 +8,7 @@
 
 #import "EventViewController.h"
 #import "Event.h"
+#import "Favourite.h"
 #import "constants.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -17,6 +18,7 @@
 @synthesize venueLabel;
 @synthesize imageView;
 @synthesize descriptionTextView;
+@synthesize favouriteButton;
 @synthesize selectedDay;
 @synthesize event, titleLabel;
 
@@ -112,8 +114,13 @@
     frame.size.height = textSize.height + 15;
     frame.origin.y = frame.origin.y + descriptionTextViewOffset;
     [self.descriptionTextView setFrame:frame];
+    
+    CGRect buttonFrame = favouriteButton.frame;
+    buttonFrame.origin.y = descriptionTextView.frame.origin.y + descriptionTextView.frame.size.height + 20;
+    [favouriteButton setFrame:buttonFrame];
+    
     UIScrollView *tempScrollView = (UIScrollView *)self.view;
-    tempScrollView.contentSize = CGSizeMake(0, self.descriptionTextView.frame.origin.y + self.descriptionTextView.frame.size.height + 20);
+    tempScrollView.contentSize = CGSizeMake(320, favouriteButton.frame.origin.y + favouriteButton.frame.size.height + 30);
 
 }
 
@@ -126,6 +133,7 @@
     [self setVenueLabel:nil];
     [self setDescriptionTextView:nil];
     [self setImageView:nil];
+    [self setFavouriteButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -135,6 +143,57 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
+        [favouriteButton setHidden:NO];
+        if(event.favourite != nil && !event.favourite.destroyed)
+            [favouriteButton setSelected:YES];
+        else
+            [favouriteButton setSelected:NO];
+    } else {
+        [favouriteButton setHidden:YES];        
+    }
+}
+
+- (IBAction)didPressFavouriteButton:(id)sender {
+    if(event.favourite && !event.favourite.destroyed){
+        [favouriteButton setSelected:NO];
+        event.favourite.destroyed = YES;
+        event.favourite.synced = NO;
+        event.favourite.updatedAt = [NSDate new];
+        [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[event favourite] delegate:self];
+    } else {
+        [favouriteButton setSelected:YES];
+        Favourite *favourite;
+        if(event.favourite) {
+            favourite = event.favourite;
+        } else {
+            favourite = [Favourite object];
+            favourite.event = event;
+        }
+        favourite.destroyed = NO;
+        favourite.synced = NO;
+        favourite.updatedAt = [NSDate new];
+        [[RKObjectManager sharedManager] postObject:favourite delegate:self];
+    }
+    [[[RKObjectManager sharedManager] objectStore] save:nil];
+}
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    
+}  
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    NSLog(@"Hit error: %@", error);
+}
+
+-(void) request:(RKRequest *)request didFailLoadWithError:(NSError *)error  {
+    NSLog(@"%@",error);
 }
 
 @end

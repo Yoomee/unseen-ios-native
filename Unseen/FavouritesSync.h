@@ -10,5 +10,5 @@
     NSArray *favourites;
 }
 @property (nonatomic, retain) NSArray* favourites;
--(void) setFavourites:(NSArray *)favourites;
+
 @end 

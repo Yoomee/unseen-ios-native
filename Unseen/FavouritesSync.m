@@ -10,7 +10,9 @@
 
 @implementation FavouritesSync
 
-@dynamic favourites;
+-(NSArray *)favourites{
+    return favourites;
+}
 
 -(void)setFavourites:(NSArray *)favouritesValue{
     favourites = favouritesValue;
