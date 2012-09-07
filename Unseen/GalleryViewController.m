@@ -60,7 +60,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationItem.title = gallery.name;
+
     self.nameLabel.font = [UIFont fontWithName:@"Apercu-Bold" size:24.0];
     self.nameLabel.text = gallery.name;
     
@@ -189,40 +190,41 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
-        [favouriteButton setHidden:NO];
-        if(gallery.favourite != nil && !gallery.favourite.destroyed)
-            [favouriteButton setSelected:YES];
-        else
-            [favouriteButton setSelected:NO];
-    } else {
-        [favouriteButton setHidden:YES];        
-    }
+    [favouriteButton setHidden:NO];
+    if(gallery.favourite != nil && !gallery.favourite.destroyed)
+        [favouriteButton setSelected:YES];
+    else
+        [favouriteButton setSelected:NO];
+    
 }
 
-- (IBAction)didPressFavouriteButton:(id)sender {
-    if(gallery.favourite && !gallery.favourite.destroyed){
-        [favouriteButton setSelected:NO];
-        gallery.favourite.destroyed = YES;
-        gallery.favourite.synced = NO;
-        gallery.favourite.updatedAt = [NSDate new];
-        [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[gallery favourite] delegate:self];
-    } else {
-        [favouriteButton setSelected:YES];
-        Favourite *favourite;
-        if(gallery.favourite) {
-            favourite = gallery.favourite;
+- (IBAction)didPressFavouriteButton:(id)sender {    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
+        if(gallery.favourite && !gallery.favourite.destroyed){
+            [favouriteButton setSelected:NO];
+            gallery.favourite.destroyed = YES;
+            gallery.favourite.synced = NO;
+            gallery.favourite.updatedAt = [NSDate new];
+            [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[gallery favourite] delegate:self];
         } else {
-            favourite = [Favourite object];
-            favourite.gallery = gallery;
+            [favouriteButton setSelected:YES];
+            Favourite *favourite;
+            if(gallery.favourite) {
+                favourite = gallery.favourite;
+            } else {
+                favourite = [Favourite object];
+                favourite.gallery = gallery;
+            }
+            favourite.destroyed = NO;
+            favourite.synced = NO;
+            favourite.updatedAt = [NSDate new];
+            [[RKObjectManager sharedManager] postObject:favourite delegate:self];
         }
-        favourite.destroyed = NO;
-        favourite.synced = NO;
-        favourite.updatedAt = [NSDate new];
-        [[RKObjectManager sharedManager] postObject:favourite delegate:self];
+        [[[RKObjectManager sharedManager] objectStore] save:nil];
+    } else {
+        [self.tabBarController setSelectedIndex:3];
     }
-    [[[RKObjectManager sharedManager] objectStore] save:nil];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    

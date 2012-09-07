@@ -72,6 +72,8 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [objectManager.objectStore setDelegate:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

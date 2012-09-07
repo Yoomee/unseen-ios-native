@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *pageTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *pageImage;
 @property (weak, nonatomic) IBOutlet UITextView *pageText;
+@property (weak, nonatomic) IBOutlet UIButton *imageButton;
+- (IBAction)didPressImageButton:(id)sender;
 
 @end

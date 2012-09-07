@@ -17,6 +17,7 @@
 @dynamic text;
 @dynamic imageURL;
 @dynamic thumbnailImageURL;
+@dynamic videoURL;
 @dynamic imageHeight;
 @dynamic parentID;
 @dynamic parent;

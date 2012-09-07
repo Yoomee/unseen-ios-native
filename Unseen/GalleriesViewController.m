@@ -55,8 +55,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -72,6 +70,8 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [objectManager.objectStore setDelegate:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -175,6 +175,7 @@
     NSFetchRequest *request = [Gallery fetchRequest];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"name.length > 0"]];
     self.galleries = [Gallery objectsWithFetchRequest:request];
 }
 

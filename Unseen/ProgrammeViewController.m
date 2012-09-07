@@ -96,6 +96,8 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [objectManager.objectStore setDelegate:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -232,7 +234,7 @@
     NSFetchRequest *request = [Event fetchRequest];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
-    NSString *predicateString = [NSString stringWithFormat:@"day%i == YES", day];
+    NSString *predicateString = [NSString stringWithFormat:@"day%i == YES && title.length > 0", day];
     [request setPredicate:[NSPredicate predicateWithFormat:predicateString]];
     self.events = [Event objectsWithFetchRequest:request];
 }
@@ -242,7 +244,7 @@
         if(button.tag == [sender tag]){
             [button setSelected:YES];
         } else {
-            [button setSelected:NO];            
+            [button setSelected:NO];
         }
     };
     [self loadObjectsFromDataStoreForDay:[sender tag] + 1];

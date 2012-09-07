@@ -70,16 +70,11 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
-        [collectWorkButton setHidden:NO];
-        if(photo.favourite != nil && !photo.favourite.destroyed)
-            [collectWorkButton setSelected:YES];
-        else
-            [collectWorkButton setSelected:NO];
-    } else {
-        [collectWorkButton setHidden:YES];        
-    }
+    [collectWorkButton setHidden:NO];
+    if(photo.favourite != nil && !photo.favourite.destroyed)
+        [collectWorkButton setSelected:YES];
+    else
+        [collectWorkButton setSelected:NO];
 }
 
 
@@ -101,27 +96,32 @@
 }
 
 - (IBAction)didPressCollectWorkButton:(id)sender {
-    if(photo.favourite && !photo.favourite.destroyed){
-        [collectWorkButton setSelected:NO];
-        photo.favourite.destroyed = YES;
-        photo.favourite.synced = NO;
-        photo.favourite.updatedAt = [NSDate new];
-        [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[photo favourite] delegate:self];
-    } else {
-        [collectWorkButton setSelected:YES];
-        Favourite *favourite;
-        if(photo.favourite) {
-            favourite = photo.favourite;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
+        if(photo.favourite && !photo.favourite.destroyed){
+            [collectWorkButton setSelected:NO];
+            photo.favourite.destroyed = YES;
+            photo.favourite.synced = NO;
+            photo.favourite.updatedAt = [NSDate new];
+            [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[photo favourite] delegate:self];
         } else {
-            favourite = [Favourite object];
-            favourite.photo = photo;
+            [collectWorkButton setSelected:YES];
+            Favourite *favourite;
+            if(photo.favourite) {
+                favourite = photo.favourite;
+            } else {
+                favourite = [Favourite object];
+                favourite.photo = photo;
+            }
+            favourite.destroyed = NO;
+            favourite.synced = NO;
+            favourite.updatedAt = [NSDate new];
+            [[RKObjectManager sharedManager] postObject:favourite delegate:self];
         }
-        favourite.destroyed = NO;
-        favourite.synced = NO;
-        favourite.updatedAt = [NSDate new];
-        [[RKObjectManager sharedManager] postObject:favourite delegate:self];
+        [[[RKObjectManager sharedManager] objectStore] save:nil];
+    } else {
+        [self.tabBarController setSelectedIndex:3];
     }
-    [[[RKObjectManager sharedManager] objectStore] save:nil];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    

@@ -1,17 +1,16 @@
 //
-//  NewsViewController.m
+//  ExploreViewController.m
 //  Unseen
 //
-//  Created by Matthew Atkins on 29/08/2012.
+//  Created by Matthew Atkins on 06/09/2012.
 //  Copyright (c) 2012 Yoomee. All rights reserved.
 //
 
-#import "NewsViewController.h"
+#import "ExploreViewController.h"
 #import "NewsItemViewController.h"
 #import "Page.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 
-@implementation NewsViewController
+@implementation ExploreViewController
 @synthesize pages;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -44,11 +43,6 @@
     
     [self loadObjectsFromDataStore];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -61,6 +55,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -71,8 +67,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    [objectManager.objectStore setDelegate:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -100,41 +94,14 @@
     return pages.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:@"NewsItemCell"];
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExploreCell"];
     Page *page = [self.pages objectAtIndex:indexPath.row];
-    [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",page.thumbnailImageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-55.png"]];
+	cell.textLabel.text = page.title;
+    cell.textLabel.font = [UIFont fontWithName:@"Apercu-Bold" size:18.0];
     
-    UILabel *titleLabel1 = (UILabel *)[cell viewWithTag:2];
-    UILabel *titleLabel2 = (UILabel *)[cell viewWithTag:3];
-
-    titleLabel1.font = [UIFont fontWithName:@"Apercu-Bold" size:18.0];
-    titleLabel2.font = [UIFont fontWithName:@"Apercu-Bold" size:18.0];
-
-    NSArray *titleParts = [page.title componentsSeparatedByString:@" "];
-    NSString *title1 = [NSString stringWithFormat:@""];
-    NSString *title2 = [NSString stringWithFormat:@""];
-    int line1 = 0;
-    for (int i=0; i < titleParts.count; i++) {
-        NSString *word = (NSString *)[titleParts objectAtIndex:i];
-        line1 += word.length;
-        if(line1 < 20){
-            title1 = [NSString stringWithFormat:@"%@%@ ",title1,word];
-        } else {
-            title2 = [NSString stringWithFormat:@"%@%@ ",title2,word];
-        }
-    }
-    titleLabel1.text = title1;
-    titleLabel2.text = title2;
-//    if([titleLabel2.text isEqualToString:@""]){
-//        CGRect frame = titleLabel1.frame;
-//        frame.size.height = 55.0f;
-//        titleLabel1.frame = frame;
-//    }
-    
-    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 62)];
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 55)];
     backgroundView.backgroundColor = [UIColor colorWithRed:0.129 green:0.114 blue:0.114 alpha:1.000];
     [cell setSelectedBackgroundView:backgroundView];
     return cell;
@@ -184,27 +151,15 @@
 }
 */
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
-
+#pragma mark - Segues
 
 
 - (void)loadObjectsFromDataStore
 {
     NSFetchRequest *request = [Page fetchRequest];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"publicationDate" ascending:NO];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"pageID" ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
-    NSString *predicateString = @"parentID == 4";
+    NSString *predicateString = @"parentID == 192";
     [request setPredicate:[NSPredicate predicateWithFormat:predicateString]];
     self.pages = [Page objectsWithFetchRequest:request];
 }

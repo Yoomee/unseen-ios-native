@@ -51,6 +51,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.title = photographer.name;
+    
     self.name1.font = [UIFont fontWithName:@"Apercu-Bold" size:24.0];
     self.name2.font = [UIFont fontWithName:@"Apercu-Bold" size:24.0];
     self.galleryLabel.font = [UIFont fontWithName:@"Apercu" size:12.0];
@@ -79,7 +81,11 @@
     }
     
     NSArray *galleries = [[NSArray alloc] initWithArray:[photographer.galleries allObjects]];
-    self.galleryLabel.text = [[galleries objectAtIndex:0] name];
+    if(galleries.count > 0){
+        self.galleryLabel.text = [[galleries objectAtIndex:0] name];
+    } else{
+        self.galleryLabel.text = @"";
+    }
     
     self.bioTextView.text = photographer.bio;
     self.bioTextView.font = [UIFont fontWithName:@"Apercu" size:16.0];
@@ -175,40 +181,41 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
-        [favouriteButton setHidden:NO];
-        if(photographer.favourite != nil && !photographer.favourite.destroyed)
-            [favouriteButton setSelected:YES];
-        else
-            [favouriteButton setSelected:NO];
-    } else {
-        [favouriteButton setHidden:YES];        
-    }
+    [favouriteButton setHidden:NO];
+    if(photographer.favourite != nil && !photographer.favourite.destroyed)
+        [favouriteButton setSelected:YES];
+    else
+        [favouriteButton setSelected:NO];
+
 }
 
 - (IBAction)didPressFavouriteButton:(id)sender {
-    if(photographer.favourite && !photographer.favourite.destroyed){
-        [favouriteButton setSelected:NO];
-        photographer.favourite.destroyed = YES;
-        photographer.favourite.synced = NO;
-        photographer.favourite.updatedAt = [NSDate new];
-        [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[photographer favourite] delegate:self];
-    } else {
-        [favouriteButton setSelected:YES];
-        Favourite *favourite;
-        if(photographer.favourite) {
-            favourite = photographer.favourite;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
+        if(photographer.favourite && !photographer.favourite.destroyed){
+            [favouriteButton setSelected:NO];
+            photographer.favourite.destroyed = YES;
+            photographer.favourite.synced = NO;
+            photographer.favourite.updatedAt = [NSDate new];
+            [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[photographer favourite] delegate:self];
         } else {
-            favourite = [Favourite object];
-            favourite.photographer = photographer;
+            [favouriteButton setSelected:YES];
+            Favourite *favourite;
+            if(photographer.favourite) {
+                favourite = photographer.favourite;
+            } else {
+                favourite = [Favourite object];
+                favourite.photographer = photographer;
+            }
+            favourite.destroyed = NO;
+            favourite.synced = NO;
+            favourite.updatedAt = [NSDate new];
+            [[RKObjectManager sharedManager] postObject:favourite delegate:self];
         }
-        favourite.destroyed = NO;
-        favourite.synced = NO;
-        favourite.updatedAt = [NSDate new];
-        [[RKObjectManager sharedManager] postObject:favourite delegate:self];
+        [[[RKObjectManager sharedManager] objectStore] save:nil];
+    } else {
+        [self.tabBarController setSelectedIndex:3];
     }
-    [[[RKObjectManager sharedManager] objectStore] save:nil];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    

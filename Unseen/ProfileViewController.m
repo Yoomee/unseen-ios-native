@@ -55,15 +55,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
     postingFavourites = NO;
 }
 
 - (void) viewWillAppear:(BOOL)animated{
     [self postFavourites];
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self renderView];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [objectManager.objectStore setDelegate:nil];
 }
 
 

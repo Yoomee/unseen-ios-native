@@ -34,20 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UITabBar *tabBar = self.tabBarController.tabBar;
-    
-    tabBar.backgroundImage = [UIImage imageNamed:@"tab-bar-bg"];
-    tabBar.selectionIndicatorImage = [UIImage imageNamed:@"active-tab-bg"];
-    tabBar.selectedImageTintColor = [UIColor colorWithWhite:1.0 alpha:1.0];
-    
-    for(int i = 0; i < tabBar.items.count; i++){
-        UITabBarItem *tabBarItem = [tabBar.items objectAtIndex:i];
-        [tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"Apercu" size:10.0], UITextAttributeFont, nil]
-                                  forState:UIControlStateNormal];
-    }
-    self.tabBarController.selectedIndex = 2;
-    
     self.rowItems = [NSMutableArray arrayWithObjects:@"Unseen Programme 2012", @"Galleries", @"Photographers", @"Fair & Festival Map", nil];
     
     //self.rowItems = [NSMutableArray arrayWithObjects:@"Unseen Programme 2012", @"Galleries", @"Photographers", @"Fair & Festival Map", @"Buy Tickets", @"Sponsor & Partners", nil];

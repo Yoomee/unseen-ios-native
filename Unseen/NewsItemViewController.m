@@ -15,6 +15,7 @@
 @synthesize pageTitle;
 @synthesize pageImage;
 @synthesize pageText;
+@synthesize imageButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,6 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = page.title;
     self.pageTitle.font = [UIFont fontWithName:@"Apercu-Bold" size:24.0];
     self.pageTitle.text = page.title;
     
@@ -64,6 +66,13 @@
         [self.pageImage setFrame:imageViewFrame];
         [self.pageImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://unseenamsterdam.com%@",page.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-290.png"]];
         [self.pageImage setHidden:NO];
+        if(page.videoURL.length > 0){
+            [imageButton setFrame:imageViewFrame];
+            [imageButton setHidden:NO];
+        } else {
+            [imageButton setHidden:YES];
+        }
+
         pageTextViewOffset = pageTextViewOffset + [page.imageHeight integerValue] + 15;
     }
     
@@ -85,6 +94,7 @@
     [self setPageTitle:nil];
     [self setPageImage:nil];
     [self setPageText:nil];
+    [self setImageButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -96,4 +106,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)didPressImageButton:(id)sender {
+    if(page.videoURL.length > 0)
+        NSLog(@"%@",page.videoURL);
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: page.videoURL]]; 
+}
 @end

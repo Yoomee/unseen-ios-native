@@ -43,6 +43,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="X6F-Hq-cNK" kind="push" identifier="ShowExplore" id="0rU-7F-7eV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2ye-gg-wDD">
                                 <rect key="frame" x="37" y="157" width="245" height="46"/>
@@ -133,7 +136,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jSo-Z2-J6v"/>
+                    <navigationItem key="navigationItem" title="Collect" id="jSo-Z2-J6v"/>
                     <connections>
                         <outlet property="pageNumberLabel" destination="Ogo-Sx-Jp9" id="Wa1-bA-HqF"/>
                         <outlet property="photosView" destination="YDr-lz-EoR" id="tPl-dp-X4J"/>
@@ -142,6 +145,38 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1550" y="999"/>
+        </scene>
+        <scene sceneID="sFi-M2-Lg2">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7I2-Ev-Nqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="X6F-Hq-cNK" customClass="ExploreViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="x8A-mN-wZR">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExploreCell" rowHeight="55" id="R4G-09-yBc">
+                                <rect key="frame" x="0.0" y="22" width="320" height="55"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="54"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="sKj-mg-G2N" kind="push" identifier="ShowNewsItem" id="dt9-U7-nya"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="X6F-Hq-cNK" id="Tgb-SL-v5P"/>
+                            <outlet property="delegate" destination="X6F-Hq-cNK" id="lJ1-l3-xeW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Get Inspired" id="QVx-k7-EyY"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1898" y="1654"/>
         </scene>
         <scene sceneID="P2A-5l-GaE">
             <objects>
@@ -212,15 +247,15 @@
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="gEJ-ly-hXF" kind="relationship" relationship="viewControllers" id="27"/>
                         <segue destination="8Uk-ni-j7e" kind="relationship" relationship="viewControllers" id="Kl0-hH-omi"/>
                         <segue destination="fRB-2p-GBs" kind="relationship" relationship="viewControllers" id="qdE-3g-qHu"/>
-                        <segue destination="gEJ-ly-hXF" kind="relationship" relationship="viewControllers" id="27"/>
-                        <segue destination="NQW-kT-l5d" kind="relationship" relationship="viewControllers" id="IjM-gu-eYz"/>
+                        <segue destination="CUu-zW-sQp" kind="relationship" relationship="viewControllers" id="FsC-eu-RYd"/>
                         <segue destination="qu8-wh-GuP" kind="relationship" relationship="viewControllers" id="dac-Ab-fnM"/>
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="-604" y="884"/>
+            <point key="canvasLocation" x="-642" y="888"/>
         </scene>
         <scene sceneID="E9q-rd-T5j">
             <objects>
@@ -316,7 +351,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="didPressDaySelector:" destination="1RT-YF-AEa" eventType="touchUpInside" id="oEp-jy-Wkw"/>
+                                            <action selector="didPressDaySelector:" destination="1RT-YF-AEa" eventType="touchUpInside" id="nPN-Qr-Hqx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Y9a-Pu-fSo">
@@ -880,18 +915,34 @@
                                 <rect key="frame" x="20" y="73" width="280" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8AV-bZ-QXg">
+                                <rect key="frame" x="20" y="73" width="280" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressImageButton:" destination="sKj-mg-G2N" eventType="touchUpInside" id="7QA-j0-gVC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
                     <navigationItem key="navigationItem" id="Ljl-VJ-WzJ"/>
                     <connections>
+                        <outlet property="imageButton" destination="8AV-bZ-QXg" id="ntw-q6-IVs"/>
                         <outlet property="pageImage" destination="4oh-tt-A1N" id="Sb1-bP-oXm"/>
                         <outlet property="pageText" destination="cNC-PT-RTO" id="IBC-rU-KkY"/>
                         <outlet property="pageTitle" destination="9w6-eN-Icw" id="gJv-eE-kUY"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2444" y="2101"/>
+            <point key="canvasLocation" x="2970" y="2101"/>
         </scene>
         <scene sceneID="19I-c4-COX">
             <objects>
@@ -968,50 +1019,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dt1-SL-lvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="CUu-zW-sQp" customClass="ProfileViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rVW-Tk-vym">
-                        <rect key="frame" x="0.0" y="64" width="320" height="593"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="593"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name 1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" minimumFontSize="10" id="IZr-DV-adf">
-                                <rect key="frame" x="85" y="20" width="215" height="23"/>
+                                <rect key="frame" x="85" y="14" width="215" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name 2" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" minimumFontSize="10" id="FyS-Oz-LHc">
-                                <rect key="frame" x="85" y="44" width="215" height="23"/>
+                                <rect key="frame" x="85" y="38" width="215" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" id="I3f-W1-nwp">
-                                <rect key="frame" x="0.0" y="112" width="320" height="290"/>
+                                <rect key="frame" x="0.0" y="100" width="320" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="CUu-zW-sQp" id="IOZ-Cc-jjj"/>
                                 </connections>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="CST-LJ-d2z">
-                                <rect key="frame" x="15" y="20" width="55" height="55"/>
+                                <rect key="frame" x="15" y="14" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 of 1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="HiO-ng-Crl">
-                                <rect key="frame" x="20" y="413" width="280" height="12"/>
+                                <rect key="frame" x="20" y="394" width="280" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My Collection" lineBreakMode="tailTruncation" minimumFontSize="10" id="ZIt-xH-KlB">
-                                <rect key="frame" x="15" y="83" width="285" height="21"/>
+                                <rect key="frame" x="15" y="73" width="285" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" id="MxU-Bg-856">
-                                <rect key="frame" x="0.0" y="17" width="320" height="411"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="top" image="me-bg.png" id="SdT-2X-L99">
@@ -1039,7 +1090,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
-                    <navigationItem key="navigationItem" id="aDP-M1-wui"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="me-tab.png" id="ylk-VA-VXJ"/>
+                    <navigationItem key="navigationItem" title="Me" id="aDP-M1-wui"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="connectButton" destination="Ei2-Io-szZ" id="0UN-f3-Bbh"/>
@@ -1054,25 +1106,6 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="904" y="1898"/>
-        </scene>
-        <scene sceneID="avQ-xr-DWT">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VKc-QK-edf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="NQW-kT-l5d" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Me" image="me-tab.png" id="TKc-A0-RFO"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="JYP-dR-bEC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.12941176470588237" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="CUu-zW-sQp" kind="relationship" relationship="rootViewController" id="Vy2-JW-IVH"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="378" y="1898"/>
         </scene>
     </scenes>
     <resources>
@@ -1115,6 +1148,9 @@
                 <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="ExploreViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExploreViewController.h"/>
+        </class>
         <class className="FairViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FairViewController.h"/>
         </class>
@@ -1144,6 +1180,8 @@
         <class className="NewsItemViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsItemViewController.h"/>
             <relationships>
+                <relationship kind="action" name="didPressImageButton:"/>
+                <relationship kind="outlet" name="imageButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="pageImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="pageText" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="pageTitle" candidateClass="UITextView"/>
@@ -1216,10 +1254,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rNM-RB-SVk"/>
-        <segue reference="OtC-g3-iFC"/>
         <segue reference="fR4-kl-F6F"/>
         <segue reference="V8B-F1-flQ"/>
-        <segue reference="vuB-f0-ipC"/>
+        <segue reference="OtC-g3-iFC"/>
+        <segue reference="NZO-Vd-Bpz"/>
+        <segue reference="dt9-U7-nya"/>
     </inferredMetricsTieBreakers>
 </document>
