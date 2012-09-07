@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
-@interface ExploreViewController : UITableViewController
+@interface ExploreViewController : UITableViewController <RKObjectLoaderDelegate>{    
+}
+
+@property (nonatomic, strong) NSArray *pages;
+
+- (void) loadData;
+- (void) loadObjectsFromDataStore;
 
 @end

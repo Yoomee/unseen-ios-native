@@ -48,25 +48,25 @@
     NSString *seedDatabaseName = @"UnseenSeed.sqlite";
     NSString *databaseName = @"Unseen.sqlite";
     
-    if (NO) {
-        NSLog(@"Replacing database");
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
-        NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-        NSString *dbFilePath = [documentsDirectoryPath stringByAppendingPathComponent:databaseName];
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        [fileManager removeItemAtPath:dbFilePath error:NULL];
-        
-        NSDate *today = [NSDate date];
-        NSDate *yesterday = [today dateByAddingTimeInterval: -86400.0];
-        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"EventsLastUpdatedAt"];
-        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"GalleriesLastUpdatedAt"];
-        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"PagesLastUpdatedAt"];
-        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"PhotographersLastUpdatedAt"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    } 
+//    if (NO) {
+//        NSLog(@"Replacing database");
+//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
+//        NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+//        NSString *dbFilePath = [documentsDirectoryPath stringByAppendingPathComponent:databaseName];
+//        NSFileManager *fileManager = [NSFileManager defaultManager];
+//        [fileManager removeItemAtPath:dbFilePath error:NULL];
+//        
+//        NSDate *today = [NSDate date];
+//        NSDate *yesterday = [today dateByAddingTimeInterval: -86400.0];
+//        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"ProgrammeLastUpdatedAt"];
+//        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"GalleriesLastUpdatedAt"];
+//        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"PagesLastUpdatedAt"];
+//        [[NSUserDefaults standardUserDefaults] setObject:yesterday forKey:@"PhotographersLastUpdatedAt"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//    } 
     
-    //objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName usingSeedDatabaseName:seedDatabaseName managedObjectModel:nil delegate:self];
-    objectManager.objectStore =[RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
+    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName usingSeedDatabaseName:seedDatabaseName managedObjectModel:nil delegate:self];
+    //objectManager.objectStore =[RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
     
     // Setup our object mappings
     /*!
@@ -84,6 +84,7 @@
     [pageMapping mapKeyPath:@"image_url_for_api" toAttribute:@"imageURL"];
     [pageMapping mapKeyPath:@"image_height_for_api" toAttribute:@"imageHeight"];
     [pageMapping mapKeyPath:@"thumbnail_image_url_for_api" toAttribute:@"thumbnailImageURL"];
+    [pageMapping mapKeyPath:@"video_url" toAttribute:@"videoURL"];
     [pageMapping mapKeyPath:@"publication_date" toAttribute:@"publicationDate"];
     [objectManager.mappingProvider setObjectMapping:pageMapping forResourcePathPattern:@"/pages"];
     [pageMapping mapRelationship:@"parent" withMapping:pageMapping];
@@ -160,7 +161,6 @@
     [photoMapping mapKeyPath:@"photographer" toRelationship:@"photographer" withMapping:photographerMapping serialize:NO];
     [photoMapping mapKeyPath:@"galleries" toRelationship:@"galleries" withMapping:galleryMapping serialize:NO];
     
-    //now, we create mapping for the MySyncEntity
     RKObjectMapping *favouritesSyncMapping = [RKObjectMapping mappingForClass:[FavouritesSync class]];
     favouritesSyncMapping.rootKeyPath = @"sync"; 
     [favouritesSyncMapping mapKeyPath:@"favourites" toRelationship:@"favourites" withMapping:favouriteMapping];
@@ -171,6 +171,19 @@
     
     
     [router routeClass:[FavouritesSync class] toResourcePath:@"/favourites_sync"];
+    
+    
+    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+//    NSString *diskCachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"ImageCache"];
+//    
+//    NSLog(@"%@",[[NSBundle mainBundle] resourcePath]);
+//    
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:diskCachePath])
+//    {
+//        NSString *seedPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageCacheSeed"];
+//        [[NSFileManager defaultManager] copyItemAtPath:seedPath toPath:diskCachePath error:nil];
+//    }
 
     
     return YES;

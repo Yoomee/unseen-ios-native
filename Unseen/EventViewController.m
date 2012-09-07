@@ -79,6 +79,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.title = event.title;
+    
     self.titleLabel.font = [UIFont fontWithName:@"Apercu-Bold" size:24.0];
     self.dateLabel.font = [UIFont fontWithName:@"Apercu" size:14.0];
     self.timeLabel.font = [UIFont fontWithName:@"Apercu" size:14.0];
@@ -94,17 +97,11 @@
     NSInteger descriptionTextViewOffset = 0;
     
     if(event.imageURL.length > 0){
-        CGRect rect = CGRectMake(0, 0, 280, 180);
-        UIGraphicsBeginImageContext(rect.size);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextSetFillColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
-        CGContextFillRect(context, rect);
-        UIImage *placeholder = UIGraphicsGetImageFromCurrentImageContext();
         CGRect imageViewFrame = self.imageView.frame;
         imageViewFrame.size.height = [event.imageHeight integerValue];
         [self.imageView setFrame:imageViewFrame];
         [self.imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseURL,event.imageURL]]
-                       placeholderImage:placeholder];
+                       placeholderImage:[UIImage imageNamed:@"placeholder-290.png"]];
         [self.imageView setHidden:NO];
         descriptionTextViewOffset = [event.imageHeight integerValue] + 5;
     }
@@ -148,40 +145,40 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
-        [favouriteButton setHidden:NO];
-        if(event.favourite != nil && !event.favourite.destroyed)
-            [favouriteButton setSelected:YES];
-        else
-            [favouriteButton setSelected:NO];
-    } else {
-        [favouriteButton setHidden:YES];        
-    }
+    [favouriteButton setHidden:NO];
+    if(event.favourite != nil && !event.favourite.destroyed)
+        [favouriteButton setSelected:YES];
+    else
+        [favouriteButton setSelected:NO];
 }
 
 - (IBAction)didPressFavouriteButton:(id)sender {
-    if(event.favourite && !event.favourite.destroyed){
-        [favouriteButton setSelected:NO];
-        event.favourite.destroyed = YES;
-        event.favourite.synced = NO;
-        event.favourite.updatedAt = [NSDate new];
-        [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[event favourite] delegate:self];
-    } else {
-        [favouriteButton setSelected:YES];
-        Favourite *favourite;
-        if(event.favourite) {
-            favourite = event.favourite;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults stringForKey:@"UserApiKey"] length] > 0){
+        if(event.favourite && !event.favourite.destroyed){
+            [favouriteButton setSelected:NO];
+            event.favourite.destroyed = YES;
+            event.favourite.synced = NO;
+            event.favourite.updatedAt = [NSDate new];
+            [[RKObjectManager sharedManager] deleteObject:(NSManagedObject *)[event favourite] delegate:self];
         } else {
-            favourite = [Favourite object];
-            favourite.event = event;
+            [favouriteButton setSelected:YES];
+            Favourite *favourite;
+            if(event.favourite) {
+                favourite = event.favourite;
+            } else {
+                favourite = [Favourite object];
+                favourite.event = event;
+            }
+            favourite.destroyed = NO;
+            favourite.synced = NO;
+            favourite.updatedAt = [NSDate new];
+            [[RKObjectManager sharedManager] postObject:favourite delegate:self];
         }
-        favourite.destroyed = NO;
-        favourite.synced = NO;
-        favourite.updatedAt = [NSDate new];
-        [[RKObjectManager sharedManager] postObject:favourite delegate:self];
+        [[[RKObjectManager sharedManager] objectStore] save:nil];
+    } else {
+        [self.tabBarController setSelectedIndex:3];
     }
-    [[[RKObjectManager sharedManager] objectStore] save:nil];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    
