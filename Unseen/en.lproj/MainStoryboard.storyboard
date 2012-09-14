@@ -176,7 +176,7 @@
                     <navigationItem key="navigationItem" title="Get Inspired" id="QVx-k7-EyY"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1898" y="1654"/>
+            <point key="canvasLocation" x="2424" y="1654"/>
         </scene>
         <scene sceneID="P2A-5l-GaE">
             <objects>
@@ -256,7 +256,7 @@
                         <segue destination="gEJ-ly-hXF" kind="relationship" relationship="viewControllers" id="27"/>
                         <segue destination="8Uk-ni-j7e" kind="relationship" relationship="viewControllers" id="Kl0-hH-omi"/>
                         <segue destination="fRB-2p-GBs" kind="relationship" relationship="viewControllers" id="qdE-3g-qHu"/>
-                        <segue destination="CUu-zW-sQp" kind="relationship" relationship="viewControllers" id="FsC-eu-RYd"/>
+                        <segue destination="QhQ-ej-UsA" kind="relationship" relationship="viewControllers" id="FsC-eu-RYd"/>
                         <segue destination="qu8-wh-GuP" kind="relationship" relationship="viewControllers" id="dac-Ab-fnM"/>
                     </connections>
                 </tabBarController>
@@ -504,7 +504,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgz-0V-VfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="tcF-fa-drB" customClass="EventViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="J31-22-t6o">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Event title that runs over two lines and is quite long" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" minimumFontSize="10" id="kx2-Jd-iKk">
@@ -972,7 +972,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2970" y="2101"/>
+            <point key="canvasLocation" x="3496" y="2101"/>
         </scene>
         <scene sceneID="19I-c4-COX">
             <objects>
@@ -1049,7 +1049,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dt1-SL-lvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="CUu-zW-sQp" customClass="ProfileViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rVW-Tk-vym">
-                        <rect key="frame" x="0.0" y="20" width="320" height="593"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="593"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name 1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" minimumFontSize="10" id="IZr-DV-adf">
@@ -1117,23 +1117,73 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My Programme" lineBreakMode="tailTruncation" minimumFontSize="10" id="iUu-P8-4Ey">
+                                <rect key="frame" x="15" y="414" width="285" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My Favourites" lineBreakMode="tailTruncation" minimumFontSize="10" id="1Wo-uf-i4u">
+                                <rect key="frame" x="15" y="501" width="285" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="YZ0-oZ-lu5">
+                                <rect key="frame" x="0.0" y="443" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="4PZ-db-dJx">
+                                <rect key="frame" x="0.0" y="530" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
-                    <tabBarItem key="tabBarItem" title="Me" image="me-tab.png" id="ylk-VA-VXJ"/>
                     <navigationItem key="navigationItem" title="Me" id="aDP-M1-wui"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="connectButton" destination="Ei2-Io-szZ" id="0UN-f3-Bbh"/>
+                        <outlet property="eventsView" destination="YZ0-oZ-lu5" id="RaP-wG-dnC"/>
+                        <outlet property="favouritesView" destination="4PZ-db-dJx" id="G1W-LR-lBR"/>
                         <outlet property="loggedOutOverlay" destination="MxU-Bg-856" id="TEX-c4-5Vg"/>
                         <outlet property="myCollectionLabel" destination="ZIt-xH-KlB" id="4P9-b1-YVi"/>
+                        <outlet property="myFavouritesLabel" destination="1Wo-uf-i4u" id="dxL-Mk-udB"/>
+                        <outlet property="myProgrammeLabel" destination="iUu-P8-4Ey" id="Reu-d6-9mY"/>
                         <outlet property="name1" destination="IZr-DV-adf" id="3Mv-dr-7av"/>
                         <outlet property="name2" destination="FyS-Oz-LHc" id="SLP-5b-sum"/>
                         <outlet property="pageNumberLabel" destination="HiO-ng-Crl" id="ndp-Vs-ZAn"/>
                         <outlet property="photosView" destination="I3f-W1-nwp" id="XNZ-hm-H4F"/>
                         <outlet property="profileImage" destination="CST-LJ-d2z" id="bph-sV-oRO"/>
+                        <segue destination="tcF-fa-drB" kind="push" identifier="ShowEvent" id="MAt-VJ-zCU"/>
+                        <segue destination="bH3-gT-ppn" kind="push" identifier="ShowPhoto" id="caT-F7-7OL"/>
+                        <segue destination="XRG-Vi-BYb" kind="push" identifier="ShowGallery" id="08k-JY-YA3"/>
+                        <segue destination="qt7-ZJ-wO9" kind="push" identifier="ShowPhotographer" id="z4L-qN-NOB"/>
                     </connections>
                 </viewController>
+            </objects>
+            <point key="canvasLocation" x="1430" y="1898"/>
+        </scene>
+        <scene sceneID="6dl-Xq-Zqd">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xgi-IC-SMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="QhQ-ej-UsA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Me" image="me-tab.png" id="ylk-VA-VXJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="5z0-2I-grb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.12941176470588237" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CUu-zW-sQp" kind="relationship" relationship="rootViewController" id="bFb-Jn-A38"/>
+                    </connections>
+                </navigationController>
             </objects>
             <point key="canvasLocation" x="904" y="1898"/>
         </scene>
@@ -1155,16 +1205,150 @@
         <image name="more-tab.png" width="30" height="30"/>
         <image name="news-tab.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="AboutViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
+        </class>
+        <class className="CollectViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressProgramme2012:"/>
+            </relationships>
+        </class>
+        <class className="EventViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressFavouriteButton:"/>
+                <relationship kind="action" name="didPressShareButton:"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ExploreViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExploreViewController.h"/>
+        </class>
+        <class className="FairViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FairViewController.h"/>
+        </class>
+        <class className="GalleriesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleriesViewController.h"/>
+        </class>
+        <class className="GalleryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressFavouriteButton:"/>
+                <relationship kind="action" name="didPressShareButton:"/>
+                <relationship kind="action" name="showPhoto:"/>
+                <relationship kind="action" name="showPhotographer:"/>
+                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="galleryTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="representedArtistsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="NewsItemViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsItemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressImageButton:"/>
+                <relationship kind="action" name="didPressShareButton:"/>
+                <relationship kind="outlet" name="imageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pageImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="pageText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="pageTitle" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="NewsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsViewController.h"/>
+        </class>
+        <class className="PhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressCollectWorkButton:"/>
+                <relationship kind="action" name="didPressShareButton:"/>
+                <relationship kind="outlet" name="captionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="collectWorkButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PhotographerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressFavouriteButton:"/>
+                <relationship kind="action" name="didPressShareButton:"/>
+                <relationship kind="action" name="showPhoto:"/>
+                <relationship kind="outlet" name="bioTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="galleryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="profileImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PhotographersViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographersViewController.h"/>
+        </class>
+        <class className="PhotosViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showPhoto:"/>
+                <relationship kind="outlet" name="pageNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="ProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressConnectButton:"/>
+                <relationship kind="outlet" name="connectButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="eventsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="favouritesView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="loggedOutOverlay" candidateClass="UIView"/>
+                <relationship kind="outlet" name="myCollectionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myFavouritesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myProgrammeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pageNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="profileImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ProgrammeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgrammeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressDaySelector:"/>
+                <relationship kind="outlet" name="daySelectorsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="V8B-F1-flQ"/>
-        <segue reference="fR4-kl-F6F"/>
-        <segue reference="K04-fP-aYM"/>
-        <segue reference="vuB-f0-ipC"/>
         <segue reference="dt9-U7-nya"/>
+        <segue reference="MAt-VJ-zCU"/>
+        <segue reference="z4L-qN-NOB"/>
+        <segue reference="caT-F7-7OL"/>
+        <segue reference="08k-JY-YA3"/>
+        <segue reference="GI5-KV-58r"/>
+        <segue reference="GAj-y1-DSg"/>
     </inferredMetricsTieBreakers>
 </document>
