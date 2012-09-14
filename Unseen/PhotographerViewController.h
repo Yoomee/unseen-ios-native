@@ -28,5 +28,6 @@
 - (IBAction)showPhoto:(id)sender;
 - (IBAction)didPressFavouriteButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
+- (IBAction)didPressShareButton:(id)sender;
 
 @end

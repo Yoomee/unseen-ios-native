@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *pageText;
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
 - (IBAction)didPressImageButton:(id)sender;
+- (IBAction)didPressShareButton:(id)sender;
 
 @end

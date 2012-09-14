@@ -183,7 +183,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sC0-g8-Mlp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="bH3-gT-ppn" customClass="PhotoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A3n-J8-ybr">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="Cok-d0-EjT">
@@ -223,7 +223,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="prh-1o-qQq"/>
+                    <navigationItem key="navigationItem" id="prh-1o-qQq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="OQU-Hu-okN">
+                            <connections>
+                                <action selector="didPressShareButton:" destination="bH3-gT-ppn" id="sVV-Fh-3Jz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="captionLabel" destination="zLi-PK-jL7" id="SMa-Fb-and"/>
                         <outlet property="collectWorkButton" destination="Jxj-Zr-JxQ" id="LWE-e7-ANr"/>
@@ -560,7 +566,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
-                    <navigationItem key="navigationItem" id="tWM-Dc-wkb"/>
+                    <navigationItem key="navigationItem" id="tWM-Dc-wkb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="vi2-0x-H34">
+                            <connections>
+                                <action selector="didPressShareButton:" destination="tcF-fa-drB" id="Zmz-7E-1NB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="2zs-Uh-ITn" id="qr3-lg-ip2"/>
                         <outlet property="descriptionTextView" destination="xVu-Ux-1UX" id="4vg-nR-97s"/>
@@ -779,7 +791,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
-                    <navigationItem key="navigationItem" id="bEe-7d-5VC"/>
+                    <navigationItem key="navigationItem" id="bEe-7d-5VC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Wt4-bq-Suz">
+                            <connections>
+                                <action selector="didPressShareButton:" destination="qt7-ZJ-wO9" id="7am-4e-Npa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="bioTextView" destination="Ypp-wh-q1z" id="d5W-VA-B0c"/>
@@ -852,7 +870,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
-                    <navigationItem key="navigationItem" id="bcf-Fr-RFo"/>
+                    <navigationItem key="navigationItem" id="bcf-Fr-RFo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="iRv-0d-jXm">
+                            <connections>
+                                <action selector="didPressShareButton:" destination="XRG-Vi-BYb" id="fL3-Yb-IYc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="favouriteButton" destination="tIX-2A-4dN" id="emQ-Pi-2De"/>
@@ -933,7 +957,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
-                    <navigationItem key="navigationItem" id="Ljl-VJ-WzJ"/>
+                    <navigationItem key="navigationItem" id="Ljl-VJ-WzJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="3rL-JS-6vq">
+                            <connections>
+                                <action selector="didPressShareButton:" destination="sKj-mg-G2N" id="Pp9-6n-YLD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageButton" destination="8AV-bZ-QXg" id="ntw-q6-IVs"/>
                         <outlet property="pageImage" destination="4oh-tt-A1N" id="Sb1-bP-oXm"/>
@@ -1125,139 +1155,16 @@
         <image name="more-tab.png" width="30" height="30"/>
         <image name="news-tab.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="AboutViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
-        </class>
-        <class className="CollectViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressProgramme2012:"/>
-            </relationships>
-        </class>
-        <class className="EventViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressFavouriteButton:"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ExploreViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExploreViewController.h"/>
-        </class>
-        <class className="FairViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FairViewController.h"/>
-        </class>
-        <class className="GalleriesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleriesViewController.h"/>
-        </class>
-        <class className="GalleryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressFavouriteButton:"/>
-                <relationship kind="action" name="showPhoto:"/>
-                <relationship kind="action" name="showPhotographer:"/>
-                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="galleryTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="representedArtistsLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="NewsItemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsItemViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressImageButton:"/>
-                <relationship kind="outlet" name="imageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="pageImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="pageText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="pageTitle" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="NewsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsViewController.h"/>
-        </class>
-        <class className="PhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressCollectWorkButton:"/>
-                <relationship kind="outlet" name="captionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="collectWorkButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PhotographerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressFavouriteButton:"/>
-                <relationship kind="action" name="showPhoto:"/>
-                <relationship kind="outlet" name="bioTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="galleryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="profileImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="PhotographersViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographersViewController.h"/>
-        </class>
-        <class className="PhotosViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showPhoto:"/>
-                <relationship kind="outlet" name="pageNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="ProfileViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressConnectButton:"/>
-                <relationship kind="outlet" name="connectButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loggedOutOverlay" candidateClass="UIView"/>
-                <relationship kind="outlet" name="myCollectionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pageNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="profileImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ProgrammeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgrammeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressDaySelector:"/>
-                <relationship kind="outlet" name="daySelectorsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fR4-kl-F6F"/>
         <segue reference="V8B-F1-flQ"/>
-        <segue reference="OtC-g3-iFC"/>
-        <segue reference="NZO-Vd-Bpz"/>
+        <segue reference="fR4-kl-F6F"/>
+        <segue reference="K04-fP-aYM"/>
+        <segue reference="vuB-f0-ipC"/>
         <segue reference="dt9-U7-nya"/>
     </inferredMetricsTieBreakers>
 </document>

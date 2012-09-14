@@ -14,6 +14,7 @@
 #import "constants.h"
 #import "DDPageControl.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SHK.h"
 
 @implementation PhotographerViewController
 @synthesize favouriteButton;
@@ -231,4 +232,11 @@
 }
 
 
+- (IBAction)didPressShareButton:(id)sender {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/photographers/%@",kBaseURL,photographer.photographerID]];
+    SHKItem *item = [SHKItem URL:url title:[NSString stringWithFormat:@"Unseen Photo Fair Amsterdam - %@", photographer.name] contentType:SHKURLContentTypeWebpage];
+    //item.facebookURLSharePictureURI = [NSString stringWithFormat:@"%@%@",kBaseURL,photographer.imageURL];
+    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+    [actionSheet showFromTabBar:self.navigationController.tabBarController.tabBar];
+}
 @end

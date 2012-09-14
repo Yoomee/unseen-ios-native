@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *collectWorkButton;
 - (IBAction)didPressCollectWorkButton:(id)sender;
+- (IBAction)didPressShareButton:(id)sender;
 
 @end

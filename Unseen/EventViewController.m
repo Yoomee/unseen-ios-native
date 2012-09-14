@@ -11,6 +11,7 @@
 #import "Favourite.h"
 #import "constants.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SHK.h"
 
 @implementation EventViewController
 @synthesize dateLabel;
@@ -179,6 +180,14 @@
     } else {
         [self.tabBarController setSelectedIndex:3];
     }
+}
+
+- (IBAction)didPressShareButton:(id)sender {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/events/%@",kBaseURL,event.eventID]];
+    SHKItem *item = [SHKItem URL:url title:[NSString stringWithFormat:@"Unseen Photo Fair Amsterdam - %@", event.title] contentType:SHKURLContentTypeWebpage];
+    item.facebookURLSharePictureURI = [NSString stringWithFormat:@"%@%@",kBaseURL,event.imageURL];
+    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+    [actionSheet showFromTabBar:self.navigationController.tabBarController.tabBar];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    

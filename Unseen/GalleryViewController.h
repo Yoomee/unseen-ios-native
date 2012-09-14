@@ -31,5 +31,6 @@
 - (IBAction)showPhotographer:(id)sender;
 - (IBAction)showPhoto:(id)sender;
 - (IBAction)didPressFavouriteButton:(id)sender;
+- (IBAction)didPressShareButton:(id)sender;
 
 @end

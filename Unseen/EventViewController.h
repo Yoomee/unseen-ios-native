@@ -21,5 +21,7 @@
 @property (nonatomic, strong) Event *event;
 @property (nonatomic) NSInteger selectedDay;
 - (IBAction)didPressFavouriteButton:(id)sender;
+- (IBAction)didPressShareButton:(id)sender;
+
 
 @end

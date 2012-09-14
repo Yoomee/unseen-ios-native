@@ -10,6 +10,8 @@
 #import "Photo.h"
 #import "Favourite.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SHK.h"
+#import "constants.h"
 
 @implementation PhotoViewController
 @synthesize photo;
@@ -161,4 +163,13 @@
 -(void) request:(RKRequest *)request didFailLoadWithError:(NSError *)error  {
     NSLog(@"%@",error);
 }
+
+- (IBAction)didPressShareButton:(id)sender {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/photos/%@",kBaseURL,photo.photoID]];
+    SHKItem *item = [SHKItem URL:url title:[NSString stringWithFormat:@"Unseen Photo Fair Amsterdam - %@", photo.caption] contentType:SHKURLContentTypeWebpage];
+    item.facebookURLSharePictureURI = [NSString stringWithFormat:@"%@%@",kBaseURL,photo.imageURL];
+    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+    [actionSheet showFromTabBar:self.navigationController.tabBarController.tabBar];
+}
+
 @end

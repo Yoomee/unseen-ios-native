@@ -8,6 +8,8 @@
 
 #import "NewsItemViewController.h"
 #import "Page.h"
+#import "constants.h"
+#import "SHK.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation NewsItemViewController
@@ -110,5 +112,13 @@
     if(page.videoURL.length > 0)
         NSLog(@"%@",page.videoURL);
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString: page.videoURL]]; 
+}
+
+- (IBAction)didPressShareButton:(id)sender {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/pages/%@",kBaseURL,page.pageID]];
+    SHKItem *item = [SHKItem URL:url title:[NSString stringWithFormat:@"Unseen Photo Fair Amsterdam - %@", page.title] contentType:SHKURLContentTypeWebpage];
+    item.facebookURLSharePictureURI = [NSString stringWithFormat:@"%@%@",kBaseURL,page.imageURL];
+    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+    [actionSheet showFromTabBar:self.navigationController.tabBarController.tabBar];
 }
 @end

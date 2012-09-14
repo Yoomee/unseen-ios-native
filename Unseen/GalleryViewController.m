@@ -16,6 +16,7 @@
 #import "constants.h"
 #import "DDPageControl.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SHK.h"
 
 @implementation GalleryViewController
 @synthesize favouriteButton;
@@ -225,6 +226,17 @@
     } else {
         [self.tabBarController setSelectedIndex:3];
     }
+}
+
+- (IBAction)didPressShareButton:(id)sender {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/galleries/%@",kBaseURL,gallery.galleryID]];
+    SHKItem *item = [SHKItem URL:url title:[NSString stringWithFormat:@"Unseen Photo Fair Amsterdam - %@", gallery.name] contentType:SHKURLContentTypeWebpage];
+    if(photos.count > 0){
+        item.facebookURLSharePictureURI = [NSString stringWithFormat:@"%@%@",kBaseURL,[(Photo *)[photos objectAtIndex:0] imageURL]];
+
+    }
+    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+    [actionSheet showFromTabBar:self.navigationController.tabBarController.tabBar];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    

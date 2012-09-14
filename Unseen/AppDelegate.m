@@ -17,6 +17,9 @@
 #import "Page.h"
 #import "Photographer.h"
 #import "Photo.h"
+#import "SHKConfiguration.h"
+#import "SHKFacebook.h"
+#import "UnseenShareKitConfigurator.h"
 
 @implementation AppDelegate
 
@@ -172,6 +175,8 @@
     
     [router routeClass:[FavouritesSync class] toResourcePath:@"/favourites_sync"];
     
+    DefaultSHKConfigurator *configurator = [[UnseenShareKitConfigurator alloc] init];
+    [SHKConfiguration sharedInstanceWithConfigurator:configurator];
     
     
 //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -228,6 +233,20 @@
      */
 }
 
+- (BOOL)handleOpenURL:(NSURL*)url
+{
+    NSString* scheme = [url scheme];
+    NSString* prefix = [NSString stringWithFormat:@"fb%@", SHKCONFIG(facebookAppId)];
+    if ([scheme hasPrefix:prefix])
+        return [SHKFacebook handleOpenURL:url];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
+{
+    return [self handleOpenURL:url];  
+}
+
 - (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     if ([[url host] isEqualToString:@"api"]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -238,11 +257,17 @@
         [defaults synchronize];
         [[RKClient sharedClient] setValue:[defaults stringForKey:@"UserApiKey"] forHTTPHeaderField:@"APIKEY"];
         [[[RKObjectManager sharedManager] client] setValue:[defaults stringForKey:@"UserApiKey"] forHTTPHeaderField:@"APIKEY"];
+        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+        [tabBarController setSelectedIndex:0];
+        [tabBarController setSelectedIndex:3];
+    } else {
+        return [self handleOpenURL:url];
+
     }
-    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    [tabBarController setSelectedIndex:2];
-    [tabBarController setSelectedIndex:3];
+
     return YES;
 }
+
+
 
 @end
