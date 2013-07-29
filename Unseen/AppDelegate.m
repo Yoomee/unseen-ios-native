@@ -41,7 +41,7 @@
     RKClient* client = [RKClient clientWithBaseURL:[NSURL URLWithString:kBaseURL]];  
     [client setValue:[defaults stringForKey:@"UserApiKey"] forHTTPHeaderField:@"APIKEY"];
     
-    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:[NSString stringWithFormat:@"%@/api/2", kBaseURL]];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:[NSString stringWithFormat:@"%@/api/%@", kBaseURL, kEdition]];
     [[objectManager client] setValue:[defaults stringForKey:@"UserApiKey"] forHTTPHeaderField:@"APIKEY"];
     
     // Enable automatic network activity indicator management
@@ -129,6 +129,7 @@
     [photoMapping mapKeyPath:@"id" toAttribute:@"photoID"];
     [photoMapping mapKeyPath:@"image_url_for_api" toAttribute:@"imageURL"];
     [photoMapping mapKeyPath:@"caption" toAttribute:@"caption"];
+    [objectManager.mappingProvider setObjectMapping:photoMapping forResourcePathPattern:@"/photos"];
     
     [photographerMapping mapKeyPath:@"galleries" toRelationship:@"galleries" withMapping:galleryMapping serialize:NO];
     [photographerMapping mapKeyPath:@"photos" toRelationship:@"photos" withMapping:photoMapping serialize:NO];

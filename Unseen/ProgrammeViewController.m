@@ -272,8 +272,20 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"ProgrammeLastUpdatedAt"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    // Delete any locally stored records that have been deleted on the server
+    for(Event *event in [Event findAll]) {
+        if(![objects containsObject:event]) {
+            [[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] deleteObject:event];
+        }
+    }
+    NSError *error = nil;
+    if (![[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] save:&error]){
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"ProgrammeLastUpdatedAt"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     [self loadObjectsFromDataStoreForDay:[self selectedDay]];
     [self.tableView reloadData];
 }

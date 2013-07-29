@@ -190,10 +190,23 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"GalleriesLastUpdatedAt"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    // Delete any locally stored records that have been deleted on the server
+    for(Gallery *gallery in [Gallery findAll]) {
+        if(![objects containsObject:gallery]) {
+            [[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] deleteObject:gallery];
+        }
+    }
+    NSError *error = nil;
+    if (![[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] save:&error]){
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"GalleriesLastUpdatedAt"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     [self loadObjectsFromDataStore];
     [self.tableView reloadData];
+    
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error

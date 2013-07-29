@@ -220,8 +220,19 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"PagesLastUpdatedAt"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    for(Page *page in [Page findAll]) {
+        if(![objects containsObject:page]) {
+            [[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] deleteObject:page];
+        }
+    }
+    NSError *error = nil;
+    if (![[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] save:&error]){
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"PagesLastUpdatedAt"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
     [self loadObjectsFromDataStore];
     [self.tableView reloadData];
 }

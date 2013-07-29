@@ -49,38 +49,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadObjectsFromDataStore];
-    self.selectedPhoto = nil;
     
-    UIView *pageWrapper;
-    for(int i = 0; i < photos.count; i++){
-        if (i % 4 == 0)
-            pageWrapper = [[UIView alloc] initWithFrame:CGRectMake(((i / 4) * 320), 0, 320, 280)];
-        Photo *photo = [photos objectAtIndex:i];
-        int col = ((i % 4)/2);
-        int row = (i % 2);
-        UIButton *imageButton = [[UIButton alloc] initWithFrame:CGRectMake((col * 130) + ((col + 1) * 20), (row  * 150), 130, 130)];
-        imageButton.tag = i;
-        [imageButton addTarget:self action:@selector(showPhoto:) forControlEvents:UIControlEventTouchUpInside];
-        UIImageView *imageView = [[UIImageView alloc] init];
-        [imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",photo.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-130.png"]];
-        [imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [imageView setFrame:CGRectMake(0,0,130,130)];
-        [imageButton addSubview:imageView];
-        [pageWrapper addSubview:imageButton];
-        if ((i % 4 == 3) || (i == (photos.count - 1))) {
-            [photosView addSubview:pageWrapper];
-        }
-    }
-    int pages = (photos.count / 4);
-    if(photos.count % 4 > 0 ){
-        pages++;
-    }
-    self.numberOfPages = pages;
-    photosView.contentSize = CGSizeMake((numberOfPages * 320), 280);
+    NSDate *lastUpdated = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"PhotosLastUpdatedAt"];
+    if([lastUpdated timeIntervalSinceNow] < -3600.0f){
+        [self loadData];
+    };
+    
+    [self loadObjectsFromDataStore];
     pageNumberLabel.font = [UIFont fontWithName:@"Apercu" size:12.0];
-    [pageNumberLabel setText:[NSString stringWithFormat:@"1 of %i", numberOfPages]];
+    [self layoutPhotos];
 }
 
 
@@ -96,6 +73,13 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [objectManager.objectStore setDelegate:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -131,5 +115,78 @@
 	}
 }
 
+- (void) layoutPhotos
+{
+    self.selectedPhoto = nil;
+    
+    [photosView.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    
+    UIView *pageWrapper;
+    for(int i = 0; i < photos.count; i++){
+        if (i % 4 == 0)
+            pageWrapper = [[UIView alloc] initWithFrame:CGRectMake(((i / 4) * 320), 0, 320, 280)];
+        Photo *photo = [photos objectAtIndex:i];
+        int col = ((i % 4)/2);
+        int row = (i % 2);
+        UIButton *imageButton = [[UIButton alloc] initWithFrame:CGRectMake((col * 130) + ((col + 1) * 20), (row  * 150), 130, 130)];
+        imageButton.tag = i;
+        [imageButton addTarget:self action:@selector(showPhoto:) forControlEvents:UIControlEventTouchUpInside];
+        UIImageView *imageView = [[UIImageView alloc] init];
+        [imageView setContentMode:UIViewContentModeScaleAspectFit];
+        [imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://unseenamsterdam.com",photo.imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder-130.png"]];
+        [imageView setContentMode:UIViewContentModeScaleAspectFit];
+        [imageView setFrame:CGRectMake(0,0,130,130)];
+        [imageButton addSubview:imageView];
+        [pageWrapper addSubview:imageButton];
+        if ((i % 4 == 3) || (i == (photos.count - 1))) {
+            [photosView addSubview:pageWrapper];
+        }
+    }
+    int pages = (photos.count / 4);
+    if(photos.count % 4 > 0 ){
+        pages++;
+    }
+    self.numberOfPages = pages;
+    photosView.contentSize = CGSizeMake((numberOfPages * 320), 280);
+    pageNumberLabel.font = [UIFont fontWithName:@"Apercu" size:12.0];
+    [pageNumberLabel setText:[NSString stringWithFormat:@"1 of %i", numberOfPages]];
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)loadData
+{
+    // Load the object model via RestKit
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [objectManager loadObjectsAtResourcePath:@"/photos" delegate:self];
+}
+
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+    // Delete any locally stored records that have been deleted on the server
+    for(Photo *photo in [Photo findAll]) {
+        if(![objects containsObject:photo]) {
+            [[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] deleteObject:photo];
+        }
+    }
+    NSError *error = nil;
+    if (![[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] save:&error]){
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"PhotosLastUpdatedAt"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    [self loadObjectsFromDataStore];
+    [self layoutPhotos];
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //    [alert show];
+    NSLog(@"Hit error: %@", error);
+}
 
 @end

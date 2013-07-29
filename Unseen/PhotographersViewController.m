@@ -192,8 +192,20 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"PhotographersLastUpdatedAt"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    // Delete any locally stored records that have been deleted on the server
+    for(Photographer *photographer in [Photographer findAll]) {
+        if(![objects containsObject:photographer]) {
+            [[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] deleteObject:photographer];
+        }
+    }
+    NSError *error = nil;
+    if (![[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] save:&error]){
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"PhotographersLastUpdatedAt"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
     [self loadObjectsFromDataStore];
     [self.tableView reloadData];
 }
