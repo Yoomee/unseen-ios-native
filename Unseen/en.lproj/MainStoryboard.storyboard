@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="10K549" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <development version="4200" defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <development version="4200" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Collect View Controller - Second-->
         <scene sceneID="13">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
                 <viewController title="Second" id="3" customClass="CollectViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="17">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -29,7 +29,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="didPressProgramme2012:" destination="3" eventType="touchUpInside" id="J6g-Fh-zn5"/>
+                                    <action selector="didPressProgrammeButton:" destination="3" eventType="touchUpInside" id="Jof-9I-xiK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HzF-Bn-aLk">
@@ -67,12 +67,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="muz-I0-HfO"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="472" y="1019"/>
         </scene>
+        <!--Photos View Controller - Collect-->
         <scene sceneID="VEH-fi-5W6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tex-oX-ur9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="uyu-d5-yvW" customClass="PhotosViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DcA-JF-hJf">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -143,12 +144,13 @@
                         <segue destination="bH3-gT-ppn" kind="push" identifier="ShowPhoto" id="OtC-g3-iFC"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tex-oX-ur9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1550" y="999"/>
         </scene>
+        <!--Explore View Controller - Get Inspired-->
         <scene sceneID="sFi-M2-Lg2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7I2-Ev-Nqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="X6F-Hq-cNK" customClass="ExploreViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="x8A-mN-wZR">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -175,18 +177,19 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Get Inspired" id="QVx-k7-EyY"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7I2-Ev-Nqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2424" y="1654"/>
         </scene>
+        <!--Photo View Controller-->
         <scene sceneID="P2A-5l-GaE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sC0-g8-Mlp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="bH3-gT-ppn" customClass="PhotoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A3n-J8-ybr">
-                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="Cok-d0-EjT">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Cok-d0-EjT">
                                 <rect key="frame" x="15" y="10" width="290" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -197,7 +200,7 @@
                                 <rect key="frame" x="15" y="46" width="290" height="230"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" minimumFontSize="10" id="zLi-PK-jL7">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" numberOfLines="0" minimumFontSize="10" adjustsFontSizeToFit="NO" id="zLi-PK-jL7">
                                 <rect key="frame" x="15" y="279" width="290" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -237,12 +240,13 @@
                         <outlet property="titleLabel" destination="Cok-d0-EjT" id="G15-JO-Qyb"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sC0-g8-Mlp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2834" y="403"/>
         </scene>
+        <!--Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
                 <tabBarController id="4" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
@@ -260,12 +264,13 @@
                         <segue destination="qu8-wh-GuP" kind="relationship" relationship="viewControllers" id="dac-Ab-fnM"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-642" y="888"/>
         </scene>
+        <!--Fair View Controller - Fair & Festival-->
         <scene sceneID="E9q-rd-T5j">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BhK-pC-9l8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="k5U-sM-bG7" customClass="FairViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1bV-eP-eNk">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -295,12 +300,13 @@
                         <segue destination="Unt-LW-Azk" kind="push" identifier="MapViewController" id="BXD-rK-RWq"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BhK-pC-9l8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="636" y="-961"/>
         </scene>
+        <!--Galleries View Controller - Galleries-->
         <scene sceneID="ZGF-Xb-6Bi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4jH-in-77D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="mf3-Nb-aH0" customClass="GalleriesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="K3A-Ak-BvT">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -327,12 +333,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Galleries" id="Dvp-JQ-4zb"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4jH-in-77D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1486" y="-1237"/>
         </scene>
+        <!--Programme View Controller - Programme-->
         <scene sceneID="Bg3-QF-HoV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3eG-Jk-W4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="1RT-YF-AEa" customClass="ProgrammeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Od3-vz-AQw">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -343,7 +350,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="D8G-nw-6pl">
-                                        <rect key="frame" x="0.0" y="0.0" width="64" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Day 1">
@@ -361,7 +368,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Y9a-Pu-fSo">
-                                        <rect key="frame" x="64" y="0.0" width="64" height="44"/>
+                                        <rect key="frame" x="80" y="0.0" width="80" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Day 2">
@@ -379,7 +386,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Rs-Bb-LFd">
-                                        <rect key="frame" x="128" y="0.0" width="64" height="44"/>
+                                        <rect key="frame" x="160" y="0.0" width="80" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Day 3">
@@ -397,7 +404,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="d7V-IV-Fiw">
-                                        <rect key="frame" x="192" y="0.0" width="64" height="44"/>
+                                        <rect key="frame" x="240" y="0.0" width="80" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Day 4">
@@ -412,24 +419,6 @@
                                         </state>
                                         <connections>
                                             <action selector="didPressDaySelector:" destination="1RT-YF-AEa" eventType="touchUpInside" id="5Jb-qN-wyx"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fIE-fG-y5d">
-                                        <rect key="frame" x="256" y="0.0" width="64" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Day 5">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didPressDaySelector:" destination="1RT-YF-AEa" eventType="touchUpInside" id="gbZ-YD-Ukz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -447,21 +436,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="61"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Event name" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="Kio-MY-Us0">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Event name" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Kio-MY-Us0">
                                                     <rect key="frame" x="14" y="7" width="266" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Venue" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="Wcj-AJ-Trj">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Venue" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Wcj-AJ-Trj">
                                                     <rect key="frame" x="14" y="22" width="266" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Time" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="xse-Wf-ldX">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Time" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="xse-Wf-ldX">
                                                     <rect key="frame" x="14" y="38" width="266" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -496,39 +485,40 @@
                         <outlet property="tableView" destination="3IN-1n-D1j" id="fVk-ot-dCT"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3eG-Jk-W4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1494" y="-2067"/>
         </scene>
+        <!--Event View Controller-->
         <scene sceneID="uj7-Pm-65p">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sgz-0V-VfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="tcF-fa-drB" customClass="EventViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="J31-22-t6o">
-                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Event title that runs over two lines and is quite long" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" minimumFontSize="10" id="kx2-Jd-iKk">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Event title that runs over two lines and is quite long" lineBreakMode="wordWrap" numberOfLines="2" minimumFontSize="10" adjustsFontSizeToFit="NO" id="kx2-Jd-iKk">
                                 <rect key="frame" x="20" y="20" width="280" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="2zs-Uh-ITn">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="2zs-Uh-ITn">
                                 <rect key="frame" x="20" y="90" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="ezO-UE-mFj">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="ezO-UE-mFj">
                                 <rect key="frame" x="20" y="107" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="fiP-SN-PeL">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="fiP-SN-PeL">
                                 <rect key="frame" x="20" y="124" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -583,12 +573,13 @@
                         <outlet property="venueLabel" destination="fiP-SN-PeL" id="wwo-yQ-lBE"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sgz-0V-VfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2370" y="-2067"/>
         </scene>
+        <!--Navigation Controller - Fair & Festival-->
         <scene sceneID="9HB-3t-Jxu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ESa-ZY-cX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="8Uk-ni-j7e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Fair &amp; Festival" image="fair-tab.png" id="AsH-m7-Uda"/>
                     <toolbarItems/>
@@ -603,12 +594,13 @@
                         <segue destination="k5U-sM-bG7" kind="relationship" relationship="rootViewController" id="nlO-SZ-eJO"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ESa-ZY-cX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-62" y="-953"/>
         </scene>
+        <!--Photographers View Controller - Photographers-->
         <scene sceneID="o5F-0D-QCv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JId-s5-0F9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="aUD-Ad-5oF" customClass="PhotographersViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="z3I-2O-VXe">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -635,12 +627,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Photographers" id="6Lj-4u-zu9"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JId-s5-0F9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1494" y="-493"/>
         </scene>
+        <!--News View Controller - News-->
         <scene sceneID="Q16-0V-2Ha">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Yk-7D-ra5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="IHe-PX-zKl" customClass="NewsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="OSM-i2-dYa">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -687,12 +680,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="News" id="dtm-Ri-VIR"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Yk-7D-ra5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="636" y="-143"/>
         </scene>
+        <!--Map View Controller - Map-->
         <scene sceneID="pA9-y7-eWj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uyz-0F-4jR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Unt-LW-Azk" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2A3-S3-bnI">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -720,25 +714,26 @@
                         <outlet property="scrollView" destination="ZFa-Pq-Cbg" id="aDh-Cc-rBr"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uyz-0F-4jR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1486" y="192"/>
         </scene>
+        <!--Photographer View Controller-->
         <scene sceneID="iuy-Kf-6uv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HhU-bh-pgg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="qt7-ZJ-wO9" customClass="PhotographerViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Vhi-eX-skW">
                         <rect key="frame" x="0.0" y="64" width="320" height="593"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name 1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" minimumFontSize="10" id="7gc-vr-198">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name 1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="7gc-vr-198">
                                 <rect key="frame" x="85" y="20" width="215" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name 2" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" minimumFontSize="10" id="8Bk-uJ-YiX">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name 2" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="8Bk-uJ-YiX">
                                 <rect key="frame" x="85" y="44" width="215" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
@@ -765,7 +760,7 @@
                                 <rect key="frame" x="15" y="20" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Gallery label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="zC9-45-C6j">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Gallery label" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="zC9-45-C6j">
                                 <rect key="frame" x="85" y="60" width="227" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -810,18 +805,19 @@
                         <segue destination="bH3-gT-ppn" kind="push" identifier="ShowPhoto" id="Unt-9w-YSF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HhU-bh-pgg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2834" y="-598"/>
         </scene>
+        <!--Gallery View Controller-->
         <scene sceneID="FdM-IV-72a">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xgy-O1-aXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="XRG-Vi-BYb" customClass="GalleryViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rIv-La-sNZ">
                         <rect key="frame" x="0.0" y="64" width="320" height="593"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Gallery name that goes over on to two line" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" minimumFontSize="10" id="rgp-BI-W9K">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Gallery name that goes over on to two line" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="rgp-BI-W9K">
                                 <rect key="frame" x="15" y="20" width="290" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
@@ -889,12 +885,13 @@
                         <segue destination="bH3-gT-ppn" kind="push" identifier="ShowPhoto" id="K04-fP-aYM"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xgy-O1-aXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2114" y="-1350"/>
         </scene>
+        <!--Navigation Controller - News-->
         <scene sceneID="qM0-Yk-LUQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xuT-cQ-58X" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="fRB-2p-GBs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" image="news-tab.png" id="nQ3-tT-CY4"/>
                     <toolbarItems/>
@@ -908,12 +905,13 @@
                         <segue destination="IHe-PX-zKl" kind="relationship" relationship="rootViewController" id="Brz-pk-Edu"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xuT-cQ-58X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-62" y="-135"/>
         </scene>
+        <!--News Item View Controller-->
         <scene sceneID="c8r-Fj-3sb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yzw-wy-jqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="sKj-mg-G2N" customClass="NewsItemViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="tOj-NI-28u">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -971,12 +969,13 @@
                         <outlet property="pageTitle" destination="9w6-eN-Icw" id="gJv-eE-kUY"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzw-wy-jqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3496" y="2101"/>
         </scene>
+        <!--About View Controller - About-->
         <scene sceneID="19I-c4-COX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CCW-Zk-V3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="FLo-wU-DA0" customClass="AboutViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YEP-V3-ABd">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -1003,12 +1002,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="About" id="ChG-Pd-zT2"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CCW-Zk-V3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="644" y="2747"/>
         </scene>
+        <!--Navigation Controller - More-->
         <scene sceneID="8B6-gz-O15">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MmO-jY-CCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="qu8-wh-GuP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="More" image="more-tab.png" id="dfK-Cp-4UQ"/>
                     <toolbarItems/>
@@ -1022,12 +1022,13 @@
                         <segue destination="FLo-wU-DA0" kind="relationship" relationship="rootViewController" id="xVs-NS-LcE"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MmO-jY-CCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-54" y="2755"/>
         </scene>
+        <!--Navigation Controller - Collect-->
         <scene sceneID="TVq-xm-ARq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TcL-UX-Zoj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="gEJ-ly-hXF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Collect" image="collect-tab.png" id="6"/>
                     <toolbarItems/>
@@ -1041,25 +1042,26 @@
                         <segue destination="3" kind="relationship" relationship="rootViewController" id="0LZ-xd-YZd"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TcL-UX-Zoj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-54" y="1019"/>
         </scene>
+        <!--Profile View Controller - Me-->
         <scene sceneID="GZs-hh-Sax">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dt1-SL-lvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="CUu-zW-sQp" customClass="ProfileViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rVW-Tk-vym">
                         <rect key="frame" x="0.0" y="64" width="320" height="593"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name 1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" minimumFontSize="10" id="IZr-DV-adf">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name 1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="IZr-DV-adf">
                                 <rect key="frame" x="85" y="14" width="215" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name 2" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" minimumFontSize="10" id="FyS-Oz-LHc">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name 2" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="FyS-Oz-LHc">
                                 <rect key="frame" x="85" y="38" width="215" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
@@ -1165,12 +1167,13 @@
                         <segue destination="qt7-ZJ-wO9" kind="push" identifier="ShowPhotographer" id="z4L-qN-NOB"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dt1-SL-lvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1430" y="1898"/>
         </scene>
+        <!--Navigation Controller - Me-->
         <scene sceneID="6dl-Xq-Zqd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xgi-IC-SMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="QhQ-ej-UsA" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Me" image="me-tab.png" id="ylk-VA-VXJ"/>
                     <toolbarItems/>
@@ -1184,6 +1187,7 @@
                         <segue destination="CUu-zW-sQp" kind="relationship" relationship="rootViewController" id="bFb-Jn-A38"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xgi-IC-SMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="904" y="1898"/>
         </scene>
@@ -1205,138 +1209,6 @@
         <image name="more-tab.png" width="30" height="30"/>
         <image name="news-tab.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="AboutViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
-        </class>
-        <class className="CollectViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressProgramme2012:"/>
-            </relationships>
-        </class>
-        <class className="EventViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressFavouriteButton:"/>
-                <relationship kind="action" name="didPressShareButton:"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ExploreViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExploreViewController.h"/>
-        </class>
-        <class className="FairViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FairViewController.h"/>
-        </class>
-        <class className="GalleriesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleriesViewController.h"/>
-        </class>
-        <class className="GalleryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressFavouriteButton:"/>
-                <relationship kind="action" name="didPressShareButton:"/>
-                <relationship kind="action" name="showPhoto:"/>
-                <relationship kind="action" name="showPhotographer:"/>
-                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="galleryTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="representedArtistsLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="NewsItemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsItemViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressImageButton:"/>
-                <relationship kind="action" name="didPressShareButton:"/>
-                <relationship kind="outlet" name="imageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="pageImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="pageText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="pageTitle" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="NewsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsViewController.h"/>
-        </class>
-        <class className="PhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressCollectWorkButton:"/>
-                <relationship kind="action" name="didPressShareButton:"/>
-                <relationship kind="outlet" name="captionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="collectWorkButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PhotographerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressFavouriteButton:"/>
-                <relationship kind="action" name="didPressShareButton:"/>
-                <relationship kind="action" name="showPhoto:"/>
-                <relationship kind="outlet" name="bioTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="galleryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="profileImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="PhotographersViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographersViewController.h"/>
-        </class>
-        <class className="PhotosViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showPhoto:"/>
-                <relationship kind="outlet" name="pageNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="ProfileViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressConnectButton:"/>
-                <relationship kind="outlet" name="connectButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="eventsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="favouritesView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="loggedOutOverlay" candidateClass="UIView"/>
-                <relationship kind="outlet" name="myCollectionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myFavouritesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="myProgrammeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pageNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="profileImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ProgrammeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgrammeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didPressDaySelector:"/>
-                <relationship kind="outlet" name="daySelectorsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -1344,11 +1216,11 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="dt9-U7-nya"/>
-        <segue reference="MAt-VJ-zCU"/>
-        <segue reference="z4L-qN-NOB"/>
-        <segue reference="caT-F7-7OL"/>
+        <segue reference="fR4-kl-F6F"/>
+        <segue reference="V8B-F1-flQ"/>
+        <segue reference="OtC-g3-iFC"/>
+        <segue reference="3yl-kB-V6b"/>
         <segue reference="08k-JY-YA3"/>
-        <segue reference="GI5-KV-58r"/>
-        <segue reference="GAj-y1-DSg"/>
+        <segue reference="z4L-qN-NOB"/>
     </inferredMetricsTieBreakers>
 </document>

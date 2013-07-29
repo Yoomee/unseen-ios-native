@@ -7,7 +7,7 @@
 //
 
 #import "FairViewController.h"
-
+#import "constants.h"
 
 @implementation FairViewController
 @synthesize rowItems;
@@ -34,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.rowItems = [NSMutableArray arrayWithObjects:@"Unseen Programme 2012", @"Galleries", @"Photographers", @"Fair & Festival Map", nil];
+    self.rowItems = [NSMutableArray arrayWithObjects:[NSString stringWithFormat:@"Unseen Programme %@", kEdition], @"Galleries", @"Photographers", @"Fair & Festival Map", nil];
     
     //self.rowItems = [NSMutableArray arrayWithObjects:@"Unseen Programme 2012", @"Galleries", @"Photographers", @"Fair & Festival Map", @"Buy Tickets", @"Sponsor & Partners", nil];
     

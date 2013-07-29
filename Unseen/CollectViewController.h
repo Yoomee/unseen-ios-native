@@ -10,7 +10,7 @@
 
 @interface CollectViewController : UIViewController
 
-- (IBAction)didPressProgramme2012:(id)sender;
+- (IBAction)didPressProgrammeButton:(id)sender;
 
 @end
 

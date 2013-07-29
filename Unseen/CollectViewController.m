@@ -70,7 +70,7 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (IBAction)didPressProgramme2012:(id)sender {
+- (IBAction)didPressProgrammeButton:(id)sender {
     [self.tabBarController setSelectedIndex:1];
     UINavigationController *navigationController = (UINavigationController *)self.tabBarController.selectedViewController;
     UIViewController *fairViewController = [[navigationController viewControllers] objectAtIndex:0];
