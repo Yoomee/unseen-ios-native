@@ -26,6 +26,7 @@
 		5B41B94815E7D29D00D64906 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B41B94715E7D29D00D64906 /* MapViewController.m */; };
 		5B41B94E15E7F30E00D64906 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B41B94D15E7F30E00D64906 /* Defaults.plist */; };
 		5B5AB5B815F8F2D6001E5B3F /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AB5B715F8F2D6001E5B3F /* ExploreViewController.m */; };
+		5B6C971617A6670A0092A31D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C971517A6670A0092A31D /* Default-568h@2x.png */; };
 		5B750D2615EFA24200B2D770 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B750D2515EFA24200B2D770 /* PhotoViewController.m */; };
 		5B87369215F50BB0000B12BD /* FavouritesSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B87369115F50BB0000B12BD /* FavouritesSync.m */; };
 		5B8BD25115ECC1D1004285FC /* PhotographerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8BD25015ECC1D1004285FC /* PhotographerViewController.m */; };
@@ -275,6 +276,7 @@
 		5B41B94D15E7F30E00D64906 /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Defaults.plist; path = Resources/Defaults.plist; sourceTree = "<group>"; };
 		5B5AB5B615F8F2D5001E5B3F /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
 		5B5AB5B715F8F2D6001E5B3F /* ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreViewController.m; sourceTree = "<group>"; };
+		5B6C971517A6670A0092A31D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Default-568h@2x.png"; sourceTree = "<group>"; };
 		5B750D2415EFA24200B2D770 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		5B750D2515EFA24200B2D770 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		5B87369015F50BAF000B12BD /* FavouritesSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesSync.h; sourceTree = "<group>"; };
@@ -326,7 +328,7 @@
 		5BDB85D21603410000C093C9 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5BDB85D41603410F00C093C9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5BDB85D61603411A00C093C9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unseen Photo Fair 2012.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2013.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unseen Photo Fair 2013.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE5533015E622DC000F78BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5BE5533215E622DC000F78BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BE5533415E622DC000F78BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -442,7 +444,7 @@
 		5BE5532D15E622DC000F78BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2012.app */,
+				5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2013.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -516,6 +518,7 @@
 				5B416FD715EFB7EA0003E694 /* collect-work-button@2x.png */,
 				5B416FD815EFB7EA0003E694 /* Default.png */,
 				5B416FD915EFB7EA0003E694 /* Default@2x.png */,
+				5B6C971517A6670A0092A31D /* Default-568h@2x.png */,
 				5B416FDA15EFB7EA0003E694 /* fair-tab.png */,
 				5B416FDB15EFB7EA0003E694 /* fair-tab@2x.png */,
 				5BD827FD15F78E52005FCB79 /* favourite-button-active.png */,
@@ -682,7 +685,7 @@
 			);
 			name = Unseen;
 			productName = Unseen;
-			productReference = 5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2012.app */;
+			productReference = 5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2013.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -691,7 +694,7 @@
 		5BE5532315E622DC000F78BA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Yoomee;
 			};
 			buildConfigurationList = 5BE5532615E622DC000F78BA /* Build configuration list for PBXProject "Unseen" */;
@@ -867,6 +870,7 @@
 				5BD8280C15F7A18E005FCB79 /* heart@2x.png in Resources */,
 				5BD8280F15F7A39B005FCB79 /* heart-selected.png in Resources */,
 				5BD8281015F7A39B005FCB79 /* heart-selected@2x.png in Resources */,
+				5B6C971617A6670A0092A31D /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,6 +963,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -972,9 +980,10 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -989,15 +998,20 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1020,7 +1034,7 @@
 				);
 				INFOPLIST_FILE = "Unseen/Unseen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "Unseen Photo Fair 2012";
+				PRODUCT_NAME = "Unseen Photo Fair 2013";
 				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1039,7 +1053,7 @@
 				);
 				INFOPLIST_FILE = "Unseen/Unseen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "Unseen Photo Fair 2012";
+				PRODUCT_NAME = "Unseen Photo Fair 2013";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
 				WRAPPER_EXTENSION = app;
