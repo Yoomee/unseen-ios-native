@@ -1025,6 +1025,7 @@
 		5BE5535615E622DC000F78BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unseen/Unseen-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1043,6 +1044,7 @@
 		5BE5535715E622DC000F78BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unseen/Unseen-Prefix.pch";
