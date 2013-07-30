@@ -54,22 +54,19 @@
     switch (selectedDay)
     {
         case 1:
-            date = @"Wednesday 19 September 2012";
+            date = @"Thursday 26 September 2013";
             break;
         case 2:
-            date = @"Thursday 20 September 2012";
+            date = @"Friday 27 September 2013";
             break;
         case 3:
-            date = @"Friday 21 September 2012";
+            date = @"Saturday 28 September 2013";
             break;
         case 4:
-            date = @"Saturday 22 September 2012";
-            break;
-        case 5:
-            date = @"Sunday 23 September 2012";
+            date = @"Sunday 29 September 2013";
             break;
         default:
-            date = @"Wednesday 19 September 2012";
+            date = @"Thursday 26 September 2013";
             break;
     }
     return date;

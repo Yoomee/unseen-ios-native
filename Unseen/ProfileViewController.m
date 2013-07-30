@@ -402,19 +402,40 @@
         [self loadData];
     } else {
         NSFetchRequest *request = [Favourite fetchRequest];
-        [request setPredicate:[NSPredicate predicateWithFormat:@"favouriteID = 0"]];
         NSArray *favourites = [Favourite objectsWithFetchRequest:request];
-        for(int i = 0; i< favourites.count; i++){
-            Favourite *favourite = [favourites objectAtIndex:i];
-            RKObjectManager *objectManager = [RKObjectManager sharedManager];
-            [[objectManager.objectStore managedObjectContextForCurrentThread] deleteObject:favourite];
+        for(Favourite *favourite in favourites){
+            if(![objects containsObject:favourite] || ([favourite.favouriteID intValue] == 0)) {
+                [[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] deleteObject:favourite];
+            }
         }
-        [[[RKObjectManager sharedManager] objectStore] save:nil];
-        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"FavouritesLastUpdatedAt"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        NSError *error = nil;
+        if (![[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] save:&error]){
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        } else {
+            [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"FavouritesLastUpdatedAt"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
         [self loadObjectsFromDataStore];
         [self renderView];
     }
+    
+    
+//    // Delete any locally stored records that have been deleted on the server
+//    for(Photographer *photographer in [Photographer findAll]) {
+//        if(![objects containsObject:photographer]) {
+//            [[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] deleteObject:photographer];
+//        }
+//    }
+//    NSError *error = nil;
+//    if (![[[[RKObjectManager sharedManager] objectStore] managedObjectContextForCurrentThread] save:&error]){
+//        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//    } else {
+//        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"PhotographersLastUpdatedAt"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//    }
+//    
+//    [self loadObjectsFromDataStore];
+//    [self.tableView reloadData];
 
 }
 
