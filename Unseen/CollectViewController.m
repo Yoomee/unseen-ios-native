@@ -31,7 +31,18 @@
         UITabBarItem *tabBarItem = [tabBar.items objectAtIndex:i];
         [tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"Apercu" size:10.0], UITextAttributeFont, nil]
                                   forState:UIControlStateNormal];
-    }  
+    }
+    
+    if (IS_IPHONE_5) {
+        for(UIView *subview in self.view.subviews){
+            if([subview isKindOfClass:[UIButton class]]){
+                CGRect frame = subview.frame;
+                frame.origin.y += 44;
+                subview.frame = frame;
+            }
+        }
+    }
+
     [self.navigationController setNavigationBarHidden:YES];
 }
 

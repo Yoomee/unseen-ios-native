@@ -57,6 +57,16 @@
     
     [self loadObjectsFromDataStore];
     pageNumberLabel.font = [UIFont fontWithName:@"Apercu" size:12.0];
+    
+    if (IS_IPHONE_5) {
+        for(UIView *subview in self.view.subviews){
+            CGRect frame = subview.frame;            
+            frame.origin.y = (455.0/2)-(1.1217 * ((367.0/2)-(frame.origin.y + frame.size.height/2)) - 8.47) - frame.size.height/2;
+            NSLog(@"After: %f", frame.origin.y);
+            subview.frame = frame;
+        }
+    }
+    
     [self layoutPhotos];
 }
 

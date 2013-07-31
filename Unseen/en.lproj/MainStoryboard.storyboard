@@ -13,12 +13,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="top" image="collect-bg.png" id="k7m-IA-kPb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="collect-bg.png" id="k7m-IA-kPb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XQE-JO-zga">
-                                <rect key="frame" x="37" y="257" width="245" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2ye-gg-wDD">
+                                <rect key="frame" x="37" y="157" width="245" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -29,7 +29,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="didPressProgrammeButton:" destination="3" eventType="touchUpInside" id="Jof-9I-xiK"/>
+                                    <segue destination="uyu-d5-yvW" kind="push" id="4Ex-GQ-XUR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HzF-Bn-aLk">
@@ -47,8 +47,8 @@
                                     <segue destination="X6F-Hq-cNK" kind="push" identifier="ShowExplore" id="0rU-7F-7eV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2ye-gg-wDD">
-                                <rect key="frame" x="37" y="157" width="245" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XQE-JO-zga">
+                                <rect key="frame" x="37" y="257" width="245" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -59,7 +59,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uyu-d5-yvW" kind="push" id="4Ex-GQ-XUR"/>
+                                    <action selector="didPressProgrammeButton:" destination="3" eventType="touchUpInside" id="Jof-9I-xiK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -80,14 +80,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 of 1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Ogo-Sx-Jp9">
-                                <rect key="frame" x="20" y="10" width="280" height="12"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="explore by" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Zox-MZ-wVT">
-                                <rect key="frame" x="15" y="311" width="280" height="15"/>
+                                <rect key="frame" x="15" y="310" width="280" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -95,7 +95,7 @@
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" id="YDr-lz-EoR">
                                 <rect key="frame" x="0.0" y="30" width="320" height="280"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="uyu-d5-yvW" id="Bgb-WK-2xP"/>
                                 </connections>
@@ -494,7 +494,7 @@
             <objects>
                 <viewController id="tcF-fa-drB" customClass="EventViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="J31-22-t6o">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Event title that runs over two lines and is quite long" lineBreakMode="wordWrap" numberOfLines="2" minimumFontSize="10" adjustsFontSizeToFit="NO" id="kx2-Jd-iKk">
@@ -1093,32 +1093,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="MxU-Bg-856">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="top" image="me-bg.png" id="SdT-2X-L99">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ei2-Io-szZ">
-                                        <rect key="frame" x="35" y="231" width="247" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didPressConnectButton:" destination="CUu-zW-sQp" eventType="touchUpInside" id="M4t-d1-wia"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My Programme" lineBreakMode="tailTruncation" minimumFontSize="10" id="iUu-P8-4Ey">
                                 <rect key="frame" x="15" y="414" width="285" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1141,6 +1115,32 @@
                             <view contentMode="scaleToFill" id="4PZ-db-dJx">
                                 <rect key="frame" x="0.0" y="530" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="MxU-Bg-856">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="top" image="me-bg.png" id="SdT-2X-L99">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ei2-Io-szZ">
+                                        <rect key="frame" x="35" y="231" width="247" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressConnectButton:" destination="CUu-zW-sQp" eventType="touchUpInside" id="M4t-d1-wia"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -1194,7 +1194,7 @@
     </scenes>
     <resources>
         <image name="Map.png" width="2442" height="2880"/>
-        <image name="collect-bg.png" width="320" height="411"/>
+        <image name="collect-bg.png" width="320" height="499"/>
         <image name="collect-buttons.png" width="240" height="30"/>
         <image name="collect-tab.png" width="30" height="30"/>
         <image name="collect-work-button-active.png" width="161" height="29"/>
@@ -1209,18 +1209,150 @@
         <image name="more-tab.png" width="30" height="30"/>
         <image name="news-tab.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="AboutViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
+        </class>
+        <class className="CollectViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressProgrammeButton:"/>
+            </relationships>
+        </class>
+        <class className="EventViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressFavouriteButton:"/>
+                <relationship kind="action" name="didPressShareButton:"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ExploreViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExploreViewController.h"/>
+        </class>
+        <class className="FairViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FairViewController.h"/>
+        </class>
+        <class className="GalleriesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleriesViewController.h"/>
+        </class>
+        <class className="GalleryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressFavouriteButton:"/>
+                <relationship kind="action" name="didPressShareButton:"/>
+                <relationship kind="action" name="showPhoto:"/>
+                <relationship kind="action" name="showPhotographer:"/>
+                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="galleryTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="representedArtistsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="NewsItemViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsItemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressImageButton:"/>
+                <relationship kind="action" name="didPressShareButton:"/>
+                <relationship kind="outlet" name="imageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pageImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="pageText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="pageTitle" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="NewsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsViewController.h"/>
+        </class>
+        <class className="PhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressCollectWorkButton:"/>
+                <relationship kind="action" name="didPressShareButton:"/>
+                <relationship kind="outlet" name="captionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="collectWorkButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PhotographerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressFavouriteButton:"/>
+                <relationship kind="action" name="didPressShareButton:"/>
+                <relationship kind="action" name="showPhoto:"/>
+                <relationship kind="outlet" name="bioTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="galleryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="profileImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PhotographersViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographersViewController.h"/>
+        </class>
+        <class className="PhotosViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showPhoto:"/>
+                <relationship kind="outlet" name="pageNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="ProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressConnectButton:"/>
+                <relationship kind="outlet" name="connectButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="eventsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="favouritesView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="loggedOutOverlay" candidateClass="UIView"/>
+                <relationship kind="outlet" name="myCollectionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myFavouritesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myProgrammeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pageNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photosView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="profileImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ProgrammeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgrammeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didPressDaySelector:"/>
+                <relationship kind="outlet" name="daySelectorsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dt9-U7-nya"/>
-        <segue reference="fR4-kl-F6F"/>
+        <segue reference="z4L-qN-NOB"/>
+        <segue reference="MAt-VJ-zCU"/>
+        <segue reference="rNM-RB-SVk"/>
         <segue reference="V8B-F1-flQ"/>
         <segue reference="OtC-g3-iFC"/>
-        <segue reference="3yl-kB-V6b"/>
-        <segue reference="08k-JY-YA3"/>
-        <segue reference="z4L-qN-NOB"/>
+        <segue reference="fR4-kl-F6F"/>
+        <segue reference="H0b-DD-VXk"/>
     </inferredMetricsTieBreakers>
 </document>
