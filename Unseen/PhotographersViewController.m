@@ -73,6 +73,7 @@
 {
     [super viewWillDisappear:animated];
     RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [[[objectManager client] requestQueue] cancelRequestsWithDelegate:self];
     [objectManager.objectStore setDelegate:nil];
 }
 
