@@ -186,7 +186,7 @@
             <objects>
                 <viewController id="bH3-gT-ppn" customClass="PhotoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A3n-J8-ybr">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Cok-d0-EjT">
@@ -1204,7 +1204,7 @@
         <image name="favourite-button.png" width="161" height="29"/>
         <image name="heart-selected.png" width="13" height="10"/>
         <image name="heart.png" width="13" height="10"/>
-        <image name="me-bg.png" width="320" height="411"/>
+        <image name="me-bg.png" width="320" height="456"/>
         <image name="me-tab.png" width="30" height="30"/>
         <image name="more-tab.png" width="30" height="30"/>
         <image name="news-tab.png" width="30" height="30"/>
@@ -1348,11 +1348,11 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="z4L-qN-NOB"/>
+        <segue reference="caT-F7-7OL"/>
         <segue reference="MAt-VJ-zCU"/>
+        <segue reference="08k-JY-YA3"/>
         <segue reference="rNM-RB-SVk"/>
-        <segue reference="V8B-F1-flQ"/>
-        <segue reference="OtC-g3-iFC"/>
         <segue reference="fR4-kl-F6F"/>
-        <segue reference="H0b-DD-VXk"/>
+        <segue reference="V8B-F1-flQ"/>
     </inferredMetricsTieBreakers>
 </document>
