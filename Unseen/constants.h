@@ -7,10 +7,10 @@
 //
 
 #ifdef DEBUG
-    #define kBaseURL @"http://10.0.1.15:3000"
+    #define kBaseURL @"http://localhost:3000"
     //#define kBaseURL @"http://unseenamsterdam.com"
 #else
     #define kBaseURL @"http://unseenamsterdam.com"
 #endif
 
-#define kEdition @"2013"
+#define kEdition @"2014"
