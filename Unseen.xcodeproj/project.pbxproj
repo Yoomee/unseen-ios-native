@@ -329,7 +329,7 @@
 		5BDB85D21603410000C093C9 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5BDB85D41603410F00C093C9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5BDB85D61603411A00C093C9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2013.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unseen Photo Fair 2013.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2014.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unseen Photo Fair 2014.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE5533015E622DC000F78BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5BE5533215E622DC000F78BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BE5533415E622DC000F78BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -445,7 +445,7 @@
 		5BE5532D15E622DC000F78BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2013.app */,
+				5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2014.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -686,7 +686,7 @@
 			);
 			name = Unseen;
 			productName = Unseen;
-			productReference = 5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2013.app */;
+			productReference = 5BE5532C15E622DC000F78BA /* Unseen Photo Fair 2014.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1051,7 +1051,7 @@
 				);
 				INFOPLIST_FILE = "Unseen/Unseen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "Unseen Photo Fair 2013";
+				PRODUCT_NAME = "Unseen Photo Fair 2014";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
 				WRAPPER_EXTENSION = app;
@@ -1072,7 +1072,7 @@
 				);
 				INFOPLIST_FILE = "Unseen/Unseen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "Unseen Photo Fair 2013";
+				PRODUCT_NAME = "Unseen Photo Fair 2014";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
