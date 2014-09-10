@@ -131,7 +131,7 @@
     
     CGRect frame = galleryTextView.frame;
     frame.origin.y = offsetY;
-    CGSize textSize = [gallery.text sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:UILineBreakModeWordWrap];
+    CGSize textSize = [gallery.text sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:NSLineBreakByWordWrapping];
     frame.size.height = textSize.height + 10;
     [galleryTextView setFrame:frame];
     

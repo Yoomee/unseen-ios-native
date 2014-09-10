@@ -92,7 +92,7 @@
     self.bioTextView.font = [UIFont fontWithName:@"Apercu" size:16.0];
     
     CGRect frame = self.bioTextView.frame; 
-    CGSize textSize = [photographer.bio sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:UILineBreakModeWordWrap];
+    CGSize textSize = [photographer.bio sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:NSLineBreakByWordWrapping];
     frame.size.height = textSize.height + 10;
     [self.bioTextView setFrame:frame];
     

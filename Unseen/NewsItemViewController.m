@@ -55,7 +55,7 @@
     self.pageTitle.text = page.title;
     
     CGRect titleFrame = self.pageTitle.frame; 
-    CGSize titleSize = [page.title sizeWithFont: [UIFont fontWithName:@"Apercu-Bold" size:24.0] constrainedToSize:CGSizeMake(titleFrame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:UILineBreakModeWordWrap];
+    CGSize titleSize = [page.title sizeWithFont: [UIFont fontWithName:@"Apercu-Bold" size:24.0] constrainedToSize:CGSizeMake(titleFrame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:NSLineBreakByWordWrapping];
     titleFrame.size.height = titleSize.height + 10;
     [self.pageTitle setFrame:titleFrame];
     
@@ -81,7 +81,7 @@
     [pageText setText:page.text];
     [pageText setFont:[UIFont fontWithName:@"Apercu" size:16.0]];
     CGRect frame = self.pageText.frame; 
-    CGSize textSize = [page.text sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:UILineBreakModeWordWrap];
+    CGSize textSize = [page.text sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:NSLineBreakByWordWrapping];
     frame.size.height = textSize.height + 10;
     frame.origin.y = pageTextViewOffset;
     [self.pageText setFrame:frame];
