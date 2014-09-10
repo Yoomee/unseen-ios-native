@@ -41,9 +41,9 @@
     
     
     NSDate *lastUpdated = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"ProgrammeLastUpdatedAt"];
-    //if([lastUpdated timeIntervalSinceNow] < -3600.0f){
-    [self loadData];
-    //};
+    if([lastUpdated timeIntervalSinceNow] < -3600.0f){
+        [self loadData];
+    };
 
     [self loadObjectsFromDataStoreForDay:1];
     

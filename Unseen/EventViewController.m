@@ -105,7 +105,7 @@
     }
     
     CGRect frame = self.descriptionTextView.frame; 
-    CGSize textSize = [event.text sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:UILineBreakModeWordWrap];
+    CGSize textSize = [event.text sizeWithFont: [UIFont fontWithName:@"Apercu" size:16.0] constrainedToSize:CGSizeMake(frame.size.width - 16, CGFLOAT_MAX)  lineBreakMode:NSLineBreakByWordWrapping];
     frame.size.height = textSize.height + 15;
     frame.origin.y = frame.origin.y + descriptionTextViewOffset;
     [self.descriptionTextView setFrame:frame];

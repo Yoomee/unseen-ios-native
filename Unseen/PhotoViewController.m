@@ -58,7 +58,7 @@
     captionLabel.font = [UIFont fontWithName:@"Apercu" size:12.0];
     captionLabel.text = photo.caption;
     captionLabel.numberOfLines = 0;
-    captionLabel.lineBreakMode = UILineBreakModeWordWrap;
+    captionLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
     //Calculate the expected size based on the font and linebreak mode of your label
     CGSize maximumLabelSize = CGSizeMake(290,9999);
