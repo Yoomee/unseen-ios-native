@@ -7,7 +7,8 @@
 //
 
 #ifdef DEBUG
-    #define kBaseURL @"http://localhost:3000"
+    // Set this URL to your locally accessible instance of the Unseen API for devuce testing
+    #define kBaseURL @"http://10.0.1.17:3000"
     //#define kBaseURL @"http://unseenamsterdam.com"
 #else
     #define kBaseURL @"http://unseenamsterdam.com"
