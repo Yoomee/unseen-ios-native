@@ -696,6 +696,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Yoomee;
+				TargetAttributes = {
+					5BE5532B15E622DC000F78BA = {
+						DevelopmentTeam = F9G6CJLXEP;
+					};
+				};
 			};
 			buildConfigurationList = 5BE5532615E622DC000F78BA /* Build configuration list for PBXProject "Unseen" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1034,6 +1039,7 @@
 		5BE5535615E622DC000F78BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unseen/Unseen-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1042,8 +1048,9 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
 				);
 				INFOPLIST_FILE = "Unseen/Unseen-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "Unseen Photo Fair 2013";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1052,6 +1059,7 @@
 		5BE5535715E622DC000F78BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unseen/Unseen-Prefix.pch";
@@ -1061,9 +1069,10 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
 				);
 				INFOPLIST_FILE = "Unseen/Unseen-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "Unseen Photo Fair 2013";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
 				WRAPPER_EXTENSION = app;
 			};
