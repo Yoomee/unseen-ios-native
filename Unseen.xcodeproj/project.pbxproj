@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		576E5AF319C0892800AA4297 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 576E5AF219C0892800AA4297 /* Map.png */; };
+		579F615419C1AD1800839565 /* icon120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 579F615319C1AD1800839565 /* icon120x120.png */; };
 		5B03E9EE15EF7219005058AA /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B03E9ED15EF7219005058AA /* PhotosViewController.m */; };
 		5B03E9F015EF7910005058AA /* placeholder-130.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B03E9EF15EF7910005058AA /* placeholder-130.png */; };
 		5B03E9F315EF890A005058AA /* collect-buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B03E9F115EF890A005058AA /* collect-buttons.png */; };
@@ -224,6 +225,7 @@
 
 /* Begin PBXFileReference section */
 		576E5AF219C0892800AA4297 /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map.png; sourceTree = "<group>"; };
+		579F615319C1AD1800839565 /* icon120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120x120.png; sourceTree = "<group>"; };
 		5B03E9EC15EF7218005058AA /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
 		5B03E9ED15EF7219005058AA /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
 		5B03E9EF15EF7910005058AA /* placeholder-130.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder-130.png"; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 		5BE5535C15E624AC000F78BA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				579F615319C1AD1800839565 /* icon120x120.png */,
 				576E5AF219C0892800AA4297 /* Map.png */,
 				5B416FCC15EFB7EA0003E694 /* active-tab-bg.png */,
 				5B416FCD15EFB7EA0003E694 /* active-tab-bg@2x.png */,
@@ -832,6 +835,7 @@
 				5BE5536F15E624AC000F78BA /* active-tab-bg.png in Resources */,
 				5BE5537015E624AC000F78BA /* active-tab-bg@2x.png in Resources */,
 				5BE5537115E624AC000F78BA /* collect-tab.png in Resources */,
+				579F615419C1AD1800839565 /* icon120x120.png in Resources */,
 				5BE5537215E624AC000F78BA /* collect-tab@2x.png in Resources */,
 				5BE5537315E624AC000F78BA /* Default.png in Resources */,
 				576E5AF319C0892800AA4297 /* Map.png in Resources */,
@@ -1051,9 +1055,11 @@
 				);
 				INFOPLIST_FILE = "Unseen/Unseen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "Unseen Photo Fair 2014";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1076,6 +1082,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
