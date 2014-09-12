@@ -691,7 +691,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="TopLeft" image="Map.png" id="h0w-gt-9Tg">
-                                        <rect key="frame" x="0.0" y="0.0" width="2314" height="1635"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="2314" height="4861"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
@@ -1189,7 +1189,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Map.png" width="2314" height="1635"/>
+        <image name="Map.png" width="2314" height="4861"/>
         <image name="collect-bg.png" width="320" height="499"/>
         <image name="collect-buttons.png" width="240" height="30"/>
         <image name="collect-tab.png" width="30" height="30"/>
